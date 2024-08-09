@@ -1,0 +1,63 @@
+# Entorno virtual
+venv/
+env/
+.venv/
+
+# Archivos de Python compilados
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribución / empaquetado
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Logs y bases de datos
+*.log
+*.sqlite
+
+# Archivos de VS Code
+.vscode/
+
+# Archivos de PyCharm
+.idea/
+
+# Archivos de Jupyter Notebook
+.ipynb_checkpoints
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de ambiente
+.env
+
+# Archivos temporales
+*.tmp
+*.bak
+*.swp
+
+# Archivos de datos generados por la aplicación
+*.xlsx
+*.pdf
+
+# Carpetas de datos o resultados generados
+data/
+results/
+
+# Archivos específicos del proyecto (ajusta según tus necesidades)
+config.ini
+secrets.json
