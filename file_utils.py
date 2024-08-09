@@ -41,7 +41,7 @@ def rename_files(folder_path):
 
 def get_file_metadata(file_path):
     """
-    Obtiene los metadatos de un archivo.
+    Obtiene los metadatos básicos de un archivo.
     """
     stat = os.stat(file_path)
     return {

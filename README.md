@@ -21,142 +21,79 @@ El Sistema de Gestión de Expedientes Electrónicos Judiciales es una solución 
 
 - Automatización de la creación del índice electrónico.
 - Extracción de metadatos de archivos.
-- Generación de índices en formatos Excel y PDF.
-- Interfaz de usuario intuitiva basada en Streamlit.
+- Generación de índices en formatos Excel.
+- Interfaz de usuario intuitiva basada en PyQt5 para la versión de escritorio.
+- Interfaz web utilizando Streamlit.
 - Cumplimiento con los estándares judiciales colombianos.
 
 ## Estructura del Proyecto
-
 ```
 sistema_gestion_expedientes/
 │
-├── app/
-│   ├── main.py
-│   ├── expediente_processor.py
-│   ├── file_utils.py
-│   ├── metadata_extractor.py
-│   ├── index_generator.py
-│   └── gui.py
-│
-├── tests/
-│   └── test_expediente_processor.py
+├── app.py
+├── main.py
+├── index_generator.py
+├── file_utils.py
+├── metadata_extractor.py
+├── excel_handler.py
 │
 ├── assets/
 │   └── 000IndiceElectronicoC0.xlsm
 │
+├── tests/
+│   └── test_expediente_processor.py
+│
 ├── requirements.txt
+├── .gitignore
 └── README.md
 ```
-
-### Descripción de los archivos:
-
-- `main.py`: Punto de entrada principal de la aplicación.
-- `expediente_processor.py`: Contiene la lógica principal para procesar expedientes.
-- `file_utils.py`: Utilidades para el manejo de archivos y carpetas.
-- `metadata_extractor.py`: Funciones para extraer metadatos de diferentes tipos de archivos.
-- `index_generator.py`: Genera los índices en formatos Excel y PDF.
-- `gui.py`: Implementa la interfaz gráfica de usuario con Streamlit.
-- `test_expediente_processor.py`: Pruebas unitarias para el procesador de expedientes.
-- `000IndiceElectronicoC0.xlsm`: Plantilla Excel para el índice electrónico.
 
 ## Instalación
 
 1. Clonar el repositorio:
-   ```
-   git clone https://github.com/bladealex9848/GestionExpedienteElectronico.git
-   ```
+git clone https://github.com/bladealex9848/GestionExpedienteElectronico.git
 
 2. Navegar al directorio del proyecto:
-   ```
-   cd GestionExpedienteElectronico
-   ```
+cd GestionExpedienteElectronico
 
 3. Crear un entorno virtual:
-   - En Windows:
-     ```
-     python -m venv venv
-     .\venv\Scripts\activate
-     ```
-   - En macOS y Linux:
-     ```
-     python3 -m venv venv
-     source venv/bin/activate
-     ```
+- En Windows:
+  ```
+  python -m venv venv
+  .\venv\Scripts\activate
+  ```
+- En macOS y Linux:
+  ```
+  python3 -m venv venv
+  source venv/bin/activate
+  ```
 
 4. Instalar las dependencias:
-   ```
-   pip install -r requirements.txt
-   ```
+```
+pip install --upgrade pip
+pip install watchdog
+pip install -r requirements.txt
+```
 
 ## Uso
 
-Para ejecutar la aplicación:
-
+Para ejecutar la versión de escritorio:
 ```
-streamlit run app/main.py
+python app.py
 ```
-
+Para ejecutar la versión web:
+```
+streamlit run main.py
+```
 Siga las instrucciones en la interfaz de usuario para cargar y procesar los expedientes.
 
 ## Manual Técnico
 
-### Flujo de Trabajo del Sistema
-
-1. **Carga de Archivos**: 
-   - Los archivos del expediente se cargan desde una carpeta especificada.
-   - `file_utils.py` maneja la lectura y renombrado de archivos.
-
-2. **Extracción de Metadatos**: 
-   - `metadata_extractor.py` extrae información relevante de cada archivo.
-   - Se manejan diferentes tipos de archivos (PDF, Word, Excel, imágenes).
-
-3. **Procesamiento del Expediente**: 
-   - `expediente_processor.py` coordina el proceso general.
-   - Organiza los metadatos y prepara la información para el índice.
-
-4. **Generación del Índice**: 
-   - `index_generator.py` crea los índices en Excel y PDF.
-   - Utiliza plantillas predefinidas para mantener la consistencia.
-
-5. **Interfaz de Usuario**: 
-   - `gui.py` implementa la interfaz con Streamlit.
-   - Maneja la interacción del usuario y la presentación de resultados.
-
-### Componentes Clave
-
-- **ExpedienteProcessor**: Clase principal que orquesta el procesamiento.
-- **Extractores de Metadatos**: Funciones especializadas para cada tipo de archivo.
-- **Generadores de Índice**: Módulos para crear documentos Excel y PDF.
-- **Utilidades de Archivo**: Funciones para manejar operaciones de sistema de archivos.
-
-### Pruebas
-
-Las pruebas unitarias en `test_expediente_processor.py` cubren:
-- Renombrado de archivos
-- Extracción de metadatos
-- Generación de DataFrames
-- Validación de metadatos del expediente
+[Incluir aquí detalles técnicos del proyecto]
 
 ## Manual de Usuario
 
-1. **Inicio de la Aplicación**:
-   - Ejecute la aplicación como se indica en la sección de Uso.
-   - Se abrirá una interfaz web en su navegador predeterminado.
-
-2. **Selección de Carpeta**:
-   - Use el campo de entrada para especificar la ruta de la carpeta del expediente.
-
-3. **Ingreso de Metadatos**:
-   - Complete los campos requeridos con la información del expediente.
-
-4. **Procesamiento**:
-   - Haga clic en "Generar Índice Electrónico" para iniciar el proceso.
-
-5. **Descarga de Resultados**:
-   - Una vez completado, use los botones para descargar los índices en Excel y PDF.
-
-6. **Revisión**:
-   - Verifique los archivos generados para asegurar la exactitud de la información.
+[Incluir aquí instrucciones detalladas para el usuario final]
 
 ## Contribución
 
@@ -170,7 +107,18 @@ Las contribuciones son bienvenidas. Por favor, siga estos pasos:
 
 ## Registro de Cambios
 
+- 2024-08-09: Actualización mayor (v.1.1.0)
+  - Implementación de la versión de escritorio utilizando PyQt5.
+  - Adición de la funcionalidad para generar índices tanto desde cero como utilizando una plantilla.
+  - Mejora en la extracción de metadatos para soportar múltiples tipos de archivos.
+  - Implementación de un manejador de Excel para crear y modificar archivos de índice.
+  - Actualización de la estructura del proyecto para soportar tanto la versión web como la de escritorio.
+  - Adición de pruebas unitarias para las nuevas funcionalidades.
+  - Actualización de la documentación para reflejar los nuevos cambios y características.
+
 - 2024-08-08: Primera versión. (v.1.0.0)
+  - Lanzamiento inicial del Sistema de Gestión de Expedientes Electrónicos Judiciales.
+  - Implementación de la versión web utilizando Streamlit.
 
 ## Créditos
 
