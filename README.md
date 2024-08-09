@@ -15,20 +15,27 @@
 
 ## Descripción
 
-El Sistema de Gestión de Expedientes Electrónicos Judiciales es una solución RDA (Robotic Desktop Automation) que automatiza la creación y diligenciamiento del formato índice electrónico con los metadatos de los archivos que conforman un expediente electrónico judicial. Este proyecto se adhiere a los estándares establecidos en el Plan Estratégico de Transformación Digital de la Rama Judicial y cumple con los parámetros técnicos y funcionales del acuerdo PCSJA20-11567 de 2020 "Protocolo para la gestión de documentos electrónicos, digitalización y conformación del expediente electrónico" Versión 2.
+El Sistema de Gestión de Expedientes Electrónicos Judiciales es una solución avanzada que combina automatización robótica de escritorio (RDA) con tecnologías modernas para optimizar la gestión de expedientes electrónicos en el ámbito judicial. Este sistema está diseñado para cumplir con los estrictos estándares del Plan Estratégico de Transformación Digital de la Rama Judicial, así como con los requisitos técnicos y funcionales del acuerdo PCSJA20-11567 de 2020, que establece el protocolo para la gestión de documentos electrónicos, su digitalización y la conformación del expediente electrónico, en su versión 2.
 
-## Características
+## Características Principales
 
-- Automatización de la creación del índice electrónico.
-- Extracción de metadatos de archivos.
-- Generación de índices en formatos Excel.
-- Interfaz de usuario intuitiva basada en PyQt5 para la versión de escritorio.
-- Interfaz web utilizando Streamlit.
-- Cumplimiento con los estándares judiciales colombianos.
+- **Automatización de la Creación del Índice Electrónico**: El sistema automatiza el proceso de creación del índice electrónico, reduciendo significativamente el tiempo y los recursos necesarios para esta tarea crítica.
+  
+- **Extracción de Metadatos de Archivos**: Utiliza técnicas avanzadas para extraer metadatos de diversos tipos de archivos, asegurando una completa y precisa documentación de cada expediente.
+
+- **Generación de Índices en Formatos Excel**: Facilita la generación de índices en formato Excel, compatible con las necesidades específicas de la gestión documental judicial.
+
+- **Interfaces de Usuario Intuitivas**:
+  - **Versión de Escritorio con PyQt5**: Ofrece una interfaz de usuario intuitiva y amigable, desarrollada con PyQt5, que permite una experiencia de usuario fluida y eficiente.
+  - **Versión Web con Streamlit**: Además, cuenta con una interfaz web desarrollada utilizando Streamlit, que brinda flexibilidad y accesibilidad para usuarios que prefieren o necesitan interactuar a través de la web.
+
+- **Cumplimiento con los Estándares Judiciales Colombianos**: El sistema se ajusta rigurosamente a los estándares y protocolos judiciales colombianos, garantizando su aplicabilidad y aceptación en el contexto legal y judicial del país.
+
+Este proyecto representa un avance significativo en la gestión de expedientes electrónicos, ofreciendo una solución integral que no solo mejora la eficiencia y la precisión de los procesos judiciales, sino que también fomenta la transparencia y la accesibilidad de la información en el sistema judicial.
 
 ## Estructura del Proyecto
 ```
-sistema_gestion_expedientes/
+GestionExpedienteElectronico/
 │
 ├── app.py
 ├── main.py
