@@ -6,3 +6,4 @@ python-docx
 Pillow
 python-magic
 fpdf
+PyQt5

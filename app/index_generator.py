@@ -63,7 +63,8 @@ def generate_excel(df):
         sheet.column_dimensions[column_letter].width = adjusted_width
 
     workbook.save(output)
-    return output.getvalue()
+    output.seek(0)  # Asegurarse de que el puntero está al principio
+    return output
 
 def generate_pdf(df):
     """
@@ -104,5 +105,6 @@ def generate_pdf(df):
     pdf.cell(0, 10, f'Generado el {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}', 0, 0, 'C')
 
     output = io.BytesIO()
-    pdf.output(output)
-    return output.getvalue()
+    pdf.output(output, 'S')  # Cambiar 'F' a 'S' para escribir en BytesIO
+    output.seek(0)  # Asegurarse de que el puntero está al principio
+    return output

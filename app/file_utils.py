@@ -8,7 +8,9 @@ def rename_files(folder_path):
     """
     Renombra los archivos en la carpeta según el protocolo.
     """
-    files = sorted(os.listdir(folder_path))
+    files = [f for f in os.listdir(folder_path) if os.path.isfile(os.path.join(folder_path, f)) and not f.startswith('.') and os.path.splitext(f)[1] != '']
+    files.sort(key=lambda x: os.path.getmtime(os.path.join(folder_path, x)))
+    
     for i, filename in enumerate(files, start=1):
         file_path = os.path.join(folder_path, filename)
         if os.path.isfile(file_path):
@@ -44,6 +46,7 @@ def get_file_metadata(file_path):
     stat = os.stat(file_path)
     return {
         'creation_date': datetime.fromtimestamp(stat.st_ctime).strftime('%Y-%m-%d'),
+        'modification_date': datetime.fromtimestamp(stat.st_mtime).strftime('%Y-%m-%d'),
         'size': format_file_size(stat.st_size),
         'extension': os.path.splitext(file_path)[1]
     }

@@ -22,10 +22,22 @@ def main():
     
     show_instructions()
 
-    folder_path = st.text_input("Ingrese la ruta de la carpeta que contiene los documentos del expediente:")
+    if 'folder_path' not in st.session_state:
+        st.session_state.folder_path = ""
 
-    if folder_path and os.path.isdir(folder_path):
-        st.success("Carpeta seleccionada correctamente.")
+    uploaded_files = st.file_uploader("Seleccione los archivos que contienen los documentos del expediente:", type=None, accept_multiple_files=True)
+
+    if uploaded_files:
+        # Crear una carpeta temporal para almacenar los archivos subidos
+        temp_folder = "temp_expediente"
+        os.makedirs(temp_folder, exist_ok=True)
+        
+        for uploaded_file in uploaded_files:
+            with open(os.path.join(temp_folder, uploaded_file.name), "wb") as f:
+                f.write(uploaded_file.getbuffer())
+        
+        folder_path = temp_folder
+        st.success("Archivos seleccionados correctamente.")
         
         st.subheader("Metadatos del Expediente")
         ciudad = st.text_input("Ciudad:")
@@ -72,10 +84,13 @@ def main():
             else:
                 st.error("Por favor, complete todos los campos de metadatos.")
     else:
-        st.error("Por favor, ingrese una ruta de carpeta válida.")
+        st.info("Por favor, seleccione los archivos que contienen los documentos del expediente.")
 
     st.markdown("---")
-    st.write("Desarrollado por el Consejo Superior de la Judicatura")
+    st.write("Desarrollado por Alexander Oviedo Fadul")
+    st.write("Profesional Universitario Grado 11 - Consejo Seccional de la Judicatura de Sucre")
+    st.write("[GitHub](https://github.com/bladealex9848) | [Website](https://alexander.oviedo.isabellaea.com/) | [LinkedIn](https://www.linkedin.com/in/alexanderoviedo/)")
+    st.write("Este proyecto es una evolución del trabajo inicial realizado por [HammerDev99 Daniel](https://github.com/HammerDev99/GestionExpedienteElectronico_Version1)")
 
 if __name__ == "__main__":
     main()
