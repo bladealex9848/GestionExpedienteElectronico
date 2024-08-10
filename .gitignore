@@ -51,10 +51,6 @@ Thumbs.db
 *.swp
 temp_expediente/
 
-# Archivos de datos generados por la aplicación
-*.xlsx
-*.pdf
-
 # Carpetas de datos o resultados generados
 data/
 results/
