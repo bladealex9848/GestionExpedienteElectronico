@@ -2,6 +2,9 @@
 venv/
 env/
 .venv/
+venv_windows/
+venv_linux/
+venv_mac/
 
 # Archivos de Python compilados
 __pycache__/
