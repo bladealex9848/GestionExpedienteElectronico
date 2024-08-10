@@ -6,7 +6,6 @@ from file_utils import rename_files
 from excel_handler import save_excel_file
 import base64
 import tempfile
-import datetime
 
 # Configuración de Streamlit
 st.set_page_config(
@@ -67,13 +66,11 @@ def main():
     st.write("Esta aplicación permite generar el índice electrónico de expedientes judiciales.")
 
     uploaded_files = st.file_uploader("Seleccione los archivos que contienen los documentos del expediente:", type=None, accept_multiple_files=True)
-    
+
     if uploaded_files:
         with tempfile.TemporaryDirectory() as temp_folder:
-            current_time = datetime.datetime.now()
             for uploaded_file in uploaded_files:
-                file_path = os.path.join(temp_folder, uploaded_file.name)
-                with open(file_path, "wb") as f:
+                with open(os.path.join(temp_folder, uploaded_file.name), "wb") as f:
                     f.write(uploaded_file.getbuffer())
             
             st.success("Archivos seleccionados correctamente.")
@@ -85,7 +82,6 @@ def main():
                     progress_bar.progress(33)
                     
                     df = generate_index_from_scratch(temp_folder)
-                    
                     if df is None:
                         raise ValueError("La generación del índice falló.")
                     
@@ -98,10 +94,7 @@ def main():
                     st.success("Índice electrónico generado con éxito.")
                     
                     with open(index_file_path, "rb") as f:
-                        st.download_button(label='Descargar Índice Electrónico', 
-                                        data=f, 
-                                        file_name=os.path.basename(index_file_path), 
-                                        mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+                        st.download_button(label='Descargar Índice Electrónico', data=f, file_name=os.path.basename(index_file_path), mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
                 
                 except Exception as e:
                     st.error(f"Ocurrió un error: {str(e)}")

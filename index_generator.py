@@ -5,7 +5,7 @@ from openpyxl import load_workbook
 from metadata_extractor import get_file_metadata, get_pdf_pages
 import xlwings as xw
 
-def generate_index_from_scratch(folder_path, original_dates=None):
+def generate_index_from_scratch(folder_path):
     """
     Genera el índice electrónico desde cero.
     """
@@ -16,19 +16,15 @@ def generate_index_from_scratch(folder_path, original_dates=None):
              and f != '000IndiceElectronicoC0.xlsm' # Ignorar el índice si ya existe
              and 'IndiceElectronico' not in f and 'indiceelectronico' not in f] # Ignorar archivos que contienen "IndiceElectronico" en el nombre
     
-    # Ordenar los archivos por fecha original si está disponible, si no por nombre
-    if original_dates:
-        files.sort(key=lambda x: original_dates.get(x, datetime.now()))
-    else:
-        files.sort()
+    # Ordenar los archivos por fecha de modificación (más antiguo primero)
+    files.sort(key=lambda x: os.path.getmtime(os.path.join(folder_path, x)))
 
     data = []
     current_page = 1
 
     for i, filename in enumerate(files, start=1):
         file_path = os.path.join(folder_path, filename)
-        original_date = original_dates.get(filename) if original_dates else None
-        metadata = get_file_metadata(file_path, original_date)
+        metadata = get_file_metadata(file_path)
         
         num_pages = get_pdf_pages(file_path) if metadata['extension'].lower() == '.pdf' else 1
         
