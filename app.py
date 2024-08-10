@@ -10,6 +10,20 @@ from file_utils import rename_files
 from excel_handler import save_excel_file
 import shutil
 
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
+# Usar esta función para todas las rutas de archivos
+logo_path = resource_path("assets/logo.png")
+template_path = resource_path("assets/000IndiceElectronicoC0.xlsm")
+
 class IndexGeneratorThread(QThread):
     progress_update = pyqtSignal(int)
     finished = pyqtSignal(bool, str)

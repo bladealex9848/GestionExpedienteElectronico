@@ -46,7 +46,22 @@ GestionExpedienteElectronico/
 │
 ├── assets/
 │   └── 000IndiceElectronicoC0.xlsm
+|   └── guia_uso.pdf
+|   └── logo.png
+|   └── logo_CSJ_Sucre.png
+|   └── logo_CSJ_Sucre.jpg
 │
+├── marco_normativo/
+│   └── ACUERDO PCSJA20-11567.pdf
+│   └── ACUERDO PCSJA23-12094.pdf
+|   └── CIRCULAR PCSJC24-23.pdf
+|   └── Plan Sectorial de Desarrollo Rama Judicial 2023-2026.pdf
+|   └── Protocolo para la gestión de documentos electronicos.pdf
+|   └── UTDI_SGDE_ABC_V6.pdf
+|
+├── temp_expediente/
+│   └── ... (archivos temporales)
+|
 ├── tests/
 │   └── test_expediente_processor.py
 │
@@ -104,15 +119,26 @@ Siga las instrucciones en la interfaz de usuario para cargar y procesar los expe
 
 ## Contribución
 
-Las contribuciones son bienvenidas. Por favor, siga estos pasos:
-
-1. Haga fork del repositorio.
-2. Cree una nueva rama (`git checkout -b feature/AmazingFeature`).
-3. Haga commit de sus cambios (`git commit -m 'Add some AmazingFeature'`).
-4. Haga Push a la rama (`git push origin feature/AmazingFeature`).
-5. Abra un Pull Request.
+Planeamos añadir más funcionalidades al Sistema de Gestión de Expedientes Electrónicos Judiciales con el tiempo. Las contribuciones son bienvenidas.
 
 ## Registro de Cambios
+
+- 2024-08-10: Actualización mayor y mejoras en la versión web (v.1.3.0)
+  - Rediseño completo de la interfaz web, con un panel lateral mejorado.
+  - Implementación de descarga de recursos adicionales y marco normativo desde el panel lateral.
+  - Adición de badges de GitHub y contador de visitantes en la página principal.
+  - Mejora en la configuración de Streamlit para una mejor experiencia de usuario.
+  - Optimización del manejo de archivos temporales para mejorar la seguridad y el rendimiento.
+  - Implementación de manejo de errores robusto, especialmente para la carga de imágenes y recursos.
+  - Preparación del proyecto para generación de ejecutable para Windows.
+  - Actualización de la documentación y guías de usuario.
+
+- 2024-08-10: Actualización de la versión web (v.1.2.0)
+  - Rediseño de la interfaz web, moviendo recursos adicionales y créditos al panel lateral.
+  - Simplificación del proceso de generación de índices, eliminando la opción de usar plantilla.
+  - Implementación de manejo de archivos temporales para mejorar la seguridad y el rendimiento en entornos multi-usuario.
+  - Adición de funcionalidad para comprimir y descargar el expediente completo con el índice generado.
+  - Mejora en la gestión de recursos del servidor al procesar múltiples solicitudes simultáneas.
 
 - 2024-08-09: Actualización y correcciones (v.1.1.1)
   - Mejora en el manejo de la plantilla Excel con macros (.xlsm).
@@ -131,7 +157,7 @@ Las contribuciones son bienvenidas. Por favor, siga estos pasos:
   - Adición de pruebas unitarias para las nuevas funcionalidades.
   - Actualización de la documentación para reflejar los nuevos cambios y características.
 
-- 2024-08-08: Primera versión. (v.1.0.0)
+- 2024-08-08: Primera versión (v.1.0.0)
   - Lanzamiento inicial del Sistema de Gestión de Expedientes Electrónicos Judiciales.
   - Implementación de la versión web utilizando Streamlit.
 
