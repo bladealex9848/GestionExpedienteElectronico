@@ -30,7 +30,7 @@ def generate_index_from_scratch(folder_path):
         
         data.append({
             'Nombre Documento': filename,
-            'Fecha Creación Documento': metadata['modification_date'],
+            'Fecha Creación Documento': metadata['modification_date'],  # Usar fecha de modificación en lugar de creación
             'Fecha Incorporación Expediente': datetime.now().strftime('%Y-%m-%d'),
             'Orden Documento': i,
             'Número Páginas': num_pages,
