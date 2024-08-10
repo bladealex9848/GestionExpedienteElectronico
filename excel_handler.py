@@ -5,6 +5,8 @@ from openpyxl.utils.dataframe import dataframe_to_rows
 from openpyxl.drawing.image import Image
 import io
 import xlwings as xw
+import os
+import shutil
 
 def save_excel_file(df, file_path, use_template=False):
     """
@@ -33,6 +35,12 @@ def create_new_excel(df):
 
     # Agregar logo
     img = Image('assets/logo.png')
+    
+    # Ajustar tamaño de la imagen W. 1.9" x H. 0.5"
+    img.width = 1.9 * 72
+    img.height = 0.5 * 72   
+
+    # Insertar imagen en la celda A1
     ws.add_image(img, 'A1')
 
     # Título
@@ -104,15 +112,13 @@ def fill_template_xlwings(df, file_path):
     :param df: DataFrame con los datos del índice
     :param file_path: Ruta donde se guardará el archivo Excel
     """
-    # Copiar la plantilla al nuevo archivo
-    import shutil
-    shutil.copy('assets/000IndiceElectronicoC0.xlsm', file_path)
-
-    # Usar xlwings para llenar la plantilla
+    template_path = os.path.join('assets', '000IndiceElectronicoC0.xlsm')
+    shutil.copy(template_path, file_path)
+    
     with xw.App(visible=False) as app:
         wb = xw.Book(file_path)
         ws = wb.sheets[0]
-
+        
         # Llenar metadatos del expediente
         metadata_fields = [
             "Ciudad", "Despacho Judicial", "Serie o Subserie Documental",
@@ -122,11 +128,10 @@ def fill_template_xlwings(df, file_path):
         for i, field in enumerate(metadata_fields, start=3):
             if field in df.columns:
                 ws.range(f'B{i}').value = df.iloc[0][field]
-
+        
         # Llenar datos del índice
-        ws.range('A12').options(index=False, headers=False).value = df
-
-        # Guardar y cerrar
+        ws.range('A12').options(index=False, headers=False).value = df.iloc[1:]
+        
         wb.save()
         wb.close()
 

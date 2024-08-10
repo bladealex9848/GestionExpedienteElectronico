@@ -16,6 +16,7 @@ def get_binary_file_downloader_html(bin_file, file_label='File'):
 def main():
     st.set_page_config(page_title="Sistema de Gestión de Expedientes Electrónicos Judiciales", layout="wide")
     
+    st.image("assets/logo.png", width=200)
     st.title("Sistema de Gestión de Expedientes Electrónicos Judiciales")
     
     st.write("Esta aplicación permite generar el índice electrónico de expedientes judiciales.")
@@ -23,7 +24,6 @@ def main():
     uploaded_files = st.file_uploader("Seleccione los archivos que contienen los documentos del expediente:", type=None, accept_multiple_files=True)
 
     if uploaded_files:
-        # Crear una carpeta temporal para almacenar los archivos subidos
         temp_folder = "temp_expediente"
         os.makedirs(temp_folder, exist_ok=True)
         
@@ -40,36 +40,39 @@ def main():
         )
         
         if st.button("Generar Índice Electrónico"):
-            with st.spinner("Generando índice electrónico..."):
-                try:
-                    # Renombrar archivos
-                    rename_files(folder_path)
-                    
-                    # Generar índice
-                    if index_method == "Generar desde cero":
-                        df = generate_index_from_scratch(folder_path)
-                    else:
-                        template_path = os.path.join(os.path.dirname(__file__), 'assets', '000IndiceElectronicoC0.xlsm')
-                        df = generate_index_from_template(folder_path, template_path)
-                    
-                    # Guardar el archivo Excel
-                    index_file_path = os.path.join(folder_path, "000IndiceElectronicoC0.xlsx")
-                    save_excel_file(df, index_file_path, index_method == "Usar plantilla")
-                    
-                    st.success("Índice electrónico generado con éxito.")
-                    
-                    # Proporcionar enlace de descarga
-                    st.markdown(get_binary_file_downloader_html(index_file_path, 'Índice Electrónico'), unsafe_allow_html=True)
+            progress_bar = st.progress(0)
+            try:
+                rename_files(folder_path)
+                progress_bar.progress(33)
                 
-                except Exception as e:
-                    st.error(f"Ocurrió un error: {str(e)}")
-    else:
-        st.info("Por favor, seleccione los archivos que contienen los documentos del expediente.")
+                if index_method == "Generar desde cero":
+                    df = generate_index_from_scratch(folder_path)
+                else:
+                    template_path = os.path.join('assets', '000IndiceElectronicoC0.xlsm')
+                    df = generate_index_from_template(folder_path, template_path)
+                
+                progress_bar.progress(66)
+                
+                index_file_path = os.path.join(folder_path, "000IndiceElectronicoC0.xlsx")
+                save_excel_file(df, index_file_path, index_method == "Usar plantilla")
+                
+                progress_bar.progress(100)
+                st.success("Índice electrónico generado con éxito.")
+                
+                st.markdown(get_binary_file_downloader_html(index_file_path, 'Índice Electrónico'), unsafe_allow_html=True)
+            
+            except Exception as e:
+                st.error(f"Ocurrió un error: {str(e)}")
+
+    st.markdown("---")
+    st.subheader("Recursos Adicionales")
+    st.markdown(get_binary_file_downloader_html("assets/000IndiceElectronicoC0.xlsm", 'Plantilla Excel'), unsafe_allow_html=True)
+    st.markdown(get_binary_file_downloader_html("assets/guia_uso.pdf", 'Guía de Uso'), unsafe_allow_html=True)
 
     st.markdown("---")
     st.write("Desarrollado por Alexander Oviedo Fadul")
     st.write("Consejo Seccional de la Judicatura de Sucre")
-    st.write("[GitHub](https://github.com/bladealex9848) | [Website](https://alexander.oviedo.isabellaea.com/) | [LinkedIn](https://www.linkedin.com/in/alexanderoviedo/)")
+    st.write("[GitHub](https://github.com/bladealex9848) | [Website](https://alexander.oviedo.isabellaea.com/) | [LinkedIn](https://www.linkedin.com/in/alexander-oviedo-fadul-49434b9a/)")
 
 if __name__ == "__main__":
     main()

@@ -114,6 +114,14 @@ Las contribuciones son bienvenidas. Por favor, siga estos pasos:
 
 ## Registro de Cambios
 
+- 2024-08-09: Actualización y correcciones (v.1.1.1)
+  - Mejora en el manejo de la plantilla Excel con macros (.xlsm).
+  - Corrección del problema de generación de archivos .xlsx adicionales.
+  - Optimización del proceso de renombrado de archivos para respetar la numeración existente.
+  - Ajuste en la lógica de generación del índice para excluir correctamente archivos no deseados.
+  - Mejora en la compatibilidad con diferentes sistemas operativos.
+  - Actualización de la documentación y guías de usuario.
+
 - 2024-08-09: Actualización mayor (v.1.1.0)
   - Implementación de la versión de escritorio utilizando PyQt5.
   - Adición de la funcionalidad para generar índices tanto desde cero como utilizando una plantilla.
@@ -133,7 +141,7 @@ Este proyecto es una evolución del trabajo inicial realizado por [HammerDev99 D
 
 Desarrollado y mantenido por Alexander Oviedo Fadul, Profesional Universitario Grado 11 en el Consejo Seccional de la Judicatura de Sucre.
 
-[GitHub](https://github.com/bladealex9848) | [Website](https://alexander.oviedo.isabellaea.com/) | [Instagram](https://www.instagram.com/alexander.oviedo.fadul) | [Twitter](https://twitter.com/alexanderofadul) | [Facebook](https://www.facebook.com/alexanderof/) | [WhatsApp](https://api.whatsapp.com/send?phone=573015930519&text=Hola%20!Quiero%20conversar%20contigo!)
+[GitHub](https://github.com/bladealex9848) | [Website](https://alexander.oviedo.isabellaea.com/) | [Instagram](https://www.instagram.com/alexander.oviedo.fadul) | [Twitter](https://twitter.com/alexanderofadul) | [Facebook](https://www.facebook.com/alexanderof/) | [WhatsApp](https://api.whatsapp.com/send?phone=573015930519&text=Hola%20!Quiero%20conversar%20contigo!) | [LinkedIn](https://www.linkedin.com/in/alexander-oviedo-fadul-49434b9a/)
 
 ## Licencia
 

@@ -3,12 +3,20 @@ import pandas as pd
 from datetime import datetime
 from openpyxl import load_workbook
 from metadata_extractor import get_file_metadata, get_pdf_pages
+import xlwings as xw
 
 def generate_index_from_scratch(folder_path):
     """
     Genera el índice electrónico desde cero.
     """
-    files = [f for f in os.listdir(folder_path) if os.path.isfile(os.path.join(folder_path, f))]
+    files = [f for f in os.listdir(folder_path) 
+             if os.path.isfile(os.path.join(folder_path, f))
+             and not f.startswith('.') # Ignorar archivos ocultos
+             and os.path.splitext(f)[1] != '' # Ignorar archivos sin extensión
+             and f != '000IndiceElectronicoC0.xlsm' # Ignorar el índice si ya existe
+             and 'IndiceElectronico' not in f and 'indiceelectronico' not in f] # Ignorar archivos que contienen "IndiceElectronico" en el nombre
+    
+    # Ordenar los archivos por fecha de modificación (más antiguo primero)
     files.sort(key=lambda x: os.path.getmtime(os.path.join(folder_path, x)))
 
     data = []
@@ -22,7 +30,7 @@ def generate_index_from_scratch(folder_path):
         
         data.append({
             'Nombre Documento': filename,
-            'Fecha Creación Documento': metadata['creation_date'],
+            'Fecha Creación Documento': metadata['modification_date'],
             'Fecha Incorporación Expediente': datetime.now().strftime('%Y-%m-%d'),
             'Orden Documento': i,
             'Número Páginas': num_pages,
@@ -40,36 +48,56 @@ def generate_index_from_scratch(folder_path):
 
 def generate_index_from_template(folder_path, template_path):
     """
-    Genera el índice electrónico usando la plantilla proporcionada.
+    Genera el índice electrónico usando la plantilla proporcionada con macros.
     """
-    # Cargar la plantilla
-    wb = load_workbook(template_path)
-    ws = wb.active
-
     # Generar el índice
     df = generate_index_from_scratch(folder_path)
 
-    # Llenar la plantilla con los datos del DataFrame
-    for r in range(12, 12 + len(df)):
-        ws.cell(row=r, column=1, value=df.iloc[r-12]['Nombre Documento'])
-        ws.cell(row=r, column=2, value=df.iloc[r-12]['Fecha Creación Documento'])
-        ws.cell(row=r, column=3, value=df.iloc[r-12]['Fecha Incorporación Expediente'])
-        ws.cell(row=r, column=4, value=df.iloc[r-12]['Orden Documento'])
-        ws.cell(row=r, column=5, value=df.iloc[r-12]['Número Páginas'])
-        ws.cell(row=r, column=6, value=df.iloc[r-12]['Página Inicio'])
-        ws.cell(row=r, column=7, value=df.iloc[r-12]['Página Fin'])
-        ws.cell(row=r, column=8, value=df.iloc[r-12]['Formato'])
-        ws.cell(row=r, column=9, value=df.iloc[r-12]['Tamaño'])
-        ws.cell(row=r, column=10, value=df.iloc[r-12]['Origen'])
-        ws.cell(row=r, column=11, value=df.iloc[r-12]['Observaciones'])
+    try:
+        # Usar xlwings para manejar el archivo con macros
+        with xw.App(visible=False) as app:
+            wb = app.books.open(template_path)
+            ws = wb.sheets[0]
+            
+            # Llenar la plantilla con los datos del DataFrame
+            for _ in range(len(df)):
+                # Ejecutar la macro para insertar una nueva fila
+                wb.macro("Macro1InsertarFila")
+            
+            # Llenar los datos
+            start_row = 12  # Asumiendo que los datos comienzan en la fila 12
+            for i, row in df.iterrows():
+                for j, value in enumerate(row, start=1):
+                    ws.cells(start_row + i, j).value = value
+            
+            # Guardar y cerrar
+            output_path = os.path.join(folder_path, "000IndiceElectronicoC0.xlsm")
+            wb.save(output_path)
+            wb.close()
+        
+        return output_path
 
-    # Convertir el workbook de vuelta a un DataFrame
-    data = ws.values
-    cols = next(data)[1:]
-    data = list(data)
-    df = pd.DataFrame(data, columns=cols)
+    except Exception as e:
+        print(f"Error al usar xlwings: {str(e)}")
+        print("Intentando con openpyxl (sin macros)...")
 
-    return df
+        # Si xlwings falla, usar openpyxl como alternativa (sin macros)
+        wb = load_workbook(template_path, keep_vba=True)
+        ws = wb.active
+
+        # Insertar filas necesarias
+        ws.insert_rows(12, amount=len(df))
+
+        # Llenar la plantilla con los datos del DataFrame
+        for r, row in enumerate(df.itertuples(index=False), start=12):
+            for c, value in enumerate(row, start=1):
+                ws.cell(row=r, column=c, value=value)
+
+        # Guardar el archivo
+        output_path = os.path.join(folder_path, "000IndiceElectronicoC0.xlsm")
+        wb.save(output_path)
+
+        return output_path
 
 def update_metadata(df, metadata):
     """
