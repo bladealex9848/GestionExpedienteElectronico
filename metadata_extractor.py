@@ -6,7 +6,7 @@ from PIL import Image
 import magic
 from datetime import datetime
 
-def get_file_metadata(file_path):
+def get_file_metadata(file_path, original_date=None):
     """
     Obtiene los metadatos de un archivo.
     """
@@ -15,8 +15,8 @@ def get_file_metadata(file_path):
     metadata = {
         'file_type': file_type,
         'size': format_file_size(stat.st_size),
-        'creation_date': format_date(stat.st_ctime),
-        'modification_date': format_date(stat.st_mtime),
+        'creation_date': format_date(original_date or stat.st_ctime),
+        'modification_date': format_date(original_date or stat.st_mtime),
         'extension': os.path.splitext(file_path)[1].lower()
     }
 

@@ -5,7 +5,7 @@ from openpyxl import load_workbook
 from metadata_extractor import get_file_metadata, get_pdf_pages
 import xlwings as xw
 
-def generate_index_from_scratch(folder_path):
+def generate_index_from_scratch(folder_path, original_dates=None):
     """
     Genera el índice electrónico desde cero.
     """
@@ -16,21 +16,25 @@ def generate_index_from_scratch(folder_path):
              and f != '000IndiceElectronicoC0.xlsm' # Ignorar el índice si ya existe
              and 'IndiceElectronico' not in f and 'indiceelectronico' not in f] # Ignorar archivos que contienen "IndiceElectronico" en el nombre
     
-    # Ordenar los archivos por fecha de modificación (más antiguo primero)
-    files.sort(key=lambda x: os.path.getmtime(os.path.join(folder_path, x)))
+    # Ordenar los archivos por fecha original si está disponible, si no por nombre
+    if original_dates:
+        files.sort(key=lambda x: original_dates.get(x, datetime.now()))
+    else:
+        files.sort()
 
     data = []
     current_page = 1
 
     for i, filename in enumerate(files, start=1):
         file_path = os.path.join(folder_path, filename)
-        metadata = get_file_metadata(file_path)
+        original_date = original_dates.get(filename) if original_dates else None
+        metadata = get_file_metadata(file_path, original_date)
         
         num_pages = get_pdf_pages(file_path) if metadata['extension'].lower() == '.pdf' else 1
         
         data.append({
             'Nombre Documento': filename,
-            'Fecha Creación Documento': metadata['modification_date'],  # Usar fecha de modificación en lugar de creación
+            'Fecha Creación Documento': metadata['modification_date'],
             'Fecha Incorporación Expediente': datetime.now().strftime('%Y-%m-%d'),
             'Orden Documento': i,
             'Número Páginas': num_pages,

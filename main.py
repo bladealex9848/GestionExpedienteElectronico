@@ -6,6 +6,7 @@ from file_utils import rename_files
 from excel_handler import save_excel_file
 import base64
 import tempfile
+from datetime import datetime
 
 # Configuración de Streamlit
 st.set_page_config(
@@ -69,9 +70,13 @@ def main():
 
     if uploaded_files:
         with tempfile.TemporaryDirectory() as temp_folder:
+            original_dates = {}
             for uploaded_file in uploaded_files:
-                with open(os.path.join(temp_folder, uploaded_file.name), "wb") as f:
+                file_path = os.path.join(temp_folder, uploaded_file.name)
+                with open(file_path, "wb") as f:
                     f.write(uploaded_file.getbuffer())
+                # Guardar la fecha original del archivo
+                original_dates[uploaded_file.name] = uploaded_file.file_uploader_metadata.get('modification_date', datetime.now())
             
             st.success("Archivos seleccionados correctamente.")
             
@@ -81,7 +86,7 @@ def main():
                     rename_files(temp_folder)
                     progress_bar.progress(33)
                     
-                    df = generate_index_from_scratch(temp_folder)
+                    df = generate_index_from_scratch(temp_folder, original_dates)
                     if df is None:
                         raise ValueError("La generación del índice falló.")
                     
