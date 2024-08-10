@@ -29,24 +29,27 @@ def main():
         st.sidebar.image("assets/logo.png", width=200)
     except Exception as e:
         st.sidebar.error(f"Error al cargar la imagen del logo: {str(e)}")
-    
+
     st.sidebar.title("Recursos Adicionales")
-    st.sidebar.markdown(get_binary_file_downloader_html("https://github.com/bladealex9848/GestionExpedienteElectronico/blob/main/assets/000IndiceElectronicoC0.xlsm", 'Plantilla Excel'), unsafe_allow_html=True)
-    st.sidebar.markdown(get_binary_file_downloader_html("https://github.com/bladealex9848/GestionExpedienteElectronico/blob/main/assets/guia_uso.pdf", 'Guía de Uso'), unsafe_allow_html=True)
-    
+    with st.sidebar.expander("Ver Recursos Adicionales", expanded=False):
+        st.markdown(get_binary_file_downloader_html("https://github.com/bladealex9848/GestionExpedienteElectronico/blob/main/assets/000IndiceElectronicoC0.xlsm", 'Plantilla Excel'), unsafe_allow_html=True)
+        st.markdown(get_binary_file_downloader_html("https://github.com/bladealex9848/GestionExpedienteElectronico/blob/main/assets/guia_uso.pdf", 'Guía de Uso'), unsafe_allow_html=True)
+
     st.sidebar.title("Marco Normativo")
-    st.sidebar.markdown(get_binary_file_downloader_html("https://github.com/bladealex9848/GestionExpedienteElectronico/blob/main/marco_normativo/ACUERDO%20PCSJA20-11567.pdf", 'ACUERDO PCSJA20-11567'), unsafe_allow_html=True)
-    st.sidebar.markdown(get_binary_file_downloader_html("https://github.com/bladealex9848/GestionExpedienteElectronico/blob/main/marco_normativo/ACUERDO%20PCSJA23-12094.pdf", 'ACUERDO PCSJA23-12094'), unsafe_allow_html=True)
-    st.sidebar.markdown(get_binary_file_downloader_html("https://github.com/bladealex9848/GestionExpedienteElectronico/blob/main/marco_normativo/CIRCULAR%20PCSJC24-23.pdf", 'CIRCULAR PCSJC24-23'), unsafe_allow_html=True)
-    st.sidebar.markdown(get_binary_file_downloader_html("https://github.com/bladealex9848/GestionExpedienteElectronico/blob/main/marco_normativo/Plan%20Sectorial%20de%20Desarrollo%20Rama%20Judicial%202023-2026.pdf", 'Plan Sectorial de Desarrollo Rama Judicial 2023-2026'), unsafe_allow_html=True)
-    st.sidebar.markdown(get_binary_file_downloader_html("https://github.com/bladealex9848/GestionExpedienteElectronico/blob/main/marco_normativo/Protocolo%20para%20la%20gesti%C3%B3n%20de%20documentos%20electronicos.pdf", 'Protocolo para la gestión de documentos electronicos'), unsafe_allow_html=True)
-    st.sidebar.markdown(get_binary_file_downloader_html("https://github.com/bladealex9848/GestionExpedienteElectronico/blob/main/marco_normativo/UTDI_SGDE_ABC_V6.pdf", 'UTDI_SGDE_ABC_V6'), unsafe_allow_html=True)
-    
+    with st.sidebar.expander("Ver Marco Normativo", expanded=False):
+        st.markdown(get_binary_file_downloader_html("https://github.com/bladealex9848/GestionExpedienteElectronico/blob/main/marco_normativo/ACUERDO%20PCSJA20-11567.pdf", 'ACUERDO PCSJA20-11567'), unsafe_allow_html=True)
+        st.markdown(get_binary_file_downloader_html("https://github.com/bladealex9848/GestionExpedienteElectronico/blob/main/marco_normativo/ACUERDO%20PCSJA23-12094.pdf", 'ACUERDO PCSJA23-12094'), unsafe_allow_html=True)
+        st.markdown(get_binary_file_downloader_html("https://github.com/bladealex9848/GestionExpedienteElectronico/blob/main/marco_normativo/CIRCULAR%20PCSJC24-23.pdf", 'CIRCULAR PCSJC24-23'), unsafe_allow_html=True)
+        st.markdown(get_binary_file_downloader_html("https://github.com/bladealex9848/GestionExpedienteElectronico/blob/main/marco_normativo/Plan%20Sectorial%20de%20Desarrollo%20Rama%20Judicial%202023-2026.pdf", 'Plan Sectorial de Desarrollo Rama Judicial 2023-2026'), unsafe_allow_html=True)
+        st.markdown(get_binary_file_downloader_html("https://github.com/bladealex9848/GestionExpedienteElectronico/blob/main/marco_normativo/Protocolo%20para%20la%20gesti%C3%B3n%20de%20documentos%20electronicos.pdf", 'Protocolo para la gestión de documentos electronicos'), unsafe_allow_html=True)
+        st.markdown(get_binary_file_downloader_html("https://github.com/bladealex9848/GestionExpedienteElectronico/blob/main/marco_normativo/UTDI_SGDE_ABC_V6.pdf", 'UTDI_SGDE_ABC_V6'), unsafe_allow_html=True)
+
     st.sidebar.title("Descargar Versiones Portables")
-    st.sidebar.markdown(get_binary_file_downloader_html("https://github.com/bladealex9848/GestionExpedienteElectronico/blob/main/assets/GestionExpedienteElectronico_Windows.zip", 'Versión Portable para Windows'), unsafe_allow_html=True)
-    st.sidebar.markdown(get_binary_file_downloader_html("https://github.com/bladealex9848/GestionExpedienteElectronico/blob/main/assets/GestionExpedienteElectronico_Mac.zip", 'Versión Portable para Mac'), unsafe_allow_html=True)
-    st.sidebar.markdown(get_binary_file_downloader_html("https://github.com/bladealex9848/GestionExpedienteElectronico/blob/main/assets/GestionExpedienteElectronico_Linux.zip", 'Versión Portable para Linux'), unsafe_allow_html=True)
-    
+    with st.sidebar.expander("Ver Versiones Portables", expanded=False):
+        st.markdown(get_binary_file_downloader_html("https://github.com/bladealex9848/GestionExpedienteElectronico/blob/main/assets/GestionExpedienteElectronico_Windows.zip", 'Versión Portable para Windows'), unsafe_allow_html=True)
+        st.markdown(get_binary_file_downloader_html("https://github.com/bladealex9848/GestionExpedienteElectronico/blob/main/assets/GestionExpedienteElectronico_Mac.zip", 'Versión Portable para Mac'), unsafe_allow_html=True)
+        st.markdown(get_binary_file_downloader_html("https://github.com/bladealex9848/GestionExpedienteElectronico/blob/main/assets/GestionExpedienteElectronico_Linux.zip", 'Versión Portable para Linux'), unsafe_allow_html=True)
+
     st.sidebar.markdown("---")
     st.sidebar.write("Desarrollado por Alexander Oviedo Fadul")
     st.sidebar.write("Consejo Seccional de la Judicatura de Sucre")
