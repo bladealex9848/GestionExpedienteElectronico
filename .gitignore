@@ -61,3 +61,8 @@ results/
 # Archivos específicos del proyecto (ajusta según tus necesidades)
 config.ini
 secrets.json
+
+# Portables
+GestionExpedienteElectronico_Linux.zip
+GestionExpedienteElectronico_Mac.zip
+GestionExpedienteElectronico_Windows.zip
