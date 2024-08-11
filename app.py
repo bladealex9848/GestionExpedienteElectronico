@@ -2,10 +2,10 @@ import sys
 import os
 from PyQt5.QtWidgets import (QApplication, QMainWindow, QPushButton, QFileDialog, 
                              QVBoxLayout, QWidget, QLabel, QProgressBar, QHBoxLayout, 
-                             QRadioButton, QMessageBox)
+                             QMessageBox)
 from PyQt5.QtGui import QIcon, QPixmap, QFont
 from PyQt5.QtCore import Qt, QThread, pyqtSignal
-from index_generator import generate_index_from_scratch, generate_index_from_template
+from index_generator import generate_index_from_template
 from file_utils import rename_files
 from excel_handler import save_excel_file
 import shutil
@@ -16,22 +16,16 @@ def resource_path(relative_path):
         # PyInstaller creates a temp folder and stores path in _MEIPASS
         base_path = sys._MEIPASS
     except Exception:
-        base_path = os.path.abspath(".")
-
+        base_path = os.path.dirname(os.path.abspath(__file__))
     return os.path.join(base_path, relative_path)
-
-# Usar esta función para todas las rutas de archivos
-logo_path = resource_path("assets/logo.png")
-template_path = resource_path("assets/000IndiceElectronicoC0.xlsm")
 
 class IndexGeneratorThread(QThread):
     progress_update = pyqtSignal(int)
     finished = pyqtSignal(bool, str)
 
-    def __init__(self, folder_path, use_template):
+    def __init__(self, folder_path):
         QThread.__init__(self)
         self.folder_path = folder_path
-        self.use_template = use_template
 
     def run(self):
         try:
@@ -39,15 +33,12 @@ class IndexGeneratorThread(QThread):
             rename_files(self.folder_path)
             
             self.progress_update.emit(50)
-            if self.use_template:
-                template_path = os.path.join('assets', '000IndiceElectronicoC0.xlsm')
-                df = generate_index_from_template(self.folder_path, template_path)
-            else:
-                df = generate_index_from_scratch(self.folder_path)
+            template_path = resource_path("assets/000IndiceElectronicoC0.xlsm")
+            df = generate_index_from_template(self.folder_path, template_path)
             
             self.progress_update.emit(75)
             index_file_path = os.path.join(self.folder_path, "000IndiceElectronicoC0.xlsx")
-            save_excel_file(df, index_file_path, self.use_template)
+            save_excel_file(df, index_file_path, True)
             
             self.progress_update.emit(100)
             self.finished.emit(True, "Índice electrónico generado con éxito.")
@@ -72,10 +63,6 @@ class MainWindow(QMainWindow):
             font-family: Montserrat;
             }
             QPushButton:hover {background-color: #45a049;}
-            QRadioButton {
-            font-size: 14px;
-            font-family: Montserrat;
-            }
             QLabel {
             color: white;
             font-family: Montserrat;
@@ -88,10 +75,12 @@ class MainWindow(QMainWindow):
 
         # Logo
         logo_label = QLabel()
-        pixmap = QPixmap("assets/logo_CSJ_Sucre.jpg")        
-        # Aplicar el fondo blanco a la imagen        
-        logo_label.setPixmap(pixmap.scaled(200, 200, Qt.KeepAspectRatio, Qt.SmoothTransformation))
-        # Ícono de la ventana
+        logo_path = resource_path("assets/logo_CSJ_Sucre.jpg")
+        pixmap = QPixmap(logo_path)
+        if pixmap.isNull():
+            print(f"No se pudo cargar la imagen: {logo_path}")
+        else:
+            logo_label.setPixmap(pixmap.scaled(200, 200, Qt.KeepAspectRatio, Qt.SmoothTransformation))
         main_layout.addWidget(logo_label, alignment=Qt.AlignCenter)
         main_layout.addSpacing(20)
 
@@ -121,20 +110,6 @@ class MainWindow(QMainWindow):
         
         main_layout.addLayout(buttons_layout)
         main_layout.addSpacing(20)
-
-        # Opciones de generación
-        options_layout = QHBoxLayout()
-        self.from_scratch_radio = QRadioButton("Generar desde cero")
-        self.use_template_radio = QRadioButton("Usar plantilla")
-        self.from_scratch_radio.setChecked(True)
-        options_layout.addWidget(self.from_scratch_radio)
-        options_layout.addWidget(self.use_template_radio)
-        main_layout.addLayout(options_layout)
-        main_layout.addSpacing(20)
-        
-        # Color de la letra en negro
-        self.from_scratch_radio.setStyleSheet("color: white;")
-        self.use_template_radio.setStyleSheet("color: white;")
         
         # Barra de progreso
         self.progress_bar = QProgressBar()
@@ -147,7 +122,7 @@ class MainWindow(QMainWindow):
         main_layout.addWidget(self.info_label)
 
         # Créditos
-        credits_label = QLabel("Desarrollado por Alexander Oviedo Fadul\nProfesional Universitario Grado 11\nConsejo Seccional de la Judicatura de Sucre")
+        credits_label = QLabel("Desarrollado por Alexander Oviedo Fadul\nProfesional Universitario Grado 11\nConsejo Seccional de la Judicatura de Sucre\nv.1.3.0")
         credits_label.setAlignment(Qt.AlignCenter)
         main_layout.addWidget(credits_label)
 
@@ -167,8 +142,7 @@ class MainWindow(QMainWindow):
             QMessageBox.warning(self, "Advertencia", "Por favor, seleccione una carpeta para procesar.")
             return
 
-        use_template = self.use_template_radio.isChecked()
-        self.thread = IndexGeneratorThread(self.folder_path, use_template)
+        self.thread = IndexGeneratorThread(self.folder_path)
         self.thread.progress_update.connect(self.update_progress)
         self.thread.finished.connect(self.process_finished)
         self.thread.start()
@@ -189,16 +163,24 @@ class MainWindow(QMainWindow):
         self.progress_bar.setValue(0)
 
     def download_template(self):
+        template_path = resource_path("assets/000IndiceElectronicoC0.xlsm")
         destination, _ = QFileDialog.getSaveFileName(self, "Guardar Plantilla", "000IndiceElectronicoC0.xlsm", "Excel Files (*.xlsm)")
         if destination:
-            shutil.copy("assets/000IndiceElectronicoC0.xlsm", destination)
-            QMessageBox.information(self, "Éxito", "Plantilla descargada con éxito.")
+            try:
+                shutil.copy(template_path, destination)
+                QMessageBox.information(self, "Éxito", "Plantilla descargada con éxito.")
+            except Exception as e:
+                QMessageBox.critical(self, "Error", f"No se pudo descargar la plantilla: {str(e)}")
 
     def download_guide(self):
+        guide_path = resource_path("assets/guia_uso.pdf")
         destination, _ = QFileDialog.getSaveFileName(self, "Guardar Guía", "guia_uso.pdf", "PDF Files (*.pdf)")
         if destination:
-            shutil.copy("assets/guia_uso.pdf", destination)
-            QMessageBox.information(self, "Éxito", "Guía descargada con éxito.")
+            try:
+                shutil.copy(guide_path, destination)
+                QMessageBox.information(self, "Éxito", "Guía descargada con éxito.")
+            except Exception as e:
+                QMessageBox.critical(self, "Error", f"No se pudo descargar la guía: {str(e)}")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
