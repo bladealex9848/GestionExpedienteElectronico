@@ -38,7 +38,7 @@ def main():
     st.sidebar.title("Marco Normativo")
     with st.sidebar.expander("Ver Marco Normativo", expanded=False):
         st.markdown(get_binary_file_downloader_html("https://enki.care/PCSJA20-11567", 'ACUERDO PCSJA20-11567'), unsafe_allow_html=True)
-        st.markdown(get_binary_file_downloader_html("hhttps://enki.care/PCSJA23-12094", 'ACUERDO PCSJA23-12094'), unsafe_allow_html=True)
+        st.markdown(get_binary_file_downloader_html("https://enki.care/PCSJA23-12094", 'ACUERDO PCSJA23-12094'), unsafe_allow_html=True)
         st.markdown(get_binary_file_downloader_html("https://enki.care/PCSJC24-23", 'CIRCULAR PCSJC24-23'), unsafe_allow_html=True)
         st.markdown(get_binary_file_downloader_html("https://enki.care/PlanSectorialDesarrolloRamaJudicial2023-2026", 'Plan Sectorial de Desarrollo Rama Judicial 2023-2026'), unsafe_allow_html=True)
         st.markdown(get_binary_file_downloader_html("https://enki.care/ProtocoloGestionDocumentosElectronicos", 'Protocolo para la gestión de documentos electrónicos'), unsafe_allow_html=True)
