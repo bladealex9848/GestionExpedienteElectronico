@@ -50,17 +50,6 @@ GestionExpedienteElectronico/
 |   └── logo.png
 |   └── logo_CSJ_Sucre.png
 |   └── logo_CSJ_Sucre.jpg
-│
-├── marco_normativo/
-│   └── ACUERDO PCSJA20-11567.pdf
-│   └── ACUERDO PCSJA23-12094.pdf
-|   └── CIRCULAR PCSJC24-23.pdf
-|   └── Plan Sectorial de Desarrollo Rama Judicial 2023-2026.pdf
-|   └── Protocolo para la gestión de documentos electronicos.pdf
-|   └── UTDI_SGDE_ABC_V6.pdf
-|
-├── temp_expediente/
-│   └── ... (archivos temporales)
 |
 ├── tests/
 │   └── test_expediente_processor.py
@@ -138,8 +127,6 @@ GestionExpedienteElectronico/
 ├── excel_handler.py          # Manejo de archivos Excel
 │
 ├── assets/                   # Recursos estáticos
-├── marco_normativo/          # Documentos normativos
-├── temp_expediente/          # Almacenamiento temporal
 ├── tests/                    # Pruebas unitarias
 │
 ├── requirements.txt          # Dependencias del proyecto
@@ -339,6 +326,12 @@ Este manual de usuario proporciona una guía completa para utilizar el Sistema d
 Planeamos añadir más funcionalidades al Sistema de Gestión de Expedientes Electrónicos Judiciales con el tiempo. Las contribuciones son bienvenidas.
 
 ## Registro de Cambios
+
+- 2024-08-15: Actuaización menor y corrección de errores (v.1.3.1)
+  - Corrección de errores menores en la interfaz de usuario y el proceso de generación de índices.
+  - Supreción de las carpetas marco_normativo y temp_expediente en la versión web y escritorio para optimizar el espacio de almacenamiento y carga de archivos.
+  - Mejoras en la gestión de errores y mensajes de usuario para una experiencia más fluida y menos propensa a errores.
+  - En la versión de escritorio se elimino el guardar el índice electrónico (xlsx) en la carpeta del expediente y se dejo solamente el guardado del índice electrónico (xlsm) en la carpeta del expediente para optimizar el espacio de almacenamiento y carga de archivos.
 
 - 2024-08-10: Actualización mayor y mejoras en la versión web (v.1.3.0)
   - Rediseño completo de la interfaz web, con un panel lateral mejorado.

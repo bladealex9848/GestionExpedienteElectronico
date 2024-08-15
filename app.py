@@ -32,14 +32,10 @@ class IndexGeneratorThread(QThread):
             self.progress_update.emit(25)
             rename_files(self.folder_path)
             
+            # Generar el índice electrónico a partir de la plantilla
             self.progress_update.emit(75)
             template_path = resource_path("assets/000IndiceElectronicoC0.xlsm")
             df = generate_index_from_template(self.folder_path, template_path)
-            
-            # Guardar el índice electrónico en la carpeta del expediente (Opción desde 0)
-            # self.progress_update.emit(75)
-            # index_file_path = os.path.join(self.folder_path, "000IndiceElectronicoC0.xlsx")
-            # save_excel_file(df, index_file_path, True)
             
             self.progress_update.emit(100)
             self.finished.emit(True, "Índice electrónico generado con éxito.")
@@ -123,7 +119,7 @@ class MainWindow(QMainWindow):
         main_layout.addWidget(self.info_label)
 
         # Créditos
-        credits_label = QLabel("Desarrollado por Alexander Oviedo Fadul\nProfesional Universitario Grado 11\nConsejo Seccional de la Judicatura de Sucre\nv.1.4.0")
+        credits_label = QLabel("Desarrollado por Alexander Oviedo Fadul\nProfesional Universitario Grado 11\nConsejo Seccional de la Judicatura de Sucre\nv.1.3.1")
         credits_label.setAlignment(Qt.AlignCenter)
         main_layout.addWidget(credits_label)
 

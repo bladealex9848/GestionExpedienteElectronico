@@ -53,7 +53,7 @@ def main():
     st.sidebar.markdown("---")
     st.sidebar.write("Desarrollado por Alexander Oviedo Fadul")
     st.sidebar.write("Consejo Seccional de la Judicatura de Sucre")
-    st.sidebar.write("v.1.3.0")
+    st.sidebar.write("v.1.3.1")
     st.sidebar.write("[GitHub](https://github.com/bladealex9848) | [Website](https://alexander.oviedo.isabellaea.com/) | [LinkedIn](https://www.linkedin.com/in/alexander-oviedo-fadul-49434b9a/)")
 
     # Main content
