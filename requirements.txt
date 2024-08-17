@@ -9,3 +9,5 @@ fpdf
 PyQt5
 xlwings
 openai
+plotly
+pytz
