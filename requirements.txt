@@ -8,3 +8,4 @@ python-magic
 fpdf
 PyQt5
 xlwings
+openai

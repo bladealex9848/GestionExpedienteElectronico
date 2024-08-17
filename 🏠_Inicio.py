@@ -11,7 +11,7 @@ import tempfile
 st.set_page_config(
     page_title="Sistema de Gestión de Expedientes Electrónicos Judiciales",
     page_icon="📄",
-    initial_sidebar_state='expanded',
+    initial_sidebar_state='expanded',    
     menu_items={
         'Get Help': 'https://alexander.oviedo.isabellaea.com/',
         'Report a bug': 'https://github.com/bladealex9848/GestionExpedienteElectronico/issues',
@@ -24,11 +24,7 @@ def get_binary_file_downloader_html(url, file_label='File'):
     return href
 
 def main():
-    # Sidebar
-    try:
-        st.sidebar.image("assets/logo.png", width=200)
-    except Exception as e:
-        st.sidebar.error(f"Error al cargar la imagen del logo: {str(e)}")
+    # Sidebar  
 
     st.sidebar.title("Recursos Adicionales")
     with st.sidebar.expander("Ver Recursos Adicionales", expanded=False):
@@ -57,6 +53,12 @@ def main():
     st.sidebar.write("[GitHub](https://github.com/bladealex9848) | [Website](https://alexander.oviedo.isabellaea.com/) | [LinkedIn](https://www.linkedin.com/in/alexander-oviedo-fadul-49434b9a/)")
 
     # Main content
+    try:
+        st.sidebar.image("assets/logo.png", width=200)
+    except Exception as e:
+        st.sidebar.error(f"Error al cargar la imagen del logo: {str(e)}")
+
+    # Titulo    
     st.title("Sistema de Gestión de Expedientes Electrónicos Judiciales")
     
     st.write("""
