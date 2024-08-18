@@ -13,7 +13,7 @@ def generate_index_from_scratch(folder_path):
              if os.path.isfile(os.path.join(folder_path, f))
              and not f.startswith('.') # Ignorar archivos ocultos
              and os.path.splitext(f)[1] != '' # Ignorar archivos sin extensión
-             and f != '000IndiceElectronicoC0.xlsm' # Ignorar el índice si ya existe
+             and f != '00IndiceElectronicoC0.xlsm' # Ignorar el índice si ya existe
              and 'IndiceElectronico' not in f and 'indiceelectronico' not in f] # Ignorar archivos que contienen "IndiceElectronico" en el nombre
     
     # Ordenar los archivos por fecha de modificación (más antiguo primero)
@@ -71,7 +71,7 @@ def generate_index_from_template(folder_path, template_path):
                     ws.cells(start_row + i, j).value = value
             
             # Guardar y cerrar
-            output_path = os.path.join(folder_path, "000IndiceElectronicoC0.xlsm")
+            output_path = os.path.join(folder_path, "00IndiceElectronicoC0.xlsm")
             wb.save(output_path)
             wb.close()
         
@@ -94,7 +94,7 @@ def generate_index_from_template(folder_path, template_path):
                 ws.cell(row=r, column=c, value=value)
 
         # Guardar el archivo
-        output_path = os.path.join(folder_path, "000IndiceElectronicoC0.xlsm")
+        output_path = os.path.join(folder_path, "00IndiceElectronicoC0.xlsm")
         wb.save(output_path)
 
         return output_path

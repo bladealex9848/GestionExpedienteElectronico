@@ -127,9 +127,8 @@ def crear_gantt(df):
     return fig
 
 def main():
-    st.title('Hoja de Ruta - Implementación')
-    st.markdown('<p class="big-font">🚀 Proyecto de Implementación SGDE</p>', unsafe_allow_html=True)
-    
+    st.title('🚀 Hoja de Ruta - Implementación')
+        
     df = cargar_datos()
     df['Estado'] = df.apply(determinar_estado_actual, axis=1)
 

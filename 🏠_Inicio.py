@@ -47,17 +47,14 @@ def main():
         st.markdown(get_binary_file_downloader_html("https://enki.care/GestionExpedienteElectronicoLinux", 'Versión Portable para Linux'), unsafe_allow_html=True)
 
     st.sidebar.markdown("---")
-    st.sidebar.write("Desarrollado por Alexander Oviedo Fadul")
-    st.sidebar.write("Consejo Seccional de la Judicatura de Sucre")
-    st.sidebar.write("v.1.3.1")
-    st.sidebar.write("[GitHub](https://github.com/bladealex9848) | [Website](https://alexander.oviedo.isabellaea.com/) | [LinkedIn](https://www.linkedin.com/in/alexander-oviedo-fadul-49434b9a/)")
+    # Centrar el contenido de la barra lateral
+    st.sidebar.image("assets/logo_CSJ_Sucre.png", width=200)
+    st.sidebar.write("<div style='text-align: center;'>Desarrollado por Alexander Oviedo Fadul</div>", unsafe_allow_html=True)
+    st.sidebar.write("<div style='text-align: center;'>v.1.3.2</div>", unsafe_allow_html=True)
+    st.sidebar.write("<div style='text-align: center;'><a href='https://github.com/bladealex9848'>GitHub</a> | <a href='https://alexander.oviedo.isabellaea.com/'>Website</a> | <a href='https://www.linkedin.com/in/alexander-oviedo-fadul-49434b9a/'>LinkedIn</a></div>", unsafe_allow_html=True)
 
     # Main content
-    try:
-        st.sidebar.image("assets/logo.png", width=200)
-    except Exception as e:
-        st.sidebar.error(f"Error al cargar la imagen del logo: {str(e)}")
-
+    
     # Titulo    
     st.title("Sistema de Gestión de Expedientes Electrónicos Judiciales")
     
@@ -90,7 +87,7 @@ def main():
                     
                     progress_bar.progress(66)
                     
-                    index_file_path = os.path.join(temp_folder, "000IndiceElectronicoC0.xlsx")
+                    index_file_path = os.path.join(temp_folder, "00IndiceElectronicoC0.xlsx")
                     save_excel_file(df, index_file_path, use_template=False)
                     
                     progress_bar.progress(100)

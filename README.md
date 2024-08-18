@@ -45,11 +45,15 @@ GestionExpedienteElectronico/
 ├── excel_handler.py
 │
 ├── assets/
-│   └── 000IndiceElectronicoC0.xlsm
+│   └── 00IndiceElectronicoC0.xlsm
 |   └── guia_uso.pdf
 |   └── logo.png
 |   └── logo_CSJ_Sucre.png
 |   └── logo_CSJ_Sucre.jpg
+|
+├── pages/
+│   └── 1_📊_Hoja_de_Ruta.py
+|   └── 2_🤖_Experto_en_Expediente_Electronico.py
 |
 ├── tests/
 │   └── test_expediente_processor.py
@@ -94,7 +98,7 @@ python app.py
 ```
 Para ejecutar la versión web:
 ```
-streamlit run main.py
+streamlit run 🏠_Inicio.py.py
 ```
 Siga las instrucciones en la interfaz de usuario para cargar y procesar los expedientes.
 
@@ -120,13 +124,14 @@ El Sistema de Gestión de Expedientes Electrónicos Judiciales está construido 
 GestionExpedienteElectronico/
 │
 ├── app.py                    # Aplicación de escritorio (PyQt5)
-├── main.py                   # Aplicación web (Streamlit)
+├── 🏠_Inicio.py              # Aplicación web (Streamlit)
 ├── index_generator.py        # Lógica de generación del índice
 ├── file_utils.py             # Utilidades para manejo de archivos
 ├── metadata_extractor.py     # Extracción de metadatos
 ├── excel_handler.py          # Manejo de archivos Excel
 │
 ├── assets/                   # Recursos estáticos
+├── pages/                    # Páginas de la aplicación web
 ├── tests/                    # Pruebas unitarias
 │
 ├── requirements.txt          # Dependencias del proyecto
@@ -140,7 +145,7 @@ GestionExpedienteElectronico/
 - Clase `MainWindow`: Interfaz gráfica principal
 - Clase `IndexGeneratorThread`: Hilo para procesamiento asíncrono
 
-#### 3.2 main.py (Aplicación Web)
+#### 3.2 🏠_Inicio.py (Aplicación Web)
 - Función `main()`: Punto de entrada de la aplicación Streamlit
 - Funciones auxiliares para manejo de archivos y UI
 
@@ -264,7 +269,7 @@ El Sistema de Gestión de Expedientes Electrónicos Judiciales es una herramient
 #### 5.2 Versión Web
 
 - **Panel Principal**: Área central donde se cargan los archivos y se inicia el proceso.
-- **Barra Lateral**: Contiene enlaces a recursos adicionales y marco normativo.
+- **Barra Lateral**: Contiene enlaces a recursos adicionales, marco normativo, hoja de ruta, y chat bot experto en expedientes electrónicos.
 - **Área de Carga de Archivos**: Permite subir los documentos del expediente.
 - **Botón "Generar Índice Electrónico"**: Inicia el proceso de creación del índice.
 
@@ -327,49 +332,88 @@ Planeamos añadir más funcionalidades al Sistema de Gestión de Expedientes Ele
 
 ## Registro de Cambios
 
-- 2024-08-15: Actuaización menor y corrección de errores (v.1.3.1)
-  - Corrección de errores menores en la interfaz de usuario y el proceso de generación de índices.
-  - Supreción de las carpetas marco_normativo y temp_expediente en la versión web y escritorio para optimizar el espacio de almacenamiento y carga de archivos.
-  - Mejoras en la gestión de errores y mensajes de usuario para una experiencia más fluida y menos propensa a errores.
-  - En la versión de escritorio se elimino el guardar el índice electrónico (xlsx) en la carpeta del expediente y se dejo solamente el guardado del índice electrónico (xlsm) en la carpeta del expediente para optimizar el espacio de almacenamiento y carga de archivos.
+### 2024-08-18: Actualización mayor y revisión externa (v.1.3.2)
 
-- 2024-08-10: Actualización mayor y mejoras en la versión web (v.1.3.0)
-  - Rediseño completo de la interfaz web, con un panel lateral mejorado.
-  - Implementación de descarga de recursos adicionales y marco normativo desde el panel lateral.
-  - Adición de badges de GitHub y contador de visitantes en la página principal.
-  - Mejora en la configuración de Streamlit para una mejor experiencia de usuario.
-  - Optimización del manejo de archivos temporales para mejorar la seguridad y el rendimiento.
-  - Implementación de manejo de errores robusto, especialmente para la carga de imágenes y recursos.
-  - Preparación del proyecto para generación de ejecutable para Windows.
-  - Actualización de la documentación y guías de usuario.
+#### Documentación
+- Actualización del ABC "Protocolo para la Gestión de Documentos Electrónicos en la Rama Judicial" a la versión 1.2.0.
+- Revisión y actualización de la guía de usuario con mejoras en claridad y consistencia.
+- Modificación de la recomendación sobre el prefijo numérico en la nomenclatura de archivos, permitiendo mayor flexibilidad.
+- Inclusión de referencias a documentación adicional sobre el proceso de transformación digital de la Rama Judicial:
+  * Plan de Digitalización de Expedientes 2020-2022
+  * CIRCULAR PCSJC20-32
+  * Plan Estratégico de Transformación Digital
+  * Programa de Expediente Electrónico
+  * Sistema Integrado Único de Gestión Judicial - Core
+  * Proyectos de Transición
+- Actualización de las referencias bibliográficas al formato APA séptima edición.
+- Mejora en la estructura del documento con la adición de saltos de página para mejor legibilidad.
 
-- 2024-08-10: Actualización de la versión web (v.1.2.0)
-  - Rediseño de la interfaz web, moviendo recursos adicionales y créditos al panel lateral.
-  - Simplificación del proceso de generación de índices, eliminando la opción de usar plantilla.
-  - Implementación de manejo de archivos temporales para mejorar la seguridad y el rendimiento en entornos multi-usuario.
-  - Adición de funcionalidad para comprimir y descargar el expediente completo con el índice generado.
-  - Mejora en la gestión de recursos del servidor al procesar múltiples solicitudes simultáneas.
+#### Software
+- Corrección de errores en la generación del índice en formato Excel.
+- Resolución del problema de ventanas sin mensajes durante la ejecución del programa.
+- Implementación de mejoras en el manejo de archivos y la generación del índice electrónico, contribuidas por [HammerDev99](https://github.com/HammerDev99):
+  * Optimización del algoritmo de renombrado de archivos.
+  * Función más robusta para la extracción de metadatos de diferentes tipos de archivos.
+  * Mejora en la lógica de generación del índice electrónico.
+- Inicio del proceso para resolver el problema de seguridad que marca el ejecutable como sospechoso.
 
-- 2024-08-09: Actualización y correcciones (v.1.1.1)
-  - Mejora en el manejo de la plantilla Excel con macros (.xlsm).
-  - Corrección del problema de generación de archivos .xlsx adicionales.
-  - Optimización del proceso de renombrado de archivos para respetar la numeración existente.
-  - Ajuste en la lógica de generación del índice para excluir correctamente archivos no deseados.
-  - Mejora en la compatibilidad con diferentes sistemas operativos.
-  - Actualización de la documentación y guías de usuario.
+#### Nuevas Características
+- Mantenimiento de las nuevas páginas implementadas en la versión anterior:
+  * Hoja de Ruta (1_📊_Hoja_de_Ruta.py): Visualización interactiva del progreso del proyecto.
+  * Experto en Expediente Electrónico (2_🤖_Experto_en_Expediente_Electronico.py): Chatbot especializado en gestión documental judicial.
 
-- 2024-08-09: Actualización mayor (v.1.1.0)
-  - Implementación de la versión de escritorio utilizando PyQt5.
-  - Adición de la funcionalidad para generar índices tanto desde cero como utilizando una plantilla.
-  - Mejora en la extracción de metadatos para soportar múltiples tipos de archivos.
-  - Implementación de un manejador de Excel para crear y modificar archivos de índice.
-  - Actualización de la estructura del proyecto para soportar tanto la versión web como la de escritorio.
-  - Adición de pruebas unitarias para las nuevas funcionalidades.
-  - Actualización de la documentación para reflejar los nuevos cambios y características.
+#### Revisión Externa
+- Revisión completa realizada por Daniel Arbeláez Álvarez, Técnico CSP de Bello, Antioquia.
+- Incorporación de sugerencias y correcciones basadas en la revisión externa.
 
-- 2024-08-08: Primera versión (v.1.0.0)
-  - Lanzamiento inicial del Sistema de Gestión de Expedientes Electrónicos Judiciales.
-  - Implementación de la versión web utilizando Streamlit.
+#### Próximos Pasos
+- Continuar la optimización del software basándose en el feedback recibido.
+- Implementar soluciones para los problemas de seguridad identificados.
+- Actualizar la documentación para reflejar las últimas normativas y planes de transformación digital de la Rama Judicial.
+
+### 2024-08-15: Actuaización menor y corrección de errores (v.1.3.1)
+- Corrección de errores menores en la interfaz de usuario y el proceso de generación de índices.
+- Supreción de las carpetas marco_normativo y temp_expediente en la versión web y escritorio para optimizar el espacio de almacenamiento y carga de archivos.
+- Mejoras en la gestión de errores y mensajes de usuario para una experiencia más fluida y menos propensa a errores.
+- En la versión de escritorio se elimino el guardar el índice electrónico (xlsx) en la carpeta del expediente y se dejo solamente el guardado del índice electrónico (xlsm) en la carpeta del expediente para optimizar el espacio de almacenamiento y carga de archivos.
+
+### 2024-08-10: Actualización mayor y mejoras en la versión web (v.1.3.0)
+- Rediseño completo de la interfaz web, con un panel lateral mejorado.
+- Implementación de descarga de recursos adicionales y marco normativo desde el panel lateral.
+- Adición de badges de GitHub y contador de visitantes en la página principal.
+- Mejora en la configuración de Streamlit para una mejor experiencia de usuario.
+- Optimización del manejo de archivos temporales para mejorar la seguridad y el rendimiento.
+- Implementación de manejo de errores robusto, especialmente para la carga de imágenes y recursos.
+- Preparación del proyecto para generación de ejecutable para Windows.
+- Actualización de la documentación y guías de usuario.
+
+### 2024-08-10: Actualización de la versión web (v.1.2.0)
+- Rediseño de la interfaz web, moviendo recursos adicionales y créditos al panel lateral.
+- Simplificación del proceso de generación de índices, eliminando la opción de usar plantilla.
+- Implementación de manejo de archivos temporales para mejorar la seguridad y el rendimiento en entornos multi-usuario.
+- Adición de funcionalidad para comprimir y descargar el expediente completo con el índice generado.
+- Mejora en la gestión de recursos del servidor al procesar múltiples solicitudes simultáneas.
+
+### 2024-08-09: Actualización y correcciones (v.1.1.1)
+- Mejora en el manejo de la plantilla Excel con macros (.xlsm).
+- Corrección del problema de generación de archivos .xlsx adicionales.
+- Optimización del proceso de renombrado de archivos para respetar la numeración existente.
+- Ajuste en la lógica de generación del índice para excluir correctamente archivos no deseados.
+- Mejora en la compatibilidad con diferentes sistemas operativos.
+- Actualización de la documentación y guías de usuario.
+
+### 2024-08-09: Actualización mayor (v.1.1.0)
+- Implementación de la versión de escritorio utilizando PyQt5.
+- Adición de la funcionalidad para generar índices tanto desde cero como utilizando una plantilla.
+- Mejora en la extracción de metadatos para soportar múltiples tipos de archivos.
+- Implementación de un manejador de Excel para crear y modificar archivos de índice.
+- Actualización de la estructura del proyecto para soportar tanto la versión web como la de escritorio.
+- Adición de pruebas unitarias para las nuevas funcionalidades.
+- Actualización de la documentación para reflejar los nuevos cambios y características.
+
+### 2024-08-08: Primera versión (v.1.0.0)
+- Lanzamiento inicial del Sistema de Gestión de Expedientes Electrónicos Judiciales.
+- Implementación de la versión web utilizando Streamlit.
 
 ## Créditos
 
