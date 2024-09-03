@@ -51,7 +51,7 @@ def main():
     st.sidebar.image("assets/logo_CSJ_Sucre.png", width=200)
     st.sidebar.write("<div style='text-align: center;'>Desarrollado por Alexander Oviedo Fadul</div>", unsafe_allow_html=True)
     st.sidebar.write("<div style='text-align: center;'>v.1.3.2</div>", unsafe_allow_html=True)
-    st.sidebar.write("<div style='text-align: center;'><a href='https://github.com/bladealex9848'>GitHub</a> | <a href='https://alexander.oviedo.isabellaea.com/'>Website</a> | <a href='https://www.linkedin.com/in/alexander-oviedo-fadul-49434b9a/'>LinkedIn</a></div>", unsafe_allow_html=True)
+    st.sidebar.write("<div style='text-align: center;'><a href='https://github.com/bladealex9848'>GitHub</a> | <a href='https://www.alexanderoviedofadul.dev/'>Website</a> | <a href='https://www.linkedin.com/in/alexander-oviedo-fadul/'>LinkedIn</a></div>", unsafe_allow_html=True)
 
     # Main content
     
