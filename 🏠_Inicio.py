@@ -65,12 +65,12 @@ def main():
         with col1:
             st.header("Versión Lite")
             st.write("Ideal para procesar una carpeta a la vez. Perfecta para usuarios que manejan volúmenes moderados de expedientes.")
-            st.markdown(get_binary_file_downloader_html("https://enki.care/GestionExpedienteElectronicoWindows", 'Descargar Versión Lite'), unsafe_allow_html=True)
+            st.markdown(get_binary_file_downloader_html("https://enki.care/GestionExpedienteElectronicoWindows", 'Versión Lite'), unsafe_allow_html=True)
         
         with col2:
             st.header("Versión Ultimate")
             st.write("Capacidad de procesamiento masivo. Diseñada para usuarios que necesitan manejar grandes volúmenes de expedientes simultáneamente.")
-            st.markdown(get_binary_file_downloader_html("https://enki.care/GestionExpedienteElectronicoUltimate", 'Descargar Versión Ultimate'), unsafe_allow_html=True)
+            st.markdown(get_binary_file_downloader_html("https://enki.care/GestionExpedienteElectronicoUltimate", 'Versión Ultimate'), unsafe_allow_html=True)
 
     with tab2:
         st.header("Versión Web de Entrenamiento")
