@@ -34,7 +34,7 @@ class IndexGeneratorThread(QThread):
             
             # Generar el índice electrónico a partir de la plantilla
             self.progress_update.emit(75)
-            template_path = resource_path("assets/00IndiceElectronicoC0.xlsm")
+            template_path = resource_path("assets/000IndiceElectronicoC0.xlsm")
             df = generate_index_from_template(self.folder_path, template_path)
             
             self.progress_update.emit(100)
@@ -119,7 +119,7 @@ class MainWindow(QMainWindow):
         main_layout.addWidget(self.info_label)
 
         # Créditos
-        credits_label = QLabel("Desarrollado por Alexander Oviedo Fadul\nProfesional Universitario Grado 11\nConsejo Seccional de la Judicatura de Sucre\nv.1.3.2")
+        credits_label = QLabel("Desarrollado por Alexander Oviedo Fadul\nProfesional Universitario Grado 11\nConsejo Seccional de la Judicatura de Sucre\nv.1.3.3")
         credits_label.setAlignment(Qt.AlignCenter)
         main_layout.addWidget(credits_label)
 
@@ -160,8 +160,8 @@ class MainWindow(QMainWindow):
         self.progress_bar.setValue(0)
 
     def download_template(self):
-        template_path = resource_path("assets/00IndiceElectronicoC0.xlsm")
-        destination, _ = QFileDialog.getSaveFileName(self, "Guardar Plantilla", "00IndiceElectronicoC0.xlsm", "Excel Files (*.xlsm)")
+        template_path = resource_path("assets/000IndiceElectronicoC0.xlsm")
+        destination, _ = QFileDialog.getSaveFileName(self, "Guardar Plantilla", "000IndiceElectronicoC0.xlsm", "Excel Files (*.xlsm)")
         if destination:
             try:
                 shutil.copy(template_path, destination)

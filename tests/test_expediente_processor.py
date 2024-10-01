@@ -84,7 +84,7 @@ class TestExpedienteProcessor(unittest.TestCase):
 
     def test_generate_index_from_template(self):
         try:
-            template_path = os.path.join(os.path.dirname(__file__), '..', 'assets', '00IndiceElectronicoC0.xlsm')
+            template_path = os.path.join(os.path.dirname(__file__), '..', 'assets', '000IndiceElectronicoC0.xlsm')
             output_path = generate_index_from_template(self.test_dir, template_path)
             self.assertTrue(os.path.exists(output_path), "No se generó el archivo de índice")
             self.assertTrue(output_path.endswith('.xlsm'), "El archivo generado no tiene la extensión .xlsm")

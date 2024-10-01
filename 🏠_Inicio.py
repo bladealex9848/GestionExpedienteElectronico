@@ -37,14 +37,16 @@ def main():
         st.markdown(get_binary_file_downloader_html("https://enki.care/PCSJA23-12094", 'ACUERDO PCSJA23-12094'), unsafe_allow_html=True)
         st.markdown(get_binary_file_downloader_html("https://enki.care/PCSJC24-23", 'CIRCULAR PCSJC24-23'), unsafe_allow_html=True)
         st.markdown(get_binary_file_downloader_html("https://enki.care/PlanSectorialDesarrolloRamaJudicial2023-2026", 'Plan Sectorial de Desarrollo Rama Judicial 2023-2026'), unsafe_allow_html=True)
+        st.markdown(get_binary_file_downloader_html("https://enki.care/seccion-de-gestion-documental", 'División de Gestión Documental'), unsafe_allow_html=True)
+        st.markdown(get_binary_file_downloader_html("https://enki.care/gestion-de-documentos-electronicos", 'Gestión de documentos electrónicos'), unsafe_allow_html=True)
         st.markdown(get_binary_file_downloader_html("https://enki.care/ProtocoloGestionDocumentosElectronicos", 'Protocolo para la gestión de documentos electrónicos'), unsafe_allow_html=True)
-        st.markdown(get_binary_file_downloader_html("https://enki.care/ABCExpedienteJudicialElectronicoV6", 'ABC Expediente Judicial Electrónico'), unsafe_allow_html=True)
+        st.markdown(get_binary_file_downloader_html("https://enki.care/ABCExpedienteJudicialElectronicoV6", 'ABC Expediente Judicial Electrónico'), unsafe_allow_html=True)        
 
     st.sidebar.markdown("---")
     st.sidebar.image("assets/logo_CSJ_Sucre.png", width=200)
     st.sidebar.write("<div style='text-align: center;'>Desarrollado por Equipo Marduk</div>", unsafe_allow_html=True)
-    st.sidebar.write("<div style='text-align: center;'>v.1.3.2</div>", unsafe_allow_html=True)
-    st.sidebar.write("<div style='text-align: center;'><a href='https://github.com/bladealex9848'>GitHub</a> | <a href='https://www.alexanderoviedofadul.dev/'>Website</a> | <a href='https://www.linkedin.com/in/alexander-oviedo-fadul/'>LinkedIn</a></div>", unsafe_allow_html=True)
+    st.sidebar.write("<div style='text-align: center;'>v.1.3.3 Lite | v.1.3.0</div>", unsafe_allow_html=True)
+    st.sidebar.write("<div style='text-align: center;'><a href='https://github.com/bladealex9848'>GitHub Lite</a> | <a href='https://github.com/HammerDev99'>GitHub Ultimate</a> | <a href='https://marduk.pro/'>Website</a></div>", unsafe_allow_html=True)
 
     # Main content
     st.title("Sistema de Gestión de Expedientes Electrónicos Judiciales")
@@ -96,7 +98,7 @@ def main():
                         
                         progress_bar.progress(66)
                         
-                        index_file_path = os.path.join(temp_folder, "00IndiceElectronicoC0.xlsx")
+                        index_file_path = os.path.join(temp_folder, "000IndiceElectronicoC0.xlsx")
                         save_excel_file(df, index_file_path, use_template=False)
                         
                         progress_bar.progress(100)

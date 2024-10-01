@@ -11,7 +11,7 @@ def rename_files(folder_path):
              if os.path.isfile(os.path.join(folder_path, f)) 
              and not f.startswith('.') 
              and os.path.splitext(f)[1] != ''
-             and f != '00IndiceElectronicoC0.xlsx']
+             and f != '000IndiceElectronicoC0.xlsx']
     
     # Ordenar los archivos por fecha de modificación
     files.sort(key=lambda x: os.path.getmtime(os.path.join(folder_path, x)))
@@ -19,14 +19,14 @@ def rename_files(folder_path):
     # Encontrar el número más alto de los archivos ya nombrados
     max_num = 0
     for filename in files:
-        if re.match(r'^(\d{2})', filename):
-            num = int(filename[:2])
+        if re.match(r'^(\d{3})', filename):
+            num = int(filename[:3])
             if num > max_num:
                 max_num = num
     
     # Renombrar solo los archivos que no tienen el formato correcto
     for filename in files:
-        if not re.match(r'^(\d{2})', filename):
+        if not re.match(r'^(\d{3})', filename):
             file_path = os.path.join(folder_path, filename)
             name, extension = os.path.splitext(filename)
             
