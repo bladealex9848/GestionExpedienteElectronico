@@ -75,6 +75,12 @@ st.sidebar.write("<div style='text-align: center;'><a href='https://github.com/b
 
 # Presentación del agente
 st.title("Bienvenido al Experto en Gestión Documental Judicial 🏛️📄")
+
+st.write("""
+    [![ver código fuente](https://img.shields.io/badge/Repositorio%20GitHub-gris?logo=github)](https://github.com/bladealex9848/GestionExpedienteElectronico)
+    ![Visitantes](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgestionexpedienteelectronico.streamlit.app&label=Visitantes&labelColor=%235d5d5d&countColor=%231e7ebf&style=flat)
+    """)
+
 st.markdown("""
 ### ¡Hola! Soy tu Experto en Gestión Documental Judicial
 

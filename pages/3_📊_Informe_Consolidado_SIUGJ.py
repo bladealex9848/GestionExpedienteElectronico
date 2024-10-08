@@ -37,6 +37,11 @@ st.sidebar.write("<div style='text-align: center;'><a href='https://github.com/b
 # Título principal
 st.title("Informe Consolidado sobre la Implementación del Sistema de Gestión Documental Electrónica y su Alineación con SIUGJ")
 
+st.write("""
+    [![ver código fuente](https://img.shields.io/badge/Repositorio%20GitHub-gris?logo=github)](https://github.com/bladealex9848/GestionExpedienteElectronico)
+    ![Visitantes](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgestionexpedienteelectronico.streamlit.app&label=Visitantes&labelColor=%235d5d5d&countColor=%231e7ebf&style=flat)
+    """)
+
 # Resumen Ejecutivo
 st.header("1. Resumen Ejecutivo")
 st.write("""
