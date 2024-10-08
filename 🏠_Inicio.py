@@ -28,14 +28,25 @@ def mostrar_vision_general():
     cumpliendo con los estándares establecidos por el Consejo Superior de la Judicatura de Colombia.
     """)
 
-    st.subheader("🌟 Características Principales")
-    st.write("""
-    - Generación automatizada de índices electrónicos
-    - Compatibilidad con múltiples formatos de archivo
-    - Interfaz intuitiva y fácil de usar
-    - Cumplimiento de normativas judiciales colombianas
-    - Versiones para diferentes necesidades: Lite, Ultimate y Web
-    """)
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.subheader("📦 Objetivo")
+        st.write("""
+        - Facilitar la generación de índices electrónicos de expedientes judiciales.
+        - Cumplir con las normativas y protocolos judiciales colombianos.
+        - Mejorar la eficiencia y precisión en la gestión documental.
+        - Ofrecer una solución adaptable a diferentes volúmenes de expedientes.
+        """)
+    with col1:
+        st.subheader("🌟 Características Principales")
+        st.write("""
+        - Generación automatizada de índices electrónicos
+        - Compatibilidad con múltiples formatos de archivo
+        - Interfaz intuitiva y fácil de usar
+        - Cumplimiento de normativas judiciales colombianas
+        - Versiones para diferentes necesidades: Lite, Ultimate y Web
+        """)
 
     col1, col2 = st.columns(2)
 
