@@ -3,6 +3,8 @@ import os
 import openai
 import streamlit as st
 import time
+from io import BytesIO
+import base64
 
 # Configuración de la página
 st.set_page_config(
@@ -43,6 +45,33 @@ assistant_id = ASSISTANT_ID
 
 # Inicialización del cliente de OpenAI
 client = openai
+
+def get_binary_file_downloader_html(url, file_label='File'):
+    href = f'<a href="{url}" target="_blank">Descargar {file_label}</a>'
+    return href
+
+# Sidebar
+st.sidebar.title("Recursos Adicionales")
+with st.sidebar.expander("Ver Recursos Adicionales", expanded=False):
+    st.markdown(get_binary_file_downloader_html("https://enki.care/IndiceElectronicoC0", 'Plantilla Excel'), unsafe_allow_html=True)
+    st.markdown(get_binary_file_downloader_html("https://enki.care/GestionExpedienteElectronicoGuiaUso", 'Guía de Uso'), unsafe_allow_html=True)
+
+st.sidebar.title("Marco Normativo")
+with st.sidebar.expander("Ver Marco Normativo", expanded=False):
+    st.markdown(get_binary_file_downloader_html("https://enki.care/PCSJA20-11567", 'ACUERDO PCSJA20-11567'), unsafe_allow_html=True)
+    st.markdown(get_binary_file_downloader_html("https://enki.care/PCSJA23-12094", 'ACUERDO PCSJA23-12094'), unsafe_allow_html=True)
+    st.markdown(get_binary_file_downloader_html("https://enki.care/PCSJC24-23", 'CIRCULAR PCSJC24-23'), unsafe_allow_html=True)
+    st.markdown(get_binary_file_downloader_html("https://enki.care/PlanSectorialDesarrolloRamaJudicial2023-2026", 'Plan Sectorial de Desarrollo Rama Judicial 2023-2026'), unsafe_allow_html=True)
+    st.markdown(get_binary_file_downloader_html("https://enki.care/seccion-de-gestion-documental", 'División de Gestión Documental'), unsafe_allow_html=True)
+    st.markdown(get_binary_file_downloader_html("https://enki.care/gestion-de-documentos-electronicos", 'Gestión de documentos electrónicos'), unsafe_allow_html=True)
+    st.markdown(get_binary_file_downloader_html("https://enki.care/ProtocoloGestionDocumentosElectronicos", 'Protocolo para la gestión de documentos electrónicos'), unsafe_allow_html=True)
+    st.markdown(get_binary_file_downloader_html("https://enki.care/ABCExpedienteJudicialElectronicoV6", 'ABC Expediente Judicial Electrónico'), unsafe_allow_html=True)        
+
+st.sidebar.markdown("---")
+st.sidebar.image("assets/logo_CSJ_Sucre.png", width=200)
+st.sidebar.write("<div style='text-align: center;'>Desarrollado por Equipo Marduk</div>", unsafe_allow_html=True)
+st.sidebar.write("<div style='text-align: center;'>v.1.3.3 Lite | v.1.3.0 Ultimate</div>", unsafe_allow_html=True)
+st.sidebar.write("<div style='text-align: center;'><a href='https://github.com/bladealex9848'>GitHub Lite</a> | <a href='https://github.com/HammerDev99'>GitHub Ultimate</a> | <a href='https://marduk.pro/'>Website</a></div>", unsafe_allow_html=True)
 
 # Presentación del agente
 st.title("Bienvenido al Experto en Gestión Documental Judicial 🏛️📄")
