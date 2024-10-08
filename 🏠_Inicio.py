@@ -55,24 +55,65 @@ def main():
     [![ver código fuente](https://img.shields.io/badge/Repositorio%20GitHub-gris?logo=github)](https://github.com/bladealex9848/GestionExpedienteElectronico)
     ![Visitantes](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgestionexpedienteelectronico.streamlit.app&label=Visitantes&labelColor=%235d5d5d&countColor=%231e7ebf&style=flat)
     """)
-
+    
     # Tabs para las diferentes versiones
-    tab1, tab2 = st.tabs(["Versiones de Escritorio", "Versión Web"])
+    tab1, tab2, tab3 = st.tabs(["Versión Lite", "Versión Ultimate", "Versión Web"])
 
     with tab1:
-        col1, col2 = st.columns(2)
+        st.header("Versión Lite")
+        st.write("""
+        Ideal para procesar una carpeta a la vez. Perfecta para usuarios que manejan volúmenes moderados de expedientes.
         
-        with col1:
-            st.header("Versión Lite")
-            st.write("Ideal para procesar una carpeta a la vez. Perfecta para usuarios que manejan volúmenes moderados de expedientes.")
-            st.markdown(get_binary_file_downloader_html("https://enki.care/GestionExpedienteElectronicoWindows", 'Versión Lite'), unsafe_allow_html=True)
+        **Características:**
+        - Interfaz gráfica intuitiva
+        - Procesamiento de una carpeta a la vez
+        - Renombrado automático de archivos
+        - Generación de índice electrónico en formato Excel
+        - Compatible con Windows, macOS y Linux
+        """)
+        st.markdown(get_binary_file_downloader_html("https://enki.care/GestionExpedienteElectronicoWindows", 'Descargar Versión Lite'), unsafe_allow_html=True)
         
-        with col2:
-            st.header("Versión Ultimate")
-            st.write("Capacidad de procesamiento masivo. Diseñada para usuarios que necesitan manejar grandes volúmenes de expedientes simultáneamente.")
-            st.markdown(get_binary_file_downloader_html("https://enki.care/GestionExpedienteElectronicoUltimate", 'Versión Ultimate'), unsafe_allow_html=True)
+        with st.expander("Instrucciones de Uso - Versión Lite"):
+            st.write("""
+            1. Descargue la herramienta en versión portable desde el enlace proporcionado.
+            2. Abra la herramienta.
+            3. Seleccione la carpeta del expediente que contiene los archivos sin renombrar.
+            4. Haga clic en "Generar Índice".
+            5. Espere a que el proceso termine.
+            6. Verifique la carpeta del expediente:
+               - Compruebe que se ha creado el archivo "000IndiceElectronicoC01.xlsm"
+               - Confirme que los archivos han sido renombrados según el protocolo.
+            """)
 
     with tab2:
+        st.header("Versión Ultimate")
+        st.write("""
+        Capacidad de procesamiento masivo. Diseñada para usuarios que necesitan manejar grandes volúmenes de expedientes simultáneamente.
+        
+        **Características:**
+        - Procesamiento de múltiples carpetas y expedientes
+        - Uso de plantillas predefinidas y macros para insertar filas
+        - Manejo avanzado de metadatos
+        - Compatibilidad con estructuras de carpetas complejas
+        - Conteo de páginas para cualquier tipo de archivo
+        - Ajustes para integración con Alfresco
+        - Requiere Python 3.9 y bibliotecas específicas
+        """)
+        st.markdown(get_binary_file_downloader_html("https://enki.care/GestionExpedienteElectronicoUltimate", 'Descargar Versión Ultimate'), unsafe_allow_html=True)
+        
+        with st.expander("Instrucciones de Uso - Versión Ultimate"):
+            st.write("""
+            1. Descargue las carpetas que contienen los archivos, sin incluir ningún índice.
+            2. Asegúrese de que cada carpeta de expediente esté nombrada con el radicado de 23 dígitos.
+            3. Verifique que los metadatos de los archivos sean consistentes con los documentos originales.
+            4. Cierre cualquier archivo de Excel abierto antes de ejecutar el programa.
+            5. La estructura de carpetas debe ser: carpeta_seleccionada/subcarpeta/archivos_para_indice
+            6. Ejecute el programa y seleccione la carpeta principal que contiene todos los expedientes.
+            7. El procesamiento comenzará automáticamente.
+            8. Verifique los resultados en cada carpeta de expediente procesada.
+            """)
+
+    with tab3:
         st.header("Versión Web de Entrenamiento")
         st.write("Esta versión en línea permite generar el índice electrónico de expedientes judiciales.")
 
@@ -110,16 +151,15 @@ def main():
                     except Exception as e:
                         st.error(f"Ocurrió un error: {str(e)}")
 
-    # Instrucciones de uso
-    with st.expander("Instrucciones de Uso"):
-        st.write("""
-        1. Descargue la carpeta del expediente sin incluir ningún índice.
-        2. Nombre la carpeta con el radicado de 23 dígitos.
-        3. Verifique que los metadatos de los archivos sean consistentes con los documentos originales.
-        4. Cierre cualquier archivo de Excel abierto antes de ejecutar el programa.
-        5. Asegúrese de que la estructura de la carpeta sea: carpeta_seleccionada/subcarpeta/archivos_para_indice.
-        6. El procesamiento comenzará automáticamente una vez seleccionada la carpeta.
-        """)
+        # Instrucciones de uso
+        with st.expander("Instrucciones de Uso - Versión Web"):
+            st.write("""
+            1. Seleccione los archivos que contienen los documentos del expediente utilizando el botón de carga.
+            2. Una vez cargados los archivos, haga clic en "Generar Índice Electrónico".
+            3. Espere a que el proceso termine.
+            4. Descargue el índice generado.
+            5. Utilice el índice como guía para renombrar manualmente los archivos dentro de la carpeta del expediente en su computadora local.
+            """)   
 
 if __name__ == "__main__":
     main()
