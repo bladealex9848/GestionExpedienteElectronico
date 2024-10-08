@@ -45,7 +45,7 @@ GestionExpedienteElectronico/
 ├── excel_handler.py
 │
 ├── assets/
-│   └── 00IndiceElectronicoC0.xlsm
+│   └── 000IndiceElectronicoC0.xlsm
 |   └── guia_uso.pdf
 |   └── logo.png
 |   └── logo_CSJ_Sucre.png
@@ -54,6 +54,7 @@ GestionExpedienteElectronico/
 ├── pages/
 │   └── 1_📊_Hoja_de_Ruta.py
 |   └── 2_🤖_Experto_en_Expediente_Electronico.py
+|   └── 3_📊_Informe_Consolidado_SIUGJ.py
 |
 ├── tests/
 │   └── test_expediente_processor.py
@@ -243,13 +244,13 @@ El Sistema de Gestión de Expedientes Electrónicos Judiciales es una herramient
   - Navegador web actualizado (Chrome, Firefox, Safari, Edge)
   - Conexión a internet estable
 
-### 3. Instalación (Versión de Escritorio)
+### 3. Instalación (Versión de Escritorio Lite y Ultimate)
 
 1. Descargue el ejecutable portable desde [enlace de descarga](https://gestionexpedienteelectronico.streamlit.app).
 2. Ejecute el archivo descargado y siga las instrucciones en pantalla.
 3. No se requiere instalación adicional.
 
-### 4. Acceso (Versión Web)
+### 4. Acceso (Versión Web de entrenamiento)
 
 1. Abra su navegador web.
 2. Visite la URL: [URL de la aplicación web](https://gestionexpedienteelectronico.streamlit.app).
@@ -257,7 +258,7 @@ El Sistema de Gestión de Expedientes Electrónicos Judiciales es una herramient
 
 ### 5. Interfaz de Usuario
 
-#### 5.1 Versión de Escritorio
+#### 5.1 Versión de Escritorio Lite
 
 - **Ventana Principal**: Contiene todos los controles necesarios para la gestión de expedientes.
 - **Botón "Seleccionar Carpeta"**: Permite elegir la carpeta que contiene los archivos del expediente.
@@ -266,7 +267,22 @@ El Sistema de Gestión de Expedientes Electrónicos Judiciales es una herramient
 - **Barra de Progreso**: Muestra el avance del proceso de generación.
 - **Área de Información**: Muestra mensajes y resultados del proceso.
 
-#### 5.2 Versión Web
+#### 5.2 Versión de Escritorio Ultimate
+
+- **Ventana Principal**: Interfaz avanzada para el procesamiento masivo de expedientes.
+- **Selección de Carpetas**: Permite elegir múltiples carpetas o una carpeta principal con subcarpetas.
+- **Panel de Configuración**: Opciones avanzadas para personalizar el procesamiento de expedientes.
+- **Botón "Procesar Expedientes"**: Inicia el procesamiento automatizado de todos los expedientes seleccionados.
+- **Visor de Estructura**: Muestra la estructura de carpetas y archivos de los expedientes seleccionados.
+- **Barra de Progreso Global**: Indica el avance general del procesamiento de todos los expedientes.
+- **Barra de Progreso Individual**: Muestra el progreso de cada expediente individual.
+- **Área de Logs**: Proporciona información detallada sobre cada paso del proceso y posibles errores.
+- **Panel de Metadatos**: Permite visualizar y editar metadatos de los archivos procesados.
+- **Botón "Generar Informe"**: Crea un informe detallado del procesamiento de todos los expedientes.
+- **Opciones de Exportación**: Permite exportar los índices generados en varios formatos (XLSX, XLSM, PDF).
+- **Integración con Alfresco**: Opciones para la migración directa de expedientes al sistema Alfresco.
+
+#### 5.3 Versión Web de entrenamiento
 
 - **Panel Principal**: Área central donde se cargan los archivos y se inicia el proceso.
 - **Barra Lateral**: Contiene enlaces a recursos adicionales, marco normativo, hoja de ruta, y chat bot experto en expedientes electrónicos.
@@ -275,7 +291,7 @@ El Sistema de Gestión de Expedientes Electrónicos Judiciales es una herramient
 
 ### 6. Uso Básico
 
-#### 6.1 Generar un Índice Electrónico (Versión de Escritorio)
+#### 6.1 Generar un Índice Electrónico (Versión de Escritorio Lite)
 
 1. Abra la aplicación.
 2. Haga clic en "Seleccionar Carpeta" y elija la carpeta que contiene los archivos del expediente.
@@ -283,7 +299,17 @@ El Sistema de Gestión de Expedientes Electrónicos Judiciales es una herramient
 4. Haga clic en "Generar Índice".
 5. Espere a que el proceso termine. El índice se guardará en la misma carpeta del expediente.
 
-#### 6.2 Generar un Índice Electrónico (Versión Web)
+#### 6.2 Generar un Índice Electrónico (Versión de Escritorio Ultimate)
+
+1. Abra la aplicación.
+2. Haga clic en "Seleccionar Carpetas" y elija las carpetas que contienen los expedientes.
+3. Configure las opciones avanzadas según sea necesario.
+4. Haga clic en "Procesar Expedientes".
+5. Espere a que el proceso termine. Los índices se guardarán en la misma carpeta de cada expediente.
+6. Utilice las opciones de exportación para obtener los índices en diferentes formatos.
+7. Opcionalmente, migre los expedientes al sistema Alfresco utilizando las opciones de integración.
+
+#### 6.3 Generar un Índice Electrónico (Versión Web de entrenamiento)
 
 1. Acceda a la aplicación web.
 2. Arrastre y suelte los archivos del expediente en el área de carga o use el botón para seleccionarlos.
@@ -298,7 +324,7 @@ El Sistema de Gestión de Expedientes Electrónicos Judiciales es una herramient
 ### 8. Solución de Problemas
 
 - **El índice no se genera**: Asegúrese de que todos los archivos en la carpeta sean válidos y accesibles.
-- **Errores en la carga de archivos (versión web)**: Verifique que el tamaño total de los archivos no exceda el límite permitido.
+- **Errores en la carga de archivos (versión web de entrenamiento)**: Verifique que el tamaño total de los archivos no exceda el límite permitido.
 - **La aplicación se cierra inesperadamente**: Asegúrese de tener la última versión instalada y que su sistema cumpla con los requisitos mínimos.
 
 ### 9. Mejores Prácticas
@@ -434,7 +460,7 @@ Este proyecto es una evolución del trabajo inicial realizado por [HammerDev99 D
 
 Desarrollado y mantenido por Alexander Oviedo Fadul, Profesional Universitario Grado 11 en el Consejo Seccional de la Judicatura de Sucre.
 
-[GitHub](https://github.com/bladealex9848) | [Website](https://alexander.oviedo.isabellaea.com/) | [Instagram](https://www.instagram.com/alexander.oviedo.fadul) | [Twitter](https://twitter.com/alexanderofadul) | [Facebook](https://www.facebook.com/alexanderof/) | [WhatsApp](https://api.whatsapp.com/send?phone=573015930519&text=Hola%20!Quiero%20conversar%20contigo!) | [LinkedIn](https://www.linkedin.com/in/alexander-oviedo-fadul-49434b9a/)
+[GitHub](https://github.com/bladealex9848) | [Website](https://alexanderoviedofadul.dev/) | [Instagram](https://www.instagram.com/alexander.oviedo.fadul) | [Twitter](https://twitter.com/alexanderofadul) | [Facebook](https://www.facebook.com/alexanderof/) | [WhatsApp](https://api.whatsapp.com/send?phone=573015930519&text=Hola%20!Quiero%20conversar%20contigo!) | [LinkedIn](https://www.linkedin.com/in/alexander-oviedo-fadul/)
 
 ## Licencia
 
