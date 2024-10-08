@@ -38,7 +38,7 @@ def mostrar_vision_general():
         - Mejorar la eficiencia y precisión en la gestión documental.
         - Ofrecer una solución adaptable a diferentes volúmenes de expedientes.
         """)
-    with col1:
+    with col2:
         st.subheader("🌟 Características Principales")
         st.write("""
         - Generación automatizada de índices electrónicos
