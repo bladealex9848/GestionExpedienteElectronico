@@ -20,6 +20,81 @@ st.set_page_config(
     }
 )
 
+def mostrar_vision_general():
+    st.header("Bienvenido al Sistema de Gestión de Expedientes Electrónicos Judiciales")
+    
+    st.write("""
+    Este sistema integral está diseñado para optimizar y digitalizar la gestión de expedientes judiciales, 
+    cumpliendo con los estándares establecidos por el Consejo Superior de la Judicatura de Colombia.
+    """)
+
+    st.subheader("🌟 Características Principales")
+    st.write("""
+    - Generación automatizada de índices electrónicos
+    - Compatibilidad con múltiples formatos de archivo
+    - Interfaz intuitiva y fácil de usar
+    - Cumplimiento de normativas judiciales colombianas
+    - Versiones para diferentes necesidades: Lite, Ultimate y Web
+    """)
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.subheader("📚 Recursos Adicionales")
+        st.write("""
+        - Plantilla Excel para índices electrónicos
+        - Guía de uso detallada
+        - Documentación técnica completa
+        """)
+
+        st.subheader("📋 Marco Normativo")
+        st.write("""
+        Acceso directo a documentos clave:
+        - ACUERDO PCSJA20-11567
+        - ACUERDO PCSJA23-12094
+        - CIRCULAR PCSJC24-23
+        - Plan Sectorial de Desarrollo Rama Judicial 2023-2026
+        - Protocolo para la gestión de documentos electrónicos
+        - ABC Expediente Judicial Electrónico
+        """)
+
+    with col2:
+        st.subheader("💻 Versiones Disponibles")
+        st.write("""
+        1. **Versión Lite**: 
+           - Ideal para volúmenes moderados
+           - Procesamiento de una carpeta a la vez
+           - Interfaz gráfica intuitiva
+
+        2. **Versión Ultimate**:
+           - Procesamiento masivo de expedientes
+           - Manejo avanzado de metadatos
+           - Compatibilidad con estructuras complejas
+
+        3. **Versión Web**:
+           - Acceso desde cualquier navegador
+           - Ideal para pruebas y capacitación
+           - No requiere instalación
+        """)
+
+    st.subheader("📊 Funcionalidades Adicionales")
+    st.write("""
+    - **Hoja de Ruta**: Visualiza el progreso de implementación del sistema.
+    - **Experto en Expediente Electrónico**: Asistente virtual para resolver dudas.
+    - **Informe Consolidado SIUGJ**: Análisis detallado de la alineación con el Sistema Integrado Único de Gestión Judicial.
+    """)
+
+    st.subheader("🚀 ¿Por qué elegir nuestro sistema?")
+    st.write("""
+    1. **Eficiencia**: Automatiza tareas repetitivas y reduce errores.
+    2. **Cumplimiento**: Garantiza el seguimiento de normativas y protocolos judiciales.
+    3. **Flexibilidad**: Adaptable a diferentes volúmenes y tipos de expedientes.
+    4. **Soporte**: Documentación completa y asistencia técnica disponible.
+    5. **Innovación**: Constantemente actualizado para satisfacer las necesidades cambiantes del sistema judicial.
+    """)
+
+    st.info("Explora las pestañas para acceder a cada funcionalidad y descubre cómo nuestro sistema puede transformar tu gestión de expedientes judiciales.")
+
 def get_binary_file_downloader_html(url, file_label='File'):
     href = f'<a href="{url}" target="_blank">Descargar {file_label}</a>'
     return href
@@ -57,7 +132,10 @@ def main():
     """)
     
     # Tabs para las diferentes versiones
-    tab1, tab2, tab3 = st.tabs(["Versión Lite", "Versión Ultimate", "Versión Web"])
+    tab0, tab1, tab2, tab3 = st.tabs(["Visión General", "Versiones de Escritorio", "Versión Web", "Instrucciones de Uso"])
+
+    with tab0:
+        mostrar_vision_general()
 
     with tab1:
         st.header("Versión Lite")
@@ -71,7 +149,7 @@ def main():
         - Generación de índice electrónico en formato Excel
         - Compatible con Windows, macOS y Linux
         """)
-        st.markdown(get_binary_file_downloader_html("https://enki.care/GestionExpedienteElectronicoWindows", 'Descargar Versión Lite'), unsafe_allow_html=True)
+        st.markdown(get_binary_file_downloader_html("https://enki.care/GestionExpedienteElectronicoWindows", 'Versión Lite'), unsafe_allow_html=True)
         
         with st.expander("Instrucciones de Uso - Versión Lite"):
             st.write("""
@@ -99,7 +177,7 @@ def main():
         - Ajustes para integración con Alfresco
         - Requiere Python 3.9 y bibliotecas específicas
         """)
-        st.markdown(get_binary_file_downloader_html("https://enki.care/GestionExpedienteElectronicoUltimate", 'Descargar Versión Ultimate'), unsafe_allow_html=True)
+        st.markdown(get_binary_file_downloader_html("https://enki.care/GestionExpedienteElectronicoUltimate", 'Versión Ultimate'), unsafe_allow_html=True)
         
         with st.expander("Instrucciones de Uso - Versión Ultimate"):
             st.write("""
