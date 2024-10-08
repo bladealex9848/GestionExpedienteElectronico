@@ -332,6 +332,19 @@ Planeamos añadir más funcionalidades al Sistema de Gestión de Expedientes Ele
 
 ## Registro de Cambios
 
+### 2024-10-08: Actualización mayor y revisión externa (v.1.3.3)
+
+- Implementación de una nueva pestaña "Visión General" en la página principal, proporcionando una introducción completa al sistema y sus características.
+- Reorganización de la estructura de pestañas para incluir "Visión General", "Versiones de Escritorio", "Versión Web" e "Instrucciones de Uso".
+- Actualización de las descripciones y características de las versiones Lite, Ultimate y Web.
+- Mejora en la presentación de recursos adicionales y marco normativo.
+- Adición de una sección que destaca los beneficios clave del sistema.
+- Integración de información sobre funcionalidades adicionales como Hoja de Ruta, Experto en Expediente Electrónico e Informe Consolidado SIUGJ.
+- Actualización de la interfaz de usuario para mejorar la navegación y experiencia del usuario.
+- Revisión y actualización de la documentación, incluyendo instrucciones de uso específicas para cada versión.
+- Optimización del código para mejorar el rendimiento y la eficiencia.
+- Preparación para una mejor integración con sistemas existentes como SIUGJ, Justicia XXICS y Tyba.
+
 ### 2024-08-18: Actualización mayor y revisión externa (v.1.3.2)
 
 #### Documentación
@@ -370,19 +383,6 @@ Planeamos añadir más funcionalidades al Sistema de Gestión de Expedientes Ele
 - Continuar la optimización del software basándose en el feedback recibido.
 - Implementar soluciones para los problemas de seguridad identificados.
 - Actualizar la documentación para reflejar las últimas normativas y planes de transformación digital de la Rama Judicial.
-
-### 2024-10-08: Actualización mayor y revisión externa (v.1.3.3)
-
-- Implementación de una nueva pestaña "Visión General" en la página principal, proporcionando una introducción completa al sistema y sus características.
-- Reorganización de la estructura de pestañas para incluir "Visión General", "Versiones de Escritorio", "Versión Web" e "Instrucciones de Uso".
-- Actualización de las descripciones y características de las versiones Lite, Ultimate y Web.
-- Mejora en la presentación de recursos adicionales y marco normativo.
-- Adición de una sección que destaca los beneficios clave del sistema.
-- Integración de información sobre funcionalidades adicionales como Hoja de Ruta, Experto en Expediente Electrónico e Informe Consolidado SIUGJ.
-- Actualización de la interfaz de usuario para mejorar la navegación y experiencia del usuario.
-- Revisión y actualización de la documentación, incluyendo instrucciones de uso específicas para cada versión.
-- Optimización del código para mejorar el rendimiento y la eficiencia.
-- Preparación para una mejor integración con sistemas existentes como SIUGJ, Justicia XXICS y Tyba.
 
 ### 2024-08-15: Actuaización menor y corrección de errores (v.1.3.1)
 - Corrección de errores menores en la interfaz de usuario y el proceso de generación de índices.
