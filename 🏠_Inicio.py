@@ -143,7 +143,7 @@ def main():
     """)
     
     # Tabs para las diferentes versiones
-    tab0, tab1, tab2, tab3 = st.tabs(["Visión General", "Versiones de Escritorio", "Versión Web", "Instrucciones de Uso"])
+    tab0, tab1, tab2, tab3 = st.tabs(["Visión General", "Versión Lite", "Versión Ultimate", "Versión Web"])
 
     with tab0:
         mostrar_vision_general()
