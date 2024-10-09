@@ -119,7 +119,7 @@ class MainWindow(QMainWindow):
         main_layout.addWidget(self.info_label)
 
         # Créditos
-        credits_label = QLabel("Desarrollado por Alexander Oviedo Fadul\nProfesional Universitario Grado 11\nConsejo Seccional de la Judicatura de Sucre\nv.1.3.3")
+        credits_label = QLabel("Desarrollado por Alexander Oviedo Fadul\nProfesional Universitario Grado 11\nConsejo Seccional de la Judicatura de Sucre\nv.1.3.4")
         credits_label.setAlignment(Qt.AlignCenter)
         main_layout.addWidget(credits_label)
 

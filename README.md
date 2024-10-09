@@ -358,6 +358,16 @@ Planeamos añadir más funcionalidades al Sistema de Gestión de Expedientes Ele
 
 ## Registro de Cambios
 
+2024-10-09: Actualización de funcionalidades de renombrado y generación de índice (v.1.3.4)
+* Mejora en la función de renombrado de archivos para manejar casos especiales de numeración preexistente.
+* Actualización del algoritmo para eliminar cualquier secuencia de números al inicio de los nombres de archivos.
+* Refinamiento del proceso de ordenamiento cronológico en la función de renombrado.
+* Ajuste en la generación del índice para reflejar correctamente los nuevos nombres de archivos sin numeración inicial.
+* Optimización del manejo de archivos de índice (IndiceElectronico) con extensiones .xlsx y .xlsm.
+* Corrección de la lógica para evitar la duplicación de números en nombres de archivos ya numerados.
+* Mejora en la consistencia entre el sistema de archivos y el índice generado en la plantilla de Excel.
+* Actualización de la documentación para reflejar los nuevos cambios en el proceso de renombrado y generación de índice.
+
 ### 2024-10-08: Actualización mayor y revisión externa (v.1.3.3)
 
 - Implementación de una nueva pestaña "Visión General" en la página principal, proporcionando una introducción completa al sistema y sus características.
