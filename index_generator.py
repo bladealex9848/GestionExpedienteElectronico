@@ -4,6 +4,7 @@ from datetime import datetime
 from openpyxl import load_workbook
 from metadata_extractor import get_file_metadata, get_pdf_pages
 import xlwings as xw
+import re
 
 def generate_index_from_scratch(folder_path):
     """
@@ -13,9 +14,7 @@ def generate_index_from_scratch(folder_path):
              if os.path.isfile(os.path.join(folder_path, f))
              and not f.startswith('.') # Ignorar archivos ocultos
              and os.path.splitext(f)[1] != '' # Ignorar archivos sin extensión
-             and f != '000IndiceElectronicoC0.xlsm' # Ignorar el índice si ya existe
-             and f != '00IndiceElectronicoC0.xlsm' # Ignorar el índice si ya existe
-             and 'IndiceElectronico' not in f and 'indiceelectronico' not in f] # Ignorar archivos que contienen "IndiceElectronico" en el nombre
+             and not ('IndiceElectronico' in f and f.endswith(('.xlsx', '.xlsm')))] # Ignorar archivos de índice
     
     # Ordenar los archivos por fecha de modificación (más antiguo primero)
     files.sort(key=lambda x: os.path.getmtime(os.path.join(folder_path, x)))
@@ -29,8 +28,11 @@ def generate_index_from_scratch(folder_path):
         
         num_pages = get_pdf_pages(file_path) if metadata['extension'].lower() == '.pdf' else 1
         
+        # Eliminar los tres dígitos iniciales y la extensión para el nombre del documento
+        doc_name = re.sub(r'^\d+', '', os.path.splitext(filename)[0])
+        
         data.append({
-            'Nombre Documento': filename,
+            'Nombre Documento': doc_name,
             'Fecha Creación Documento': metadata['modification_date'],
             'Fecha Incorporación Expediente': datetime.now().strftime('%Y-%m-%d'),
             'Orden Documento': i,

@@ -5,53 +5,56 @@ import string
 
 def rename_files(folder_path):
     """
-    Renombra los archivos en la carpeta según el protocolo, respetando los que ya tienen la estructura correcta.
+    Renombra los archivos en la carpeta según el protocolo, eliminando cualquier numeración existente
+    y aplicando una nueva numeración basada en la fecha de modificación.
     """
     files = [f for f in os.listdir(folder_path) 
              if os.path.isfile(os.path.join(folder_path, f)) 
              and not f.startswith('.') 
              and os.path.splitext(f)[1] != ''
-             and f != '000IndiceElectronicoC0.xlsx']
+             and not ('IndiceElectronico' in f and f.endswith(('.xlsx', '.xlsm')))]
+    
+    # Crear un diccionario para almacenar los archivos y sus fechas de modificación
+    file_dates = {f: os.path.getmtime(os.path.join(folder_path, f)) for f in files}
     
     # Ordenar los archivos por fecha de modificación
-    files.sort(key=lambda x: os.path.getmtime(os.path.join(folder_path, x)))
+    sorted_files = sorted(file_dates.items(), key=lambda x: x[1])
     
-    # Encontrar el número más alto de los archivos ya nombrados
-    max_num = 0
-    for filename in files:
-        if re.match(r'^(\d{3})', filename):
-            num = int(filename[:3])
-            if num > max_num:
-                max_num = num
+    # Renombrar los archivos
+    new_names = {}
+    for index, (filename, _) in enumerate(sorted_files, start=1):
+        file_path = os.path.join(folder_path, filename)
+        name, extension = os.path.splitext(filename)
+        
+        # Eliminar cualquier número al inicio del nombre
+        name = re.sub(r'^\d+', '', name)
+        
+        # Eliminar caracteres no alfanuméricos y espacios
+        name = re.sub(r'[^a-zA-Z0-9 ]+', '', name)
+        
+        # Aplicar mayúscula a la primera letra de cada palabra
+        name = name.title()
+        
+        # Eliminar espacios
+        name = name.replace(" ", "")
+        
+        # Limitar a 36 caracteres
+        name = name[:36]
+        
+        # Si está vacío, asignar "DocumentoElectronico"
+        if not name:
+            name = "DocumentoElectronico"
+        
+        new_name = f"{index:03d}{name}{extension}"
+        new_names[filename] = new_name
     
-    # Renombrar solo los archivos que no tienen el formato correcto
-    for filename in files:
-        if not re.match(r'^(\d{3})', filename):
-            file_path = os.path.join(folder_path, filename)
-            name, extension = os.path.splitext(filename)
-            
-            # Eliminar caracteres no alfanuméricos y espacios
-            name = re.sub(r'[^a-zA-Z0-9 ]+', '', name)
-            
-            # Aplicar mayúscula a la primera letra de cada palabra
-            name = string.capwords(name)
-            
-            # Eliminar espacios
-            name = name.replace(" ", "")
-            
-            # Limitar a 36 caracteres
-            name = name[:36]
-            
-            # Si está vacío, asignar "DocumentoElectronico"
-            if not name:
-                name = "DocumentoElectronico"
-            
-            # Incrementar el número y agregar al inicio del nombre del archivo 
-            max_num += 1            
-            new_name = f"{max_num:02d}{name}{extension}"
-            
-            new_path = os.path.join(folder_path, new_name)
-            os.rename(file_path, new_path)
+    # Aplicar los cambios de nombre
+    for old_name, new_name in new_names.items():
+        old_path = os.path.join(folder_path, old_name)
+        new_path = os.path.join(folder_path, new_name)
+        os.rename(old_path, new_path)
+
+    return new_names
 
 def get_file_metadata(file_path):
     """
