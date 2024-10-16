@@ -8,25 +8,27 @@ import xlwings as xw
 import os
 import shutil
 
-def save_excel_file(df, file_path, use_template=False):
+def save_excel_file(df, file_path, use_template=False, metadata=None):
     """
     Guarda el DataFrame en un archivo Excel, ya sea usando una plantilla o creando uno nuevo.
     
     :param df: DataFrame con los datos del índice
     :param file_path: Ruta donde se guardará el archivo Excel
     :param use_template: Boolean indicando si se debe usar la plantilla
+    :param metadata: Diccionario con los metadatos del expediente
     """
     if use_template:
-        fill_template_xlwings(df, file_path)
+        fill_template_xlwings(df, file_path, metadata)
     else:
-        wb = create_new_excel(df)
+        wb = create_new_excel(df, metadata)
         wb.save(file_path)
 
-def create_new_excel(df):
+def create_new_excel(df, metadata=None):
     """
     Crea un nuevo archivo Excel con el formato requerido.
     
     :param df: DataFrame con los datos del índice
+    :param metadata: Diccionario con los metadatos del expediente
     :return: Workbook de openpyxl
     """
     wb = Workbook()
@@ -58,6 +60,8 @@ def create_new_excel(df):
         ws.cell(row=i, column=1, value=field)
         ws.cell(row=i, column=1).font = Font(bold=True)
         ws.merge_cells(f'B{i}:K{i}')
+        if metadata and field in metadata:
+            ws.cell(row=i, column=2, value=metadata[field])
 
     # Expediente físico
     ws['L3'] = "EXPEDIENTE FÍSICO"
@@ -66,6 +70,10 @@ def create_new_excel(df):
     ws['L4'] = "El expediente judicial posee documentos físicos:"
     ws['L5'] = "No. de carpetas (cuadernos), legajos o tomos:"
     ws['L6'] = "No. de carpetas (cuadernos), legajos o tomos digitalizados:"
+    if metadata:
+        ws['J3'] = metadata.get('Expediente Físico', '')
+        ws['J5'] = metadata.get('No. Carpetas', '')
+        ws['J6'] = metadata.get('No. Carpetas Digitalizadas', '')
 
     # Encabezados de la tabla
     headers = [
@@ -105,12 +113,13 @@ def create_new_excel(df):
 
     return wb
 
-def fill_template_xlwings(df, file_path):
+def fill_template_xlwings(df, file_path, metadata=None):
     """
     Llena la plantilla Excel con los datos del DataFrame usando xlwings.
     
     :param df: DataFrame con los datos del índice
     :param file_path: Ruta donde se guardará el archivo Excel
+    :param metadata: Diccionario con los metadatos del expediente
     """
     template_path = os.path.join('assets', '000IndiceElectronicoC0.xlsm')
     shutil.copy(template_path, file_path)
@@ -125,12 +134,17 @@ def fill_template_xlwings(df, file_path):
             "No. Radicación del Proceso", "Partes Procesales (Parte A)",
             "Partes Procesales (Parte B)", "Terceros Intervinientes", "Cuaderno"
         ]
-        for i, field in enumerate(metadata_fields, start=3):
-            if field in df.columns:
-                ws.range(f'B{i}').value = df.iloc[0][field]
+        if metadata:
+            for i, field in enumerate(metadata_fields, start=3):
+                if field in metadata:
+                    ws.range(f'B{i}').value = metadata[field]
+            
+            ws.range('J3').value = metadata.get('Expediente Físico', '')
+            ws.range('J5').value = metadata.get('No. Carpetas', '')
+            ws.range('J6').value = metadata.get('No. Carpetas Digitalizadas', '')
         
         # Llenar datos del índice
-        ws.range('A12').options(index=False, headers=False).value = df.iloc[1:]
+        ws.range('A12').options(index=False, headers=False).value = df
         
         wb.save()
         wb.close()

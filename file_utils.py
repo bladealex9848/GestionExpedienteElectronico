@@ -12,7 +12,7 @@ def rename_files(folder_path):
              if os.path.isfile(os.path.join(folder_path, f)) 
              and not f.startswith('.') 
              and os.path.splitext(f)[1] != ''
-             and not ('IndiceElectronico' in f and f.endswith(('.xlsx', '.xlsm')))]
+             and not ('indice' in f.lower() and f.endswith(('.xlsx', '.xlsm', '.xls')))]
     
     # Crear un diccionario para almacenar los archivos y sus fechas de modificación
     file_dates = {f: os.path.getmtime(os.path.join(folder_path, f)) for f in files}
