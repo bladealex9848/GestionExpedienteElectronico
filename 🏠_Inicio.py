@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import os
 import pandas as pd
 from index_generator import generate_index_from_scratch
@@ -143,7 +144,7 @@ def main():
     """)
     
     # Tabs para las diferentes versiones
-    tab0, tab1, tab2, tab3 = st.tabs(["Visión General", "Versión Lite", "Versión Ultimate", "Versión Web"])
+    tab0, tab1, tab2, tab3, tab4 = st.tabs(["Visión General", "Versión Lite", "Versión Ultimate", "Versión Web", "Video Tutoriales"])
 
     with tab0:
         mostrar_vision_general()
@@ -248,7 +249,23 @@ def main():
             3. Espere a que el proceso termine.
             4. Descargue el índice generado.
             5. Utilice el índice como guía para renombrar manualmente los archivos dentro de la carpeta del expediente en su computadora local.
-            """)   
+            """)
+            
+    with tab4:
+        st.header("Video Tutoriales")
+        
+        st.subheader("Versión Ultimate")
+        components.html(
+            '''
+            <iframe src="https://etbcsj-my.sharepoint.com/personal/saladmconsecsucre_cendoj_ramajudicial_gov_co/_layouts/15/embed.aspx?UniqueId=7c690f23-2dd6-4b7d-829c-73eb7409b9f8&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen title="Tutorial de uso Gestion Expediente Electronico v1.3.0.mp4"></iframe>
+            ''',
+            height=400
+        )
+        st.markdown("[Ver video en alta calidad](https://enki.care/Ultimate)")
+        
+        st.subheader("Versión Lite")
+        st.write("El video tutorial para la Versión Lite estará disponible próximamente.")
+        st.markdown("[Ver video en alta calidad](https://enki.care/Lite)")   
 
 if __name__ == "__main__":
     main()
