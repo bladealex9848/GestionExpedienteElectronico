@@ -358,7 +358,23 @@ Planeamos añadir más funcionalidades al Sistema de Gestión de Expedientes Ele
 
 ## Registro de Cambios
 
-2024-10-09: Actualización de funcionalidades de renombrado y generación de índice (v.1.3.4)
+### 2024-10-16: Mejora en la experiencia de usuario y expansión de funcionalidades (v.1.3.5)
+
+* Implementación de una nueva pestaña "Visión General" en la página principal, proporcionando una introducción completa al sistema y sus características.
+* Reorganización de la estructura de pestañas para incluir "Visión General", "Versiones de Escritorio", "Versión Web" e "Instrucciones de Uso".
+* Actualización de las descripciones y características de las versiones Lite, Ultimate y Web para una mejor comprensión por parte del usuario.
+* Integración de video tutoriales embebidos para las versiones Lite y Ultimate, mejorando la accesibilidad a la información de uso.
+* Adición de enlaces de respaldo para ver los videos tutoriales en alta calidad.
+* Mejora en la presentación de recursos adicionales y marco normativo en la barra lateral.
+* Inclusión de una sección que destaca los beneficios clave del sistema en la página de visión general.
+* Integración de información sobre funcionalidades adicionales como Hoja de Ruta, Experto en Expediente Electrónico e Informe Consolidado SIUGJ.
+* Optimización del código para mejorar el rendimiento y la eficiencia de la aplicación web.
+* Actualización de la documentación, incluyendo instrucciones de uso específicas para cada versión del sistema.
+* Implementación de URLs personalizadas para facilitar el acceso a los recursos y videos tutoriales.
+* Preparación para una mejor integración con sistemas existentes como SIUGJ, Justicia XXICS y Tyba.
+* Actualización del README y documentación técnica para reflejar los nuevos cambios y características.
+
+### 2024-10-09: Actualización de funcionalidades de renombrado y generación de índice (v.1.3.4)
 * Mejora en la función de renombrado de archivos para manejar casos especiales de numeración preexistente.
 * Actualización del algoritmo para eliminar cualquier secuencia de números al inicio de los nombres de archivos.
 * Refinamiento del proceso de ordenamiento cronológico en la función de renombrado.

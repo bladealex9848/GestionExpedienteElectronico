@@ -264,7 +264,12 @@ def main():
         st.markdown("[Ver video en alta calidad](https://enki.care/Ultimate)")
         
         st.subheader("Versión Lite")
-        st.write("El video tutorial para la Versión Lite estará disponible próximamente.")
+        components.html(
+            '''
+            <iframe src="https://etbcsj-my.sharepoint.com/personal/saladmconsecsucre_cendoj_ramajudicial_gov_co/_layouts/15/embed.aspx?UniqueId=2001a1bc-3fbb-48ca-8218-384c51a130b0&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen title="Tutorial de uso Gestion Expediente Electronico v1.3.4.mp4"></iframe>
+            ''',
+            height=400
+        )
         st.markdown("[Ver video en alta calidad](https://enki.care/Lite)")   
 
 if __name__ == "__main__":
