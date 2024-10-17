@@ -257,7 +257,7 @@ def main():
         st.subheader("Versión Ultimate")
         components.html(
             '''
-            <iframe src="https://etbcsj-my.sharepoint.com/personal/saladmconsecsucre_cendoj_ramajudicial_gov_co/_layouts/15/embed.aspx?UniqueId=7c690f23-2dd6-4b7d-829c-73eb7409b9f8&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen title="Tutorial de uso Gestion Expediente Electronico v1.3.0.mp4"></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/w3pG6NyX6OE?si=7UxPvHqPGZR4kSZ_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             ''',
             height=400
         )
@@ -266,7 +266,7 @@ def main():
         st.subheader("Versión Lite")
         components.html(
             '''
-            <iframe src="https://etbcsj-my.sharepoint.com/personal/saladmconsecsucre_cendoj_ramajudicial_gov_co/_layouts/15/embed.aspx?UniqueId=2001a1bc-3fbb-48ca-8218-384c51a130b0&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create" width="640" height="360" frameborder="0" scrolling="no" allowfullscreen title="Tutorial de uso Gestion Expediente Electronico v1.3.4.mp4"></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/uRHbo-FHQy4?si=LlDNNOR7xQIGFNVw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             ''',
             height=400
         )
