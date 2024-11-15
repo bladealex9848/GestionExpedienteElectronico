@@ -153,7 +153,7 @@ def main():
     st.sidebar.markdown("---")
     st.sidebar.image("assets/logo_CSJ_Sucre.png", width=200)
     st.sidebar.write("<div style='text-align: center;'>Desarrollado por Equipo Marduk</div>", unsafe_allow_html=True)
-    st.sidebar.write("<div style='text-align: center;'>v.1.3.4 Lite | v.1.3.0 Ultimate</div>", unsafe_allow_html=True)
+    st.sidebar.write("<div style='text-align: center;'>v.1.3.4 Lite | v.1.4.0 Ultimate</div>", unsafe_allow_html=True)
     st.sidebar.write("<div style='text-align: center;'><a href='https://github.com/bladealex9848'>GitHub Lite</a> | <a href='https://github.com/HammerDev99'>GitHub Ultimate</a> | <a href='https://marduk.pro/'>Website</a></div>", unsafe_allow_html=True)
 
     st.title('🚀 Hoja de Ruta - Implementación')
