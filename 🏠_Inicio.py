@@ -208,22 +208,22 @@ def main():
         - Verificaciones recursivas de integridad
         """)
 
-    st.markdown(get_binary_file_downloader_html(
-        "https://enki.care/GestionExpedienteElectronicoUltimate", 'Versión Ultimate'), unsafe_allow_html=True)
+        st.markdown(get_binary_file_downloader_html(
+            "https://enki.care/GestionExpedienteElectronicoUltimate", 'Versión Ultimate'), unsafe_allow_html=True)
 
-    with st.expander("Instrucciones de Uso - Versión Ultimate"):
-        st.write("""
-        1. Descargue las carpetas sin incluir índice.
-        2. Valide la estructura de carpetas según el protocolo:
-           - Opción 1: radicado/01PrimeraInstancia/C01Principal/Archivos
-           - Opción 2: SERIE_SUBSERIE/radicado/01PrimeraInstancia/C01Principal/Archivos
-        3. Asegure que el radicado tenga 23 dígitos.
-        4. Ingrese exactamente los mismos datos de 'Juzgado' y 'serie o subserie' del SGDE.
-        5. Cierre archivos Excel abiertos antes de ejecutar.
-        6. Seleccione la carpeta principal que contiene los expedientes.
-        7. El programa iniciará la validación y procesamiento automático.
-        8. Verifique los resultados en cada expediente procesado.
-        """)
+        with st.expander("Instrucciones de Uso - Versión Ultimate"):
+            st.write("""
+            1. Descargue las carpetas sin incluir índice.
+            2. Valide la estructura de carpetas según el protocolo:
+            - Opción 1: radicado/01PrimeraInstancia/C01Principal/Archivos
+            - Opción 2: SERIE_SUBSERIE/radicado/01PrimeraInstancia/C01Principal/Archivos
+            3. Asegure que el radicado tenga 23 dígitos.
+            4. Ingrese exactamente los mismos datos de 'Juzgado' y 'serie o subserie' del SGDE.
+            5. Cierre archivos Excel abiertos antes de ejecutar.
+            6. Seleccione la carpeta principal que contiene los expedientes.
+            7. El programa iniciará la validación y procesamiento automático.
+            8. Verifique los resultados en cada expediente procesado.
+            """)
 
     with tab3:
         st.header("Versión Web de Entrenamiento")
