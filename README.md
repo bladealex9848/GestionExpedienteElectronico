@@ -267,20 +267,54 @@ El Sistema de Gestión de Expedientes Electrónicos Judiciales es una herramient
 - **Barra de Progreso**: Muestra el avance del proceso de generación.
 - **Área de Información**: Muestra mensajes y resultados del proceso.
 
-#### 5.2 Versión de Escritorio Ultimate
+#### 5.2 Versión Ultimate v1.4.0
 
-- **Ventana Principal**: Interfaz avanzada para el procesamiento masivo de expedientes.
-- **Selección de Carpetas**: Permite elegir múltiples carpetas o una carpeta principal con subcarpetas.
-- **Panel de Configuración**: Opciones avanzadas para personalizar el procesamiento de expedientes.
-- **Botón "Procesar Expedientes"**: Inicia el procesamiento automatizado de todos los expedientes seleccionados.
-- **Visor de Estructura**: Muestra la estructura de carpetas y archivos de los expedientes seleccionados.
-- **Barra de Progreso Global**: Indica el avance general del procesamiento de todos los expedientes.
-- **Barra de Progreso Individual**: Muestra el progreso de cada expediente individual.
-- **Área de Logs**: Proporciona información detallada sobre cada paso del proceso y posibles errores.
-- **Panel de Metadatos**: Permite visualizar y editar metadatos de los archivos procesados.
-- **Botón "Generar Informe"**: Crea un informe detallado del procesamiento de todos los expedientes.
-- **Opciones de Exportación**: Permite exportar los índices generados en varios formatos (XLSX, XLSM, PDF).
-- **Integración con Alfresco**: Opciones para la migración directa de expedientes al sistema Alfresco.
+**Interfaz Principal**
+- **Panel de Control**: Interfaz avanzada con validaciones TRD
+- **Selector de Expedientes**: 
+  - Procesamiento masivo multi-carpeta
+  - Soporte estructura 4-5 niveles
+  - Validación jerárquica integrada
+
+**Herramientas de Procesamiento**
+- **Configuración Avanzada**:
+  - Reglas TRD personalizables
+  - Validaciones preventivas
+  - Parámetros de migración
+  - Opciones de logging
+
+**Monitoreo y Control**
+- **Visualizador de Estructura**: 
+  - Árbol jerárquico de expedientes
+  - Validación en tiempo real
+  - Detección de errores preventiva
+
+- **Sistema de Progreso**:
+  - Barra global de avance
+  - Progreso individual por expediente
+  - Estadísticas de procesamiento
+
+**Gestión de Datos**
+- **Panel de Metadatos**:
+  - Editor avanzado
+  - Validación TRD
+  - Extracción automática
+
+- **Generación de Informes**:
+  - Reportes detallados
+  - Estadísticas de proceso
+  - Logs de operación
+
+**Exportación e Integración**
+- **Formatos Soportados**:
+  - XLSX (estándar)
+  - XLSM (macros)
+  - PDF (archivo)
+
+- **Conexión SGDEA**:
+  - Integración Alfresco
+  - Migración automatizada
+  - Validación de compatibilidad
 
 #### 5.3 Versión Web de entrenamiento
 
@@ -299,15 +333,53 @@ El Sistema de Gestión de Expedientes Electrónicos Judiciales es una herramient
 4. Haga clic en "Generar Índice".
 5. Espere a que el proceso termine. El índice se guardará en la misma carpeta del expediente.
 
-#### 6.2 Generar un Índice Electrónico (Versión de Escritorio Ultimate)
+#### 6.2 Generar un Índice Electrónico (Versión Ultimate v1.4.0)
 
-1. Abra la aplicación.
-2. Haga clic en "Seleccionar Carpetas" y elija las carpetas que contienen los expedientes.
-3. Configure las opciones avanzadas según sea necesario.
-4. Haga clic en "Procesar Expedientes".
-5. Espere a que el proceso termine. Los índices se guardarán en la misma carpeta de cada expediente.
-6. Utilice las opciones de exportación para obtener los índices en diferentes formatos.
-7. Opcionalmente, migre los expedientes al sistema Alfresco utilizando las opciones de integración.
+La versión Ultimate permite el procesamiento masivo de expedientes con validaciones avanzadas compatibles con el sistema migrador y la Tabla de Retención Documental (TRD).
+
+**Proceso de generación:**
+
+1. **Preparación**
+   - Abra la aplicación Ultimate
+   - Verifique requisitos del sistema
+   - Cierre archivos Excel abiertos
+
+2. **Selección y configuración**
+   - Haga clic en "Procesamiento Múltiple"
+   - Seleccione carpeta principal con expedientes
+   - Configure opciones avanzadas:
+     - Niveles de validación (4-5 niveles)
+     - Reglas TRD aplicables
+     - Parámetros de logging
+     - Manejo de metadatos
+
+3. **Procesamiento**
+   - Inicie con "Procesar Expedientes"
+   - Monitoree progreso global e individual
+   - Verifique logs en tiempo real
+
+4. **Verificación**
+   - Revise índices generados
+   - Valide estructura final
+   - Confirme metadatos extraídos
+   - Verifique logs de operación
+
+5. **Exportación**
+   - Utilice opciones de formato disponibles:
+     - XLSX (estándar)
+     - XLSM (con macros)
+     - PDF (archivo)
+
+6. **Integración SGDEA** (opcional)
+   - Configure conexión Alfresco
+   - Valide parámetros migración
+   - Ejecute proceso de integración
+
+**Notas importantes:**
+- Mantenga respaldo de expedientes originales
+- Monitoree recursos del sistema
+- Consulte logs ante errores
+- Use modo asíncrono para volúmenes grandes
 
 #### 6.3 Generar un Índice Electrónico (Versión Web de entrenamiento)
 
@@ -335,10 +407,26 @@ El Sistema de Gestión de Expedientes Electrónicos Judiciales es una herramient
 
 ### 10. Soporte y Contacto
 
-Para obtener ayuda adicional o reportar problemas:
+**Canales de ayuda:**
+- [GitHub Issues](https://github.com/bladealex9848/GestionExpedienteElectronico/issues): Reportar bugs y sugerir mejoras
+- [Soporte técnico Lite](mailto:aoviedof@cendoj.ramajudicial.gov.co): Alexander Oviedo Fadul
+- [Soporte técnico Ultimate](mailto:darbelaeza@cendoj.ramajudicial.gov.co): Daniel Arbeláez Álvarez
+- [Documentación](https://gestionexpedienteelectronico.streamlit.app/): Guías y tutoriales
+- [Base de Conocimiento](https://gestionexpedienteelectronico.streamlit.app/): Soluciones comunes
 
-- Visite nuestra [página de GitHub](https://github.com/bladealex9848/GestionExpedienteElectronico/issues) para reportar problemas.
-- Contacte al soporte técnico en [correo electrónico de soporte](aoviedof@cendoj.ramajudicial.gov.co) para preguntas más específicas o problemas técnicos.
+**Desarrolladores:**
+- Versión Lite: [Alexander Oviedo Fadul](https://github.com/bladealex9848)
+- Versión Ultimate: [Daniel Arbeláez Álvarez](https://github.com/HammerDev99)
+
+**Horarios de atención:**
+- Soporte técnico: Lunes a viernes 8:00 AM - 5:00 PM (COT)
+- GitHub Issues: Respuesta en 24-48 horas hábiles
+
+**Prioridades de atención:**
+1. Problemas críticos de producción
+2. Errores que impiden operación
+3. Mejoras y sugerencias
+4. Consultas generales
 
 ### 11. Glosario
 
@@ -357,6 +445,21 @@ Este manual de usuario proporciona una guía completa para utilizar el Sistema d
 Planeamos añadir más funcionalidades al Sistema de Gestión de Expedientes Electrónicos Judiciales con el tiempo. Las contribuciones son bienvenidas.
 
 ## Registro de Cambios
+
+### 2024-11-15: Actualización mayor con mejoras en validación y compatibilidad (v1.4.0)
+
+* Implementación de validaciones compatibles con el sistema migrador de expedientes electrónicos
+* Integración de la Tabla de Retención Documental (TRD) para gestión documental estandarizada
+* Soporte para estructuras de directorios de 4 y 5 niveles con validación jerárquica
+* Mejora en sistema de logging para trazabilidad completa de operaciones
+* Implementación de manejo asíncrono de operaciones de E/S
+* Nuevas validaciones preventivas en estructura de expedientes
+* Optimización del rendimiento en procesamiento masivo
+* Refactorización de la interfaz para mejor experiencia de usuario
+* Compatibilidad ampliada con SGDEA y preparación para Alfresco
+* Actualización de documentación técnica y guías de usuario
+* Corrección de errores en manejo de metadatos y conteo de páginas
+* SHA256: fb172a837bd7f91f3e1d6528cddebee164f9d89fd8807a83c8560521852a5b4e
 
 ### 2024-10-16: Mejora en la experiencia de usuario y expansión de funcionalidades (v.1.3.5)
 
