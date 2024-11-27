@@ -148,7 +148,7 @@ def main():
     st.sidebar.write(
         "<div style='text-align: center;'>Desarrollado por Equipo Marduk</div>", unsafe_allow_html=True)
     st.sidebar.write(
-        "<div style='text-align: center;'>v.1.3.4 Lite | v.1.4.0 Ultimate</div>", unsafe_allow_html=True)
+        "<div style='text-align: center;'>v.1.3.4 Lite | v.1.4.1 Ultimate</div>", unsafe_allow_html=True)
     st.sidebar.write("<div style='text-align: center;'><a href='https://github.com/bladealex9848'>GitHub Lite</a> | <a href='https://github.com/HammerDev99'>GitHub Ultimate</a> | <a href='https://marduk.pro/'>Website</a></div>", unsafe_allow_html=True)
 
     # Main content
@@ -284,7 +284,7 @@ def main():
         st.subheader("Versión Ultimate")
         components.html(
             '''
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/w3pG6NyX6OE?si=7UxPvHqPGZR4kSZ_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/zWfHNNcETgk?si=M-XhG5aBF20MkjvL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             ''',
             height=400
         )
