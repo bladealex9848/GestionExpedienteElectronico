@@ -80,10 +80,18 @@ def mostrar_vision_general():
            - Procesamiento de una carpeta a la vez
            - Interfaz gráfica intuitiva
 
-        2. **Versión Ultimate**:
-           - Procesamiento masivo de expedientes
-           - Manejo avanzado de metadatos
-           - Compatibilidad con estructuras complejas
+        2. **Versión Ultimate**:        
+            - Gestión integral de expedientes electrónicos.
+            - Interfaz intuitiva y menú de ayuda integrado.
+            - Manejo seguro de índices preexistentes.
+            - Procesamiento optimizado de carpetas.
+            - Sistema de mensajes mejorado para el usuario.
+            - Soporte para estructuras de directorios de 4 y 5 niveles.
+            - Validaciones automáticas y exhaustivas.
+            - Cumplimiento con los estándares de la Tabla de Retención Documental (TRD).
+            - Compatibilidad total con el sistema migrador de expedientes electrónicos.
+            - Funcionalidad de vista previa para verificación rápida.
+            - Guía rápida de uso actualizada y detallada.
 
         3. **Versión Web**:
            - Acceso desde cualquier navegador
@@ -148,7 +156,7 @@ def main():
     st.sidebar.write(
         "<div style='text-align: center;'>Desarrollado por Equipo Marduk</div>", unsafe_allow_html=True)
     st.sidebar.write(
-        "<div style='text-align: center;'>v.1.3.4 Lite | v.1.4.1 Ultimate</div>", unsafe_allow_html=True)
+        "<div style='text-align: center;'>v.1.3.4 Lite | v.1.4.2 Ultimate</div>", unsafe_allow_html=True)
     st.sidebar.write("<div style='text-align: center;'><a href='https://github.com/bladealex9848'>GitHub Lite</a> | <a href='https://github.com/HammerDev99'>GitHub Ultimate</a> | <a href='https://marduk.pro/'>Website</a></div>", unsafe_allow_html=True)
 
     # Main content
@@ -196,33 +204,41 @@ def main():
     with tab2:
         st.header("Versión Ultimate")
         st.write("""
-        Procesamiento masivo de expedientes con validaciones avanzadas y compatibilidad con el sistema migrador de expedientes electrónicos.
+        Herramienta integral para la gestión de expedientes electrónicos, diseñada para ofrecer una solución completa y eficiente en el manejo de documentos digitales.
 
-        **Características:**
-        - Validaciones compatibles con el sistema migrador
-        - Integración con Tabla de Retención Documental (TRD)
-        - Soporte para estructuras de 4 y 5 niveles
-        - Sistema de logging mejorado
-        - Manejo asíncrono de operaciones
-        - Validaciones preventivas de estructura
-        - Verificaciones recursivas de integridad
+        **Características Principales:**
+
+        - **Interfaz Intuitiva**: Interfaz gráfica de usuario amigable que facilita su uso.
+        - **Gestión de Índices**: Manejo seguro y eficiente de índices existentes.
+        - **Procesamiento de Carpetas**: Optimización en el procesamiento y organización de carpetas.
+        - **Sistema de Mensajes**: Comunicación clara y efectiva mediante un sistema de mensajes mejorado.
+        - **Soporte Multi-Estructura**: Compatible con estructuras de directorios de 4 y 5 niveles.
+        - **Validaciones Automáticas**: Verificaciones automáticas para asegurar la integridad y conformidad de los expedientes.
+        - **Cumplimiento con Estándares TRD**: Gestión documental estandarizada conforme a la Tabla de Retención Documental (TRD).
+        - **Compatibilidad con Migrador de Expedientes**: Funcionamiento óptimo con el sistema migrador de expedientes electrónicos.
         """)
 
         st.markdown(get_binary_file_downloader_html(
-            "https://enki.care/GestionExpedienteElectronicoUltimate", 'Versión Ultimate'), unsafe_allow_html=True)
-
+            "https://enki.care/GestionExpedienteElectronicoUltimate", 'Versión Ultimate'), unsafe_allow_html=True)        
+            
         with st.expander("Instrucciones de Uso - Versión Ultimate"):
             st.write("""
-            1. Descargue las carpetas sin incluir índice.
-            2. Valide la estructura de carpetas según el protocolo:
-            - Opción 1: radicado/01PrimeraInstancia/C01Principal/Archivos
-            - Opción 2: SERIE_SUBSERIE/radicado/01PrimeraInstancia/C01Principal/Archivos
-            3. Asegure que el radicado tenga 23 dígitos.
-            4. Ingrese exactamente los mismos datos de 'Juzgado' y 'serie o subserie' del SGDE.
-            5. Cierre archivos Excel abiertos antes de ejecutar.
-            6. Seleccione la carpeta principal que contiene los expedientes.
-            7. El programa iniciará la validación y procesamiento automático.
-            8. Verifique los resultados en cada expediente procesado.
+            1. **Preparación de Carpetas**:
+                - Descargue las carpetas que desea procesar.
+                - Asegúrese de que estas carpetas no contengan índices previos.
+            2. **Estructura de Carpetas Válida**:
+                - **Opción 1**: `05088/01PrimeraInstancia/C01Principal/Archivos`
+                - **Opción 2**: `SERIE_SUBSERIE/05088/01PrimeraInstancia/C01Principal/Archivos`
+            3. **Requisitos de los Archivos**:
+                - El radicado debe constar de 23 dígitos.
+                - Los nombres de los archivos deben estar ordenados correctamente.
+                - Los datos del SGDE (Juzgado y serie/subserie) deben ser exactos.
+            4. **Proceso de Ejecución**:
+                - Cierre cualquier archivo Excel que esté abierto antes de iniciar el proceso.
+                - Seleccione la carpeta principal que contiene los expedientes.
+                - El programa comenzará automáticamente la validación y el procesamiento.
+            5. **Revisión de Resultados**:
+                - Verifique los resultados en cada expediente procesado.
             """)
 
     with tab3:

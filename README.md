@@ -267,54 +267,59 @@ El Sistema de Gestión de Expedientes Electrónicos Judiciales es una herramient
 - **Barra de Progreso**: Muestra el avance del proceso de generación.
 - **Área de Información**: Muestra mensajes y resultados del proceso.
 
-#### 5.2 Versión Ultimate v1.4.0
+#### 5.2 Versión Ultimate v1.4.2
 
 **Interfaz Principal**
-- **Panel de Control**: Interfaz avanzada con validaciones TRD
-- **Selector de Expedientes**: 
-  - Procesamiento masivo multi-carpeta
-  - Soporte estructura 4-5 niveles
-  - Validación jerárquica integrada
+
+*   **Panel de Control**: Interfaz avanzada con validaciones TRD
+*   **Selector de Expedientes**:
+    *   Procesamiento masivo multi-carpeta
+    *   Soporte estructura 4-5 niveles
+    *   Validación jerárquica integrada
 
 **Herramientas de Procesamiento**
-- **Configuración Avanzada**:
-  - Reglas TRD personalizables
-  - Validaciones preventivas
-  - Parámetros de migración
-  - Opciones de logging
+
+*   **Configuración Avanzada**:
+    *   Reglas TRD personalizables
+    *   Validaciones preventivas
+    *   Parámetros de migración
+    *   Opciones de logging
 
 **Monitoreo y Control**
-- **Visualizador de Estructura**: 
-  - Árbol jerárquico de expedientes
-  - Validación en tiempo real
-  - Detección de errores preventiva
 
-- **Sistema de Progreso**:
-  - Barra global de avance
-  - Progreso individual por expediente
-  - Estadísticas de procesamiento
+*   **Visualizador de Estructura**:
+    *   Árbol jerárquico de expedientes
+    *   Validación en tiempo real
+    *   Detección de errores preventiva
+
+*   **Sistema de Progreso**:
+    *   Barra global de avance
+    *   Progreso individual por expediente
+    *   Estadísticas de procesamiento
 
 **Gestión de Datos**
-- **Panel de Metadatos**:
-  - Editor avanzado
-  - Validación TRD
-  - Extracción automática
 
-- **Generación de Informes**:
-  - Reportes detallados
-  - Estadísticas de proceso
-  - Logs de operación
+*   **Panel de Metadatos**:
+    *   Editor avanzado
+    *   Validación TRD
+    *   Extracción automática
+
+*   **Generación de Informes**:
+    *   Reportes detallados
+    *   Estadísticas de proceso
+    *   Logs de operación
 
 **Exportación e Integración**
-- **Formatos Soportados**:
-  - XLSX (estándar)
-  - XLSM (macros)
-  - PDF (archivo)
 
-- **Conexión SGDEA**:
-  - Integración Alfresco
-  - Migración automatizada
-  - Validación de compatibilidad
+*   **Formatos Soportados**:
+    *   XLSX (estándar)
+    *   XLSM (macros)
+    *   PDF (archivo)
+
+*   **Conexión SGDEA**:
+    *   Integración Alfresco
+    *   Migración automatizada
+    *   Validación de compatibilidad
 
 #### 5.3 Versión Web de entrenamiento
 
@@ -446,7 +451,22 @@ Planeamos añadir más funcionalidades al Sistema de Gestión de Expedientes Ele
 
 ## Registro de Cambios
 
-### 2024-11-15: Actualización mayor con mejoras en validación y compatibilidad (v1.4.0)
+### 2024-12-31: Actualización con mejoras de usabilidad y gestión de índices (v1.4.2)
+
+*   **Gestión segura de índices existentes:** Implementación de medidas para proteger y preservar índices generados previamente.
+*   **Interfaz más intuitiva:** Renovación de la interfaz gráfica con un diseño más amigable y un menú de ayuda integrado para facilitar la navegación.
+*   **Mejor manejo de errores y validaciones:** Refinamiento del sistema de detección y manejo de errores, con validaciones más robustas.
+*   **Optimización en el procesamiento de carpetas:** Mejoras en el algoritmo para un procesamiento más eficiente de las carpetas de expedientes.
+*   **Sistema de mensajes mejorado para el usuario:** Implementación de un sistema de notificaciones y mensajes más claro y comprensible.
+*   **Nueva Vista Previa:** Se ha añadido la función de vista previa.
+*   **Actualización de la Guía Rápida de Uso:** Se ha actualizado la guía para incluir las últimas mejoras y características, como la preparación, estructura válida de carpetas y requisitos básicos, como el radicado de 23 dígitos, nombres de archivos ordenados y datos SGDE exactos.
+*   **Características Principales Reafirmadas:** Se mantienen las características principales, como la compatibilidad con el sistema migrador de expedientes, soporte para estructuras de 4 y 5 niveles, validación automática de estructuras y gestión documental estandarizada (TRD).
+*   **Actualización de la Nota de Verificación:** Se ha actualizado el SHA256 para reflejar la nueva versión del software.
+*   **Recursos Actualizados:** Se ha añadido un enlace a un nuevo Video Tutorial v1.4.2.
+*   **Conformidad con el Protocolo:** Se reafirma que el software cumple con el Protocolo para la gestión de documentos electrónicos, digitalización y conformación del expediente electrónico (PCSJA20-11567 de 2020, Versión 2).
+*   SHA256: 6d54ccabc0048fefe40648bdadb5b26a215d031448eb2f67235b1189beb70521
+
+### 2024-11-15: Actualización mayor con mejoras en validación y compatibilidad (v1.4.1)
 
 * Implementación de validaciones compatibles con el sistema migrador de expedientes electrónicos
 * Integración de la Tabla de Retención Documental (TRD) para gestión documental estandarizada

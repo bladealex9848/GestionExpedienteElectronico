@@ -76,3 +76,5 @@ secrets.toml
 
 # Instrucción para crear el portable
 # pyinstaller --name="GestionExpedienteElectronico" --onefile --windowed --add-data "assets;assets" --add-data "index_generator.py;." --add-data "file_utils.py;." --add-data "excel_handler.py;." app.py
+
+.codegpt
