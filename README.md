@@ -267,59 +267,67 @@ El Sistema de Gestión de Expedientes Electrónicos Judiciales es una herramient
 - **Barra de Progreso**: Muestra el avance del proceso de generación.
 - **Área de Información**: Muestra mensajes y resultados del proceso.
 
-#### 5.2 Versión Ultimate v1.4.2
+#### 5.2 Versión Ultimate v1.4.3
 
-**Interfaz Principal**
+**Interfaz Principal Mejorada**
+* **Panel de Control Modular**: 
+  - Nueva interfaz con tres modos de procesamiento integrados
+  - Validaciones TRD en tiempo real
+  - Sistema de ayuda contextual inteligente
 
-*   **Panel de Control**: Interfaz avanzada con validaciones TRD
-*   **Selector de Expedientes**:
-    *   Procesamiento masivo multi-carpeta
-    *   Soporte estructura 4-5 niveles
-    *   Validación jerárquica integrada
+* **Selector de Procesamiento Flexible**: 
+  - Procesamiento individual de subcarpetas
+  - Gestión completa de expedientes
+  - Manejo de series documentales
+  - Soporte estructura 4-5 niveles
+  - Validación jerárquica reforzada
 
-**Herramientas de Procesamiento**
+**Herramientas de Procesamiento Optimizadas**
+* **Configuración Avanzada**:
+  - Reglas TRD personalizables por nivel
+  - Sistema preventivo de validaciones multinivel
+  - Parámetros adaptables de migración
+  - Sistema de logging mejorado
+  - Patrones de diseño optimizados
 
-*   **Configuración Avanzada**:
-    *   Reglas TRD personalizables
-    *   Validaciones preventivas
-    *   Parámetros de migración
-    *   Opciones de logging
+**Monitoreo y Control Inteligente**
+* **Visualizador de Estructura Mejorado**:
+  - Árbol jerárquico adaptativo
+  - Validación instantánea por nivel
+  - Sistema predictivo de errores
+  - Vista previa de documentos integrada
 
-**Monitoreo y Control**
+* **Sistema de Progreso Avanzado**:
+  - Monitoreo global del proceso
+  - Seguimiento individual por elemento
+  - Métricas detalladas de rendimiento
+  - Indicadores de calidad en tiempo real
 
-*   **Visualizador de Estructura**:
-    *   Árbol jerárquico de expedientes
-    *   Validación en tiempo real
-    *   Detección de errores preventiva
+**Gestión de Datos Avanzada**
+* **Panel de Metadatos Renovado**:
+  - Editor contextual inteligente
+  - Validación TRD multinivel
+  - Extracción automática optimizada
+  - Control de calidad integrado
 
-*   **Sistema de Progreso**:
-    *   Barra global de avance
-    *   Progreso individual por expediente
-    *   Estadísticas de procesamiento
+* **Generación de Informes Mejorada**:
+  - Reportes personalizados por nivel
+  - Estadísticas completas de proceso
+  - Sistema de logs estructurado
+  - Trazabilidad completa de operaciones
 
-**Gestión de Datos**
+**Exportación e Integración Ampliada**
+* **Formatos Soportados Extendidos**:
+  - XLSX con validaciones mejoradas
+  - XLSM con macros optimizadas
+  - PDF con metadata enriquecida
+  - Compatibilidad retrospectiva
 
-*   **Panel de Metadatos**:
-    *   Editor avanzado
-    *   Validación TRD
-    *   Extracción automática
-
-*   **Generación de Informes**:
-    *   Reportes detallados
-    *   Estadísticas de proceso
-    *   Logs de operación
-
-**Exportación e Integración**
-
-*   **Formatos Soportados**:
-    *   XLSX (estándar)
-    *   XLSM (macros)
-    *   PDF (archivo)
-
-*   **Conexión SGDEA**:
-    *   Integración Alfresco
-    *   Migración automatizada
-    *   Validación de compatibilidad
+* **Conexión SGDEA Reforzada**:
+  - Integración Alfresco optimizada
+  - Sistema de migración inteligente
+  - Validación multinivel de compatibilidad
+  - Sincronización en tiempo real
 
 #### 5.3 Versión Web de entrenamiento
 
@@ -338,53 +346,72 @@ El Sistema de Gestión de Expedientes Electrónicos Judiciales es una herramient
 4. Haga clic en "Generar Índice".
 5. Espere a que el proceso termine. El índice se guardará en la misma carpeta del expediente.
 
-#### 6.2 Generar un Índice Electrónico (Versión Ultimate v1.4.0)
+#### 6.2 Generar un Índice Electrónico (Versión Ultimate v1.4.3)
 
-La versión Ultimate permite el procesamiento masivo de expedientes con validaciones avanzadas compatibles con el sistema migrador y la Tabla de Retención Documental (TRD).
+La versión Ultimate 1.4.3 introduce un sistema de procesamiento flexible que permite manejar desde subcarpetas individuales hasta series documentales completas, incorporando validaciones avanzadas compatibles con el sistema migrador y la Tabla de Retención Documental (TRD).
 
-**Proceso de generación:**
+**Proceso de generación por niveles:**
 
-1. **Preparación**
-   - Abra la aplicación Ultimate
-   - Verifique requisitos del sistema
-   - Cierre archivos Excel abiertos
+1. **Preparación inicial**
+   - Inicie la aplicación Ultimate v1.4.3
+   - Ejecute las verificaciones preliminares del sistema
+   - Asegure que no hay archivos Excel abiertos
+   - Identifique el nivel de procesamiento requerido (subcarpeta/expediente/serie)
 
-2. **Selección y configuración**
-   - Haga clic en "Procesamiento Múltiple"
-   - Seleccione carpeta principal con expedientes
-   - Configure opciones avanzadas:
-     - Niveles de validación (4-5 niveles)
-     - Reglas TRD aplicables
-     - Parámetros de logging
-     - Manejo de metadatos
+2. **Selección del modo de procesamiento**
+   - Elija entre las tres opciones disponibles:
+     - Procesamiento de subcarpeta individual
+     - Gestión de expediente completo
+     - Manejo de serie documental
+   - Configure el alcance del procesamiento según la opción seleccionada
+   - Verifique la estructura de carpetas correspondiente al modo elegido
 
-3. **Procesamiento**
-   - Inicie con "Procesar Expedientes"
-   - Monitoree progreso global e individual
-   - Verifique logs en tiempo real
+3. **Configuración avanzada**
+   - Ajuste los parámetros según el nivel seleccionado:
+     - Validaciones específicas por nivel (4-5 niveles)
+     - Reglas TRD aplicables al contexto
+     - Configuración de logging detallado
+     - Gestión de metadatos contextual
+     - Parámetros de validación estructural
 
-4. **Verificación**
-   - Revise índices generados
-   - Valide estructura final
-   - Confirme metadatos extraídos
-   - Verifique logs de operación
+4. **Ejecución del procesamiento**
+   - Active el proceso mediante "Iniciar Procesamiento"
+   - Supervise el avance en tiempo real:
+     - Progreso general del proceso
+     - Estado individual de elementos
+     - Validaciones en curso
+     - Mensajes del sistema
 
-5. **Exportación**
-   - Utilice opciones de formato disponibles:
-     - XLSX (estándar)
-     - XLSM (con macros)
-     - PDF (archivo)
+5. **Verificación multinivel**
+   - Examine los resultados según el modo seleccionado:
+     - Validación de índices generados
+     - Confirmación de estructura jerárquica
+     - Verificación de metadatos extraídos
+     - Revisión de logs operativos
+     - Control de calidad por nivel
 
-6. **Integración SGDEA** (opcional)
-   - Configure conexión Alfresco
-   - Valide parámetros migración
-   - Ejecute proceso de integración
+6. **Exportación adaptativa**
+   - Seleccione el formato más apropiado:
+     - XLSX con validaciones mejoradas
+     - XLSM con macros optimizadas
+     - PDF con metadata enriquecida
+   - Verifique la integridad de los archivos exportados
 
-**Notas importantes:**
-- Mantenga respaldo de expedientes originales
-- Monitoree recursos del sistema
-- Consulte logs ante errores
-- Use modo asíncrono para volúmenes grandes
+7. **Integración con sistemas externos** (opcional)
+   - Configure la conexión con Alfresco
+   - Valide los parámetros de migración
+   - Ejecute la sincronización de datos
+   - Verifique la integridad de la transferencia
+
+**Consideraciones importantes:**
+- Mantenga copias de seguridad de los documentos originales
+- Monitoree el consumo de recursos del sistema
+- Consulte los logs detallados ante cualquier anomalía
+- Utilice el modo asíncrono para procesamiento de grandes volúmenes
+- Verifique la compatibilidad de estructura según el nivel seleccionado
+- Asegure la consistencia de metadatos en cada nivel de procesamiento
+
+Esta nueva versión optimiza el flujo de trabajo mediante un enfoque modular y adaptativo, permitiendo un control más preciso y eficiente del proceso de gestión documental.
 
 #### 6.3 Generar un Índice Electrónico (Versión Web de entrenamiento)
 
@@ -450,6 +477,26 @@ Este manual de usuario proporciona una guía completa para utilizar el Sistema d
 Planeamos añadir más funcionalidades al Sistema de Gestión de Expedientes Electrónicos Judiciales con el tiempo. Las contribuciones son bienvenidas.
 
 ## Registro de Cambios
+
+### 2025-02-15: Actualización mayor con enfoque en procesamiento flexible y arquitectura modular (v1.4.3)
+
+La nueva versión 1.4.3 representa una evolución significativa en la arquitectura del sistema, introduciendo un enfoque modular que permite un procesamiento más flexible y adaptable a diferentes necesidades. Las principales mejoras incluyen:
+
+* **Sistema de procesamiento multinivel:** Implementación de tres modos distintos de procesamiento que permiten manejar desde subcarpetas individuales hasta series documentales completas, ofreciendo una flexibilidad sin precedentes en la gestión documental.
+* **Refactorización de la interfaz de usuario:** Rediseño completo de la interfaz gráfica para incorporar el nuevo sistema de procesamiento flexible, manteniendo la intuitividad y facilidad de uso que caracterizan al software.
+* **Arquitectura optimizada:** Implementación de patrones de diseño avanzados que mejoran la ortogonalidad del proyecto, resultando en un código más mantenible y eficiente.
+* **Sistema de validación contextual:** Mejoras en el sistema de validación que ahora se adapta al nivel de procesamiento seleccionado, asegurando la integridad de los datos en cada contexto específico.
+* **Gestión inteligente de recursos:** Optimización en el manejo de memoria y procesamiento, especialmente importante cuando se trabaja con grandes volúmenes de documentos.
+* **Mejoras en la compatibilidad:** Refinamiento de la integración con sistemas externos y actualización de los protocolos de comunicación para asegurar una mejor interoperabilidad.
+* **Documentación actualizada:** Renovación completa de la documentación técnica y guías de usuario para reflejar las nuevas funcionalidades y modos de operación.
+* **Sistema de ayuda contextual:** Implementación de un sistema de ayuda que se adapta al modo de procesamiento seleccionado, ofreciendo asistencia relevante en cada contexto.
+* **Actualización de validaciones TRD:** Mejoras en la implementación de las reglas de la Tabla de Retención Documental, con soporte para validaciones específicas por nivel.
+* **Recursos actualizados:** Incorporación de nuevos videos tutoriales y guías específicas para cada modo de procesamiento.
+La verificación de integridad del software puede realizarse utilizando el siguiente hash:
+SHA256: 022afb2b53968567f36579296043094e31fef5af635f0d5817a653fd3c214ac8
+
+Esta actualización mantiene el cumplimiento con el Protocolo para la gestión de documentos electrónicos, digitalización y conformación del expediente electrónico (PCSJA20-11567 de 2020, Versión 2), mientras introduce mejoras significativas en la flexibilidad y eficiencia del sistema.
+
 
 ### 2024-12-31: Actualización con mejoras de usabilidad y gestión de índices (v1.4.2)
 
