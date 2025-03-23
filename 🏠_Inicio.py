@@ -246,7 +246,7 @@ def main():
         [
             "Visión General",
             "Versión Lite",
-            "Versión Ultimate",
+            "Versión AgilEx",
             "Versión Web",
             "Video Tutoriales",
         ]
