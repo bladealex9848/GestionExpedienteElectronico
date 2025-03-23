@@ -91,20 +91,20 @@ def mostrar_vision_general():
            - Interfaz gráfica intuitiva
         
         2. **Versión AgilEx**:
-            - Sistema de procesamiento avanzado** con tres modos flexibles que se adaptan a tus necesidades: subcarpeta individual, expediente completo o serie documental completa.
-            - Interfaz modular completamente rediseñada** con menú de ayuda contextual integrado para una experiencia de usuario superior.
-            - Gestión inteligente de índices** con validación en tiempo real que garantiza la integridad de los documentos.
-            - Motor de procesamiento optimizado** implementando patrones de diseño que aumentan la eficiencia y velocidad.
-            - Sistema de comunicación mejorado** con mensajes claros y específicos para el usuario en cada etapa del proceso.
-            - Arquitectura robusta** que soporta estructuras de directorios complejas de 4 y 5 niveles.
-            - Sistema de validación reforzado** con verificaciones automáticas en cada etapa del procesamiento.
-            - Cumplimiento integral** con todos los estándares de la Tabla de Retención Documental (TRD).
-            - Compatibilidad avanzada** con el sistema migrador de expedientes electrónicos para una integración perfecta.
-            - Visor integrado** para verificación instantánea de documentos procesados sin necesidad de aplicaciones externas.
-            - Manual de usuario actualizado** con flujos de trabajo optimizados para diferentes escenarios.
-            - Control de calidad integrado** para cada nivel de procesamiento que garantiza resultados óptimos.
-            - Sistema de logs mejorado** para un seguimiento detallado de todas las operaciones realizadas.
-            - Interfaz adaptativa** que se ajusta automáticamente al modo de procesamiento seleccionado.
+            - **Sistema de procesamiento avanzado** con tres modos flexibles que se adaptan a tus necesidades: subcarpeta individual, expediente completo o serie documental completa.
+            - **Interfaz modular completamente rediseñada** con menú de ayuda contextual integrado para una experiencia de usuario superior.
+            - **Gestión inteligente de índices** con validación en tiempo real que garantiza la integridad de los documentos.
+            - **Motor de procesamiento optimizado** implementando patrones de diseño que aumentan la eficiencia y velocidad.
+            - **Sistema de comunicación mejorado** con mensajes claros y específicos para el usuario en cada etapa del proceso.
+            - **Arquitectura robusta** que soporta estructuras de directorios complejas de 4 y 5 niveles.
+            - **Sistema de validación reforzado** con verificaciones automáticas en cada etapa del procesamiento.
+            - **Cumplimiento integral** con todos los estándares de la Tabla de Retención Documental (TRD).
+            - **Compatibilidad avanzada** con el sistema migrador de expedientes electrónicos para una integración perfecta.
+            - **Visor integrado** para verificación instantánea de documentos procesados sin necesidad de aplicaciones externas.
+            - **Manual de usuario actualizado** con flujos de trabajo optimizados para diferentes escenarios.
+            - **Control de calidad integrado** para cada nivel de procesamiento que garantiza resultados óptimos.
+            - **Sistema de logs mejorado** para un seguimiento detallado de todas las operaciones realizadas.
+            - **Interfaz adaptativa** que se ajusta automáticamente al modo de procesamiento seleccionado.
 
         3. **Versión Web**:
            - Acceso desde cualquier navegador
