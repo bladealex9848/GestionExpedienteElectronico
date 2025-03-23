@@ -244,7 +244,7 @@ El Sistema de Gestión de Expedientes Electrónicos Judiciales es una herramient
   - Navegador web actualizado (Chrome, Firefox, Safari, Edge)
   - Conexión a internet estable
 
-### 3. Instalación (Versión de Escritorio Lite y Ultimate)
+### 3. Instalación (Versión de Escritorio Lite y AgilEx)
 
 1. Descargue el ejecutable portable desde [enlace de descarga](https://gestionexpedienteelectronico.streamlit.app).
 2. Ejecute el archivo descargado y siga las instrucciones en pantalla.
@@ -267,22 +267,24 @@ El Sistema de Gestión de Expedientes Electrónicos Judiciales es una herramient
 - **Barra de Progreso**: Muestra el avance del proceso de generación.
 - **Área de Información**: Muestra mensajes y resultados del proceso.
 
-#### 5.2 Versión Ultimate v1.4.3
+#### 5.2 Versión AgilEx v1.4.4
 
-**Interfaz Principal Mejorada**
-* **Panel de Control Modular**: 
-  - Nueva interfaz con tres modos de procesamiento integrados
-  - Validaciones TRD en tiempo real
-  - Sistema de ayuda contextual inteligente
+### **Interfaz Principal Mejorada**
 
-* **Selector de Procesamiento Flexible**: 
-  - Procesamiento individual de subcarpetas
-  - Gestión completa de expedientes
-  - Manejo de series documentales
-  - Soporte estructura 4-5 niveles
-  - Validación jerárquica reforzada
+* **Panel de Control Modular**:
+   - Nueva interfaz con tres modos de procesamiento integrados
+   - Validaciones TRD en tiempo real
+   - Sistema de ayuda contextual inteligente
 
-**Herramientas de Procesamiento Optimizadas**
+* **Selector de Procesamiento Flexible**:
+   - Procesamiento individual de subcarpetas
+   - Gestión completa de expedientes
+   - Manejo de series documentales
+   - Soporte estructura 4-5 niveles
+   - Validación jerárquica reforzada
+
+### **Herramientas de Procesamiento Optimizadas**
+
 * **Configuración Avanzada**:
   - Reglas TRD personalizables por nivel
   - Sistema preventivo de validaciones multinivel
@@ -290,7 +292,8 @@ El Sistema de Gestión de Expedientes Electrónicos Judiciales es una herramient
   - Sistema de logging mejorado
   - Patrones de diseño optimizados
 
-**Monitoreo y Control Inteligente**
+### **Monitoreo y Control Inteligente**
+
 * **Visualizador de Estructura Mejorado**:
   - Árbol jerárquico adaptativo
   - Validación instantánea por nivel
@@ -303,7 +306,8 @@ El Sistema de Gestión de Expedientes Electrónicos Judiciales es una herramient
   - Métricas detalladas de rendimiento
   - Indicadores de calidad en tiempo real
 
-**Gestión de Datos Avanzada**
+### **Gestión de Datos Avanzada**
+
 * **Panel de Metadatos Renovado**:
   - Editor contextual inteligente
   - Validación TRD multinivel
@@ -316,7 +320,8 @@ El Sistema de Gestión de Expedientes Electrónicos Judiciales es una herramient
   - Sistema de logs estructurado
   - Trazabilidad completa de operaciones
 
-**Exportación e Integración Ampliada**
+### **Exportación e Integración Ampliada**
+
 * **Formatos Soportados Extendidos**:
   - XLSX con validaciones mejoradas
   - XLSM con macros optimizadas
@@ -346,14 +351,14 @@ El Sistema de Gestión de Expedientes Electrónicos Judiciales es una herramient
 4. Haga clic en "Generar Índice".
 5. Espere a que el proceso termine. El índice se guardará en la misma carpeta del expediente.
 
-#### 6.2 Generar un Índice Electrónico (Versión Ultimate v1.4.3)
+#### 6.2 Generar un Índice Electrónico (Versión AgilEx v1.4.4)
 
-La versión Ultimate 1.4.3 introduce un sistema de procesamiento flexible que permite manejar desde subcarpetas individuales hasta series documentales completas, incorporando validaciones avanzadas compatibles con el sistema migrador y la Tabla de Retención Documental (TRD).
+La versión AgilEx 1.4.4 introduce un sistema de procesamiento flexible que permite manejar desde subcarpetas individuales hasta series documentales completas, incorporando validaciones avanzadas compatibles con el sistema migrador y la Tabla de Retención Documental (TRD).
 
 **Proceso de generación por niveles:**
 
 1. **Preparación inicial**
-   - Inicie la aplicación Ultimate v1.4.3
+   - Inicie la aplicación AgilEx v1.4.4
    - Ejecute las verificaciones preliminares del sistema
    - Asegure que no hay archivos Excel abiertos
    - Identifique el nivel de procesamiento requerido (subcarpeta/expediente/serie)
@@ -442,13 +447,13 @@ Esta nueva versión optimiza el flujo de trabajo mediante un enfoque modular y a
 **Canales de ayuda:**
 - [GitHub Issues](https://github.com/bladealex9848/GestionExpedienteElectronico/issues): Reportar bugs y sugerir mejoras
 - [Soporte técnico Lite](mailto:aoviedof@cendoj.ramajudicial.gov.co): Alexander Oviedo Fadul
-- [Soporte técnico Ultimate](mailto:darbelaeza@cendoj.ramajudicial.gov.co): Daniel Arbeláez Álvarez
+- [Soporte técnico AgilEx](mailto:darbelaeza@cendoj.ramajudicial.gov.co): Daniel Arbeláez Álvarez
 - [Documentación](https://gestionexpedienteelectronico.streamlit.app/): Guías y tutoriales
 - [Base de Conocimiento](https://gestionexpedienteelectronico.streamlit.app/): Soluciones comunes
 
 **Desarrolladores:**
 - Versión Lite: [Alexander Oviedo Fadul](https://github.com/bladealex9848)
-- Versión Ultimate: [Daniel Arbeláez Álvarez](https://github.com/HammerDev99)
+- Versión AgilEx: [Daniel Arbeláez Álvarez](https://github.com/HammerDev99)
 
 **Horarios de atención:**
 - Soporte técnico: Lunes a viernes 8:00 AM - 5:00 PM (COT)
@@ -477,6 +482,35 @@ Este manual de usuario proporciona una guía completa para utilizar el Sistema d
 Planeamos añadir más funcionalidades al Sistema de Gestión de Expedientes Electrónicos Judiciales con el tiempo. Las contribuciones son bienvenidas.
 
 ## Registro de Cambios
+
+### 2025-05-09: Optimización del procesamiento y mejora en la experiencia de usuario (v1.4.4)
+
+La versión AgilEx 1.4.4 constituye una importante actualización que refina y potencia las funcionalidades introducidas en la versión anterior, con un enfoque especial en la experiencia de usuario y la eficiencia operativa. Esta actualización incorpora mejoras sustanciales basadas en la retroalimentación de usuarios y las especificaciones técnicas proporcionadas por la Unidad de Transformación Digital:
+
+* **Interfaz de usuario rediseñada:** Implementación de una interfaz completamente renovada con funcionalidad mejorada para la gestión de carpetas, facilitando la interacción con el sistema y reduciendo la curva de aprendizaje para usuarios nuevos.
+
+* **Sistema de comunicación optimizado:** Desarrollo de un nuevo sistema de mensajes más claros y precisos que guían al usuario a través de cada etapa del proceso, minimizando errores y mejorando la comprensión de las operaciones en curso.
+
+* **Parámetros de indexación ajustados:** Refinamiento de los algoritmos de indexación siguiendo las especificaciones proporcionadas por la Unidad de Transformación Digital, resultando en índices más precisos y compatibles con los estándares actualizados.
+
+* **Eliminación de limitaciones técnicas:** Resolución de restricciones que impedían el procesamiento correcto en versiones anteriores, especialmente en escenarios de alto volumen documental o estructuras complejas.
+
+* **Mejora en la validación contextual:** Perfeccionamiento del sistema de validación multinivel que ahora proporciona retroalimentación más específica y soluciones proactivas ante posibles inconsistencias.
+
+* **Rendimiento optimizado:** Implementación de mejoras en el uso de recursos del sistema, resultando en tiempos de procesamiento reducidos, especialmente notable en operaciones con grandes volúmenes de documentos.
+
+* **Compatibilidad ampliada:** Actualización de los protocolos de integración con sistemas externos, incluyendo soporte mejorado para las últimas versiones de Alfresco y otros sistemas SGDEA.
+
+* **Tutoriales actualizados:** Incorporación de nuevos materiales didácticos adaptados a la interfaz renovada, incluyendo videos paso a paso para cada modo de procesamiento.
+
+* **Soporte para estructuras complejas:** Mejora en la capacidad del sistema para manejar estructuras de directorios anidadas, con soporte reforzado para casos de uso avanzados.
+
+* **Sistema predictivo de errores:** Implementación de mecanismos que anticipan posibles problemas durante el procesamiento, ofreciendo soluciones preventivas.
+
+La verificación de integridad del software puede realizarse utilizando el siguiente hash:
+SHA256: `76d5fd5337e9894ac45a99afac55ef8310c87f4931434be3ce0d40b1f5ee1c1b`
+
+Esta actualización mantiene el pleno cumplimiento con el Protocolo para la gestión de documentos electrónicos, digitalización y conformación del expediente electrónico (PCSJA20-11567 de 2020, Versión 2), a la vez que introduce mejoras significativas en la usabilidad y eficiencia del sistema, consolidando a AgilEx como la herramienta de referencia para la gestión de expedientes electrónicos en entornos judiciales.
 
 ### 2025-02-15: Actualización mayor con enfoque en procesamiento flexible y arquitectura modular (v1.4.3)
 
