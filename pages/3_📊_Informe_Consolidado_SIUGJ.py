@@ -7,87 +7,169 @@ import base64
 # Configuración de la página
 st.set_page_config(page_title="Informe Consolidado SIUGJ", layout="wide")
 
-def get_binary_file_downloader_html(url, file_label='File'):
+
+def get_binary_file_downloader_html(url, file_label="File"):
     href = f'<a href="{url}" target="_blank">Descargar {file_label}</a>'
     return href
+
 
 # Sidebar
 st.sidebar.title("Recursos Adicionales")
 with st.sidebar.expander("Ver Recursos Adicionales", expanded=False):
-    st.markdown(get_binary_file_downloader_html("https://enki.care/IndiceElectronicoC0", 'Plantilla Excel'), unsafe_allow_html=True)
-    st.markdown(get_binary_file_downloader_html("https://enki.care/GestionExpedienteElectronicoGuiaUso", 'Guía de Uso'), unsafe_allow_html=True)
+    st.markdown(
+        get_binary_file_downloader_html(
+            "https://enki.care/IndiceElectronicoC0", "Plantilla Excel"
+        ),
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        get_binary_file_downloader_html(
+            "https://enki.care/GestionExpedienteElectronicoGuiaUso", "Guía de Uso"
+        ),
+        unsafe_allow_html=True,
+    )
 
 st.sidebar.title("Marco Normativo")
 with st.sidebar.expander("Ver Marco Normativo", expanded=False):
-    st.markdown(get_binary_file_downloader_html("https://enki.care/PCSJA20-11567", 'ACUERDO PCSJA20-11567'), unsafe_allow_html=True)
-    st.markdown(get_binary_file_downloader_html("https://enki.care/PCSJA23-12094", 'ACUERDO PCSJA23-12094'), unsafe_allow_html=True)
-    st.markdown(get_binary_file_downloader_html("https://enki.care/PCSJC24-23", 'CIRCULAR PCSJC24-23'), unsafe_allow_html=True)
-    st.markdown(get_binary_file_downloader_html("https://enki.care/PlanSectorialDesarrolloRamaJudicial2023-2026", 'Plan Sectorial de Desarrollo Rama Judicial 2023-2026'), unsafe_allow_html=True)
-    st.markdown(get_binary_file_downloader_html("https://enki.care/seccion-de-gestion-documental", 'División de Gestión Documental'), unsafe_allow_html=True)
-    st.markdown(get_binary_file_downloader_html("https://enki.care/gestion-de-documentos-electronicos", 'Gestión de documentos electrónicos'), unsafe_allow_html=True)
-    st.markdown(get_binary_file_downloader_html("https://enki.care/ProtocoloGestionDocumentosElectronicos", 'Protocolo para la gestión de documentos electrónicos'), unsafe_allow_html=True)
-    st.markdown(get_binary_file_downloader_html("https://enki.care/ABCExpedienteJudicialElectronicoV6", 'ABC Expediente Judicial Electrónico'), unsafe_allow_html=True)        
+    st.markdown(
+        get_binary_file_downloader_html(
+            "https://enki.care/PCSJA20-11567", "ACUERDO PCSJA20-11567"
+        ),
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        get_binary_file_downloader_html(
+            "https://enki.care/PCSJA23-12094", "ACUERDO PCSJA23-12094"
+        ),
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        get_binary_file_downloader_html(
+            "https://enki.care/PCSJC24-23", "CIRCULAR PCSJC24-23"
+        ),
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        get_binary_file_downloader_html(
+            "https://enki.care/PlanSectorialDesarrolloRamaJudicial2023-2026",
+            "Plan Sectorial de Desarrollo Rama Judicial 2023-2026",
+        ),
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        get_binary_file_downloader_html(
+            "https://enki.care/seccion-de-gestion-documental",
+            "División de Gestión Documental",
+        ),
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        get_binary_file_downloader_html(
+            "https://enki.care/gestion-de-documentos-electronicos",
+            "Gestión de documentos electrónicos",
+        ),
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        get_binary_file_downloader_html(
+            "https://enki.care/ProtocoloGestionDocumentosElectronicos",
+            "Protocolo para la gestión de documentos electrónicos",
+        ),
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        get_binary_file_downloader_html(
+            "https://enki.care/ABCExpedienteJudicialElectronicoV6",
+            "ABC Expediente Judicial Electrónico",
+        ),
+        unsafe_allow_html=True,
+    )
 
 st.sidebar.markdown("---")
 st.sidebar.image("assets/logo_CSJ_Sucre.png", width=200)
-st.sidebar.write("<div style='text-align: center;'>Desarrollado por Equipo Marduk</div>", unsafe_allow_html=True)
-st.sidebar.write("<div style='text-align: center;'>v.1.3.4 Lite | v.1.4.3 Ultimate</div>", unsafe_allow_html=True)
-st.sidebar.write("<div style='text-align: center;'><a href='https://github.com/bladealex9848'>GitHub Lite</a> | <a href='https://github.com/HammerDev99'>GitHub Ultimate</a> | <a href='https://marduk.pro/'>Website</a></div>", unsafe_allow_html=True)
+st.sidebar.write(
+    "<div style='text-align: center;'>Desarrollado por Equipo Marduk</div>",
+    unsafe_allow_html=True,
+)
+st.sidebar.write(
+    "<div style='text-align: center;'>v.1.3.4 Lite | v.1.4.4 AgilEx</div>",
+    unsafe_allow_html=True,
+)
+st.sidebar.write(
+    "<div style='text-align: center;'><a href='https://github.com/bladealex9848'>GitHub Lite</a> | <a href='https://github.com/HammerDev99'>GitHub AgilEx</a> | <a href='https://marduk.pro/'>Website</a></div>",
+    unsafe_allow_html=True,
+)
 
 # Título principal
-st.title("Informe Consolidado sobre la Implementación del Sistema de Gestión Documental Electrónica y su Alineación con SIUGJ")
+st.title(
+    "Informe Consolidado sobre la Implementación del Sistema de Gestión Documental Electrónica y su Alineación con SIUGJ"
+)
 
-st.write("""
+st.write(
+    """
     [![ver código fuente](https://img.shields.io/badge/Repositorio%20GitHub-gris?logo=github)](https://github.com/bladealex9848/GestionExpedienteElectronico)
     ![Visitantes](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgestionexpedienteelectronico.streamlit.app&label=Visitantes&labelColor=%235d5d5d&countColor=%231e7ebf&style=flat)
-    """)
+    """
+)
 
 # Resumen Ejecutivo
 st.header("1. Resumen Ejecutivo")
-st.write("""
+st.write(
+    """
 Este informe consolida las evaluaciones realizadas por diversos funcionarios judiciales del Distrito Judicial de Sincelejo 
 sobre el ABC - Protocolo para la Gestión de Documentos Electrónicos y la herramienta de software asociada, en el contexto 
 de su alineación con los requerimientos del Sistema Integrado Único de Gestión Judicial (SIUGJ). Se analizan aspectos técnicos, 
 usabilidad, conformidad con protocolos, impacto en procesos judiciales y se proponen recomendaciones para mejorar tanto el ABC 
 como el software.
-""")
+"""
+)
 
 # Análisis General
 st.header("2. Análisis General")
 
-tab1, tab2, tab3, tab4 = st.tabs(["Viabilidad Técnica", "Usabilidad", "Conformidad", "Impacto"])
+tab1, tab2, tab3, tab4 = st.tabs(
+    ["Viabilidad Técnica", "Usabilidad", "Conformidad", "Impacto"]
+)
 
 with tab1:
     st.subheader("2.1 Viabilidad Técnica")
-    st.markdown("""
+    st.markdown(
+        """
     - Compatibilidad: El sistema es compatible con OneDrive, SharePoint y potencialmente con BESTDoc, alineándose con los requerimientos de SIUGJ.
     - Rendimiento: Se reporta un buen desempeño con grandes volúmenes de documentos.
     - Seguridad: No se proporcionaron detalles específicos sobre medidas de seguridad.
-    """)
+    """
+    )
 
 with tab2:
     st.subheader("2.2 Usabilidad y Experiencia de Usuario")
-    st.markdown("""
+    st.markdown(
+        """
     - El ABC y el software son generalmente considerados fáciles de usar.
     - La estructura de carpetas y la numeración de archivos (000-999) son apreciadas por su claridad.
     - Se identifican desafíos en la descarga de expedientes grandes y en la transición inicial.
-    """)
+    """
+    )
 
 with tab3:
     st.subheader("2.3 Conformidad con el Protocolo")
-    st.markdown("""
+    st.markdown(
+        """
     - El sistema se alinea con el protocolo versión 2 para la gestión de documentos electrónicos.
     - La estructura de carpetas y la generación del índice electrónico cumplen con los lineamientos.
     - Se identificaron algunas discrepancias menores en la nomenclatura de archivos.
-    """)
+    """
+    )
 
 with tab4:
     st.subheader("2.4 Impacto en Procesos Judiciales")
-    st.markdown("""
+    st.markdown(
+        """
     - Mejora significativa en la eficiencia y organización de expedientes.
     - Facilita el acceso remoto y simultáneo a los expedientes.
     - Reduce el uso de papel y optimiza el espacio físico en los despachos.
-    """)
+    """
+    )
 
 # Análisis Individual de Informes
 st.header("3. Análisis Individual de Informes")
@@ -95,24 +177,24 @@ st.header("3. Análisis Individual de Informes")
 informes = {
     "Daniel Arbeláez Álvarez (CSP de Bello, Antioquia)": [
         "Destaca la necesidad de alinear el sistema con el nuevo Sistema de Expediente Judicial Electrónico.",
-        "Sugiere mantener el uso del protocolo actual como herramienta complementaria."
+        "Sugiere mantener el uso del protocolo actual como herramienta complementaria.",
     ],
     "Jaider Contreras Puentes (Centro de Servicios Penales de Sincelejo)": [
         "Enfatiza la viabilidad técnica del sistema en términos de compatibilidad y rendimiento.",
-        "Recomienda priorizar la seguridad de la información y la capacitación del personal."
+        "Recomienda priorizar la seguridad de la información y la capacitación del personal.",
     ],
     "Mauricio Bedoya (Juzgado 05 Penal Municipal de Sincelejo)": [
         "Identifica desafíos en la digitalización y corrección de expedientes existentes.",
-        "Sugiere sesiones de capacitación para resolver dudas sobre el proceso."
+        "Sugiere sesiones de capacitación para resolver dudas sobre el proceso.",
     ],
     "Zuleyma Arrieta (Juzgado 06 Civil Circuito Sincelejo)": [
         "Destaca los beneficios en términos de eficiencia y acceso a la información.",
-        "Recomienda mantener la numeración de tres dígitos para los archivos."
+        "Recomienda mantener la numeración de tres dígitos para los archivos.",
     ],
     "Rafael Sampayo Tovio (Comisión Seccional de Disciplina Judicial de Sucre)": [
         "Resalta la eficacia del sistema de numeración de tres dígitos.",
-        "Confirma la alineación con el Protocolo de Gestión de Expediente Electrónico."
-    ]
+        "Confirma la alineación con el Protocolo de Gestión de Expediente Electrónico.",
+    ],
 }
 
 for nombre, puntos in informes.items():
@@ -127,7 +209,8 @@ tab5, tab6 = st.tabs(["Cambios al ABC", "Cambios al Código"])
 
 with tab5:
     st.subheader("4.1 Cambios Propuestos al ABC")
-    st.markdown("""
+    st.markdown(
+        """
     Actualizar el documento "ABC Protocolo para la Gestión de Documentos Electrónicos en la Rama Judicial.pdf":
     - Incluir una sección sobre la integración con SIUGJ y sus requerimientos específicos.
     - Clarificar la nomenclatura de archivos, especialmente respecto al uso de tres dígitos vs. dos dígitos.
@@ -138,11 +221,13 @@ with tab5:
     - Actualizar la sección de "Características Principales" para reflejar la alineación con SIUGJ.
     - Añadir una sección sobre "Compatibilidad con Sistemas Existentes".
     - Incluir información sobre el proceso de migración de expedientes.
-    """)
+    """
+    )
 
 with tab6:
     st.subheader("4.2 Cambios Propuestos al Código")
-    st.markdown("""
+    st.markdown(
+        """
     Modificar "🏠_Inicio.py":
     - Implementar una función para verificar la compatibilidad con Justicia XXICS y Tyba.
     - Añadir una opción en la interfaz para iniciar el proceso de migración a SIUGJ.
@@ -157,22 +242,26 @@ with tab6:
 
     Actualizar "metadata_extractor.py":
     - Añadir funciones para extraer y validar metadatos específicos requeridos por SIUGJ.
-    """)
+    """
+    )
 
 # Justificación de los Cambios
 st.header("5. Justificación de los Cambios")
-st.write("""
+st.write(
+    """
 Los cambios propuestos son necesarios para:
 1. Asegurar la plena compatibilidad con los requerimientos de SIUGJ.
 2. Facilitar el proceso de migración de expedientes existentes.
 3. Mejorar la flexibilidad del sistema para adaptarse a diferentes necesidades de los despachos.
 4. Incrementar la eficiencia en la gestión de expedientes electrónicos.
 5. Garantizar la conformidad con los protocolos y estándares establecidos.
-""")
+"""
+)
 
 # Conclusiones y Recomendaciones
 st.header("6. Conclusiones y Recomendaciones Finales")
-st.write("""
+st.write(
+    """
 El ABC y la herramienta de software desarrollada han demostrado ser efectivos y bien recibidos por los usuarios. 
 Sin embargo, para asegurar una transición exitosa a SIUGJ y mantener la eficiencia en la gestión documental, se recomienda:
 
@@ -184,8 +273,11 @@ Sin embargo, para asegurar una transición exitosa a SIUGJ y mantener la eficien
 
 La implementación de estas recomendaciones permitirá una transición más suave hacia SIUGJ, manteniendo la eficiencia y 
 efectividad ya logradas con el sistema actual.
-""")
+"""
+)
 
 # Nota al pie
 st.markdown("---")
-st.markdown("Informe generado basado en las evaluaciones de los funcionarios judiciales del Distrito Judicial de Sincelejo y el análisis del equipo de desarrollo.")
+st.markdown(
+    "Informe generado basado en las evaluaciones de los funcionarios judiciales del Distrito Judicial de Sincelejo y el análisis del equipo de desarrollo."
+)
