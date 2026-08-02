@@ -4,7 +4,6 @@ from openpyxl.styles import Alignment, Border, Side, Font, PatternFill
 from openpyxl.utils.dataframe import dataframe_to_rows
 from openpyxl.drawing.image import Image
 import io
-import xlwings as xw
 import os
 import shutil
 
@@ -18,7 +17,11 @@ def save_excel_file(df, file_path, use_template=False, metadata=None):
     :param metadata: Diccionario con los metadatos del expediente
     """
     if use_template:
-        fill_template_xlwings(df, file_path, metadata)
+        try:
+            fill_template_xlwings(df, file_path, metadata)
+        except (ImportError, RuntimeError):
+            wb = create_new_excel(df, metadata)
+            wb.save(file_path)
     else:
         wb = create_new_excel(df, metadata)
         wb.save(file_path)
@@ -121,6 +124,13 @@ def fill_template_xlwings(df, file_path, metadata=None):
     :param file_path: Ruta donde se guardará el archivo Excel
     :param metadata: Diccionario con los metadatos del expediente
     """
+    try:
+        import xlwings as xw
+    except ImportError as error:
+        raise RuntimeError(
+            "xlwings no está disponible en este entorno."
+        ) from error
+
     template_path = os.path.join('assets', '000IndiceElectronicoC0.xlsm')
     shutil.copy(template_path, file_path)
     

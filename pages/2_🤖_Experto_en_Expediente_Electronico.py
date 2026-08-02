@@ -25,14 +25,19 @@ def secrets_file_exists():
     return os.path.isfile(secrets_path)
 
 
-# Intentar obtener el ID del asistente de OpenAI desde st.secrets si el archivo secrets.toml existe
-if secrets_file_exists():
+def _secret(key: str, *, section: str = "openai") -> str | None:
     try:
-        ASSISTANT_ID = st.secrets["ASSISTANT_ID"]
-    except KeyError:
-        ASSISTANT_ID = None
-else:
-    ASSISTANT_ID = None
+        block = st.secrets.get(section, {})
+        if isinstance(block, dict) and block.get(key):
+            return str(block[key])
+        value = st.secrets.get(key)
+        return str(value) if value else None
+    except Exception:
+        return os.environ.get(f"OPENAI_{key}") or os.environ.get(key)
+
+
+# Intentar obtener el ID del asistente de OpenAI desde secrets o entorno
+ASSISTANT_ID = _secret("ASSISTANT_ID")
 
 # Si no está disponible, pedir al usuario que lo introduzca
 if not ASSISTANT_ID:
@@ -174,7 +179,7 @@ if "thread_id" not in st.session_state:
     st.session_state.thread_id = None
 
 # Cargar la clave API de OpenAI
-API_KEY = os.environ.get("OPENAI_API_KEY") or st.secrets.get("OPENAI_API_KEY")
+API_KEY = _secret("OPENAI_API_KEY") or os.environ.get("OPENAI_API_KEY")
 if not API_KEY:
     API_KEY = st.sidebar.text_input("Introduce tu clave API de OpenAI", type="password")
 

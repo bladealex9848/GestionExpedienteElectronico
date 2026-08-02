@@ -33,34 +33,56 @@ El Sistema de Gestión de Expedientes Electrónicos Judiciales es una solución 
 
 Este proyecto representa un avance significativo en la gestión de expedientes electrónicos, ofreciendo una solución integral que no solo mejora la eficiencia y la precisión de los procesos judiciales, sino que también fomenta la transparencia y la accesibilidad de la información en el sistema judicial.
 
+## Inicio rápido (garciabermeo.net)
+
+Aplicación principal del despacho con autenticación, gestión de casos y acceso a todas las herramientas jurídicas.
+
+```powershell
+# Windows
+pip install -r requirements.txt
+copy .streamlit\secrets.toml.example .streamlit\secrets.toml
+.\run_app.ps1
+```
+
+```bash
+# Linux / macOS
+pip install -r requirements.txt
+cp .streamlit/secrets.toml.example .streamlit/secrets.toml
+streamlit run garciabermeo.net.py --server.port 8501
+```
+
+URL local: http://localhost:8501
+
+**Configuración:** edite `.streamlit/secrets.toml` (auth, Google OAuth, OpenAI). Plantilla de variables: `.env.example`.
+
+**Dependencias OCR (PDF escaneados):** Tesseract + Poppler — ver `packages.txt` para Linux/Streamlit Cloud.
+
 ## Estructura del Proyecto
 ```
 GestionExpedienteElectronico/
 │
-├── app.py
-├── main.py
+├── garciabermeo.net.py       # Entrypoint principal Streamlit (despacho + herramientas)
+├── run_app.ps1               # Lanzador Windows
+├── app.py                    # Aplicación de escritorio PyQt5
+├── 🏠_Inicio.py              # Generador de índice SGDE (legacy, también en navegación)
 ├── index_generator.py
 ├── file_utils.py
 ├── metadata_extractor.py
 ├── excel_handler.py
 │
+├── legal_ui/                 # Despacho, auth, iLey CO, facturación, expediente
+├── legal_analyzer/           # Motores jurídicos compartidos
+│
 ├── assets/
-│   └── 000IndiceElectronicoC0.xlsm
-|   └── guia_uso.pdf
-|   └── logo.png
-|   └── logo_CSJ_Sucre.png
-|   └── logo_CSJ_Sucre.jpg
-|
-├── pages/
-│   └── 1_📊_Hoja_de_Ruta.py
-|   └── 2_🤖_Experto_en_Expediente_Electronico.py
-|   └── 3_📊_Informe_Consolidado_SIUGJ.py
-|
+├── data/                     # despacho.json, lexivox.db, normas (runtime)
+├── pages/                    # 26 herramientas Streamlit
 ├── tests/
-│   └── test_expediente_processor.py
 │
 ├── requirements.txt
-├── .gitignore
+├── requirements-desktop.txt
+├── packages.txt              # poppler-utils, tesseract (Linux/Cloud)
+├── .streamlit/config.toml
+├── .env.example
 └── README.md
 ```
 
@@ -85,22 +107,36 @@ cd GestionExpedienteElectronico
   ```
 
 4. Instalar las dependencias:
+
+Para la versión web (Streamlit):
 ```
 pip install --upgrade pip
-pip install watchdog
 pip install -r requirements.txt
+```
+
+Para la versión de escritorio (PyQt5 y xlwings):
+```
+pip install -r requirements-desktop.txt
 ```
 
 ## Uso
 
-Para ejecutar la versión de escritorio:
+**Aplicación principal (recomendada):**
+```
+streamlit run garciabermeo.net.py
+```
+En Windows también: `.\run_app.ps1` o doble clic en `iniciar_garciabermeo.bat`.
+
+**Generador de índice SGDE (legacy):**
+```
+streamlit run "🏠_Inicio.py"
+```
+
+**Versión de escritorio PyQt5:**
 ```
 python app.py
 ```
-Para ejecutar la versión web:
-```
-streamlit run 🏠_Inicio.py.py
-```
+
 Siga las instrucciones en la interfaz de usuario para cargar y procesar los expedientes.
 
 ## Manual Técnico

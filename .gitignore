@@ -47,15 +47,27 @@ Thumbs.db
 
 # Archivos de ambiente
 .env
+.env.local
+
+# Bases de datos locales
+*.db
+data/lexivox.db
+data/**/*.db
 
 # Archivos temporales
 *.tmp
 *.bak
 *.swp
 temp_expediente/
+logs/
 
 # Carpetas de datos o resultados generados
-data/
+data/*
+!data/despacho.example.json
+!data/colombia_festivos.json
+!data/colombia_normas/
+!data/colombia_normas/constitucion.json
+data/colombia_normas/constitucion_fuente.txt
 results/
 
 # Archivos específicos del proyecto (ajusta según tus necesidades)
@@ -71,7 +83,9 @@ GestionExpedienteElectronico_Windows.zip
 *.spec
 
 # Archivos Streamlit
-.streamlit/
+.streamlit/*
+!.streamlit/config.toml
+!.streamlit/secrets.toml.example
 secrets.toml
 
 # Instrucción para crear el portable

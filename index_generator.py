@@ -3,7 +3,6 @@ import pandas as pd
 from datetime import datetime
 from openpyxl import load_workbook
 from metadata_extractor import get_file_metadata, get_pdf_pages
-import xlwings as xw
 import re
 
 def extract_metadata_from_existing_index(folder_path):
@@ -89,6 +88,8 @@ def generate_index_from_template(folder_path, template_path):
     df = generate_index_from_scratch(folder_path, existing_metadata)
 
     try:
+        import xlwings as xw
+
         # Usar xlwings para manejar el archivo con macros
         with xw.App(visible=False) as app:
             wb = app.books.open(template_path)

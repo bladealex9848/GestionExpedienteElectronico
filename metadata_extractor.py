@@ -1,10 +1,14 @@
 import os
-import PyPDF2
+import mimetypes
+
+from legal_ui.app_logging import get_logger
+from pdf_compat import EmptyFileError, PdfReadError, PdfReader, PdfStreamError
 import docx
 import openpyxl
 from PIL import Image
-import magic
 from datetime import datetime
+
+logger = get_logger(__name__)
 
 def get_file_metadata(file_path):
     """
@@ -37,10 +41,11 @@ def get_pdf_pages(file_path):
     """
     try:
         with open(file_path, 'rb') as file:
-            pdf_reader = PyPDF2.PdfReader(file)
+            pdf_reader = PdfReader(file)
             return len(pdf_reader.pages)
-    except:
-        return 1  # Si no es un PDF o hay un error, asumimos 1 página
+    except (OSError, ValueError, TypeError, PdfReadError, EmptyFileError, PdfStreamError) as exc:
+        logger.warning("No se pudo contar páginas PDF %s: %s", file_path, exc)
+        return 1
 
 def get_pdf_metadata(file_path):
     """
@@ -48,7 +53,7 @@ def get_pdf_metadata(file_path):
     """
     try:
         with open(file_path, 'rb') as file:
-            pdf_reader = PyPDF2.PdfReader(file)
+            pdf_reader = PdfReader(file)
             info = pdf_reader.metadata
             return {
                 'pages': len(pdf_reader.pages),
@@ -58,7 +63,8 @@ def get_pdf_metadata(file_path):
                 'subject': info.subject if info.subject else 'No disponible',
                 'title': info.title if info.title else 'No disponible'
             }
-    except:
+    except (OSError, ValueError, TypeError, AttributeError, PdfReadError, EmptyFileError, PdfStreamError) as exc:
+        logger.warning("Metadatos PDF no disponibles %s: %s", file_path, exc)
         return {'pages': 1, 'error': 'No se pudo extraer metadatos del PDF'}
 
 def get_word_metadata(file_path):
@@ -75,7 +81,8 @@ def get_word_metadata(file_path):
             'modified': format_date(core_properties.modified) if core_properties.modified else 'No disponible',
             'title': core_properties.title if core_properties.title else 'No disponible'
         }
-    except:
+    except (OSError, ValueError, TypeError, AttributeError) as exc:
+        logger.warning("Metadatos Word no disponibles %s: %s", file_path, exc)
         return {'pages': 1, 'error': 'No se pudo extraer metadatos del documento Word'}
 
 def get_excel_metadata(file_path):
@@ -88,7 +95,8 @@ def get_excel_metadata(file_path):
             'sheets': len(workbook.sheetnames),
             'sheet_names': ', '.join(workbook.sheetnames)
         }
-    except:
+    except (OSError, ValueError, TypeError, AttributeError) as exc:
+        logger.warning("Metadatos Excel no disponibles %s: %s", file_path, exc)
         return {'sheets': 1, 'error': 'No se pudo extraer metadatos del archivo Excel'}
 
 def get_image_metadata(file_path):
@@ -102,15 +110,22 @@ def get_image_metadata(file_path):
                 'mode': img.mode,
                 'size': f"{img.width}x{img.height}"
             }
-    except:
+    except (OSError, ValueError, TypeError, AttributeError) as exc:
+        logger.warning("Metadatos imagen no disponibles %s: %s", file_path, exc)
         return {'error': 'No se pudo extraer metadatos de la imagen'}
 
 def get_file_type(file_path):
     """
     Obtiene el tipo MIME del archivo.
     """
-    mime = magic.Magic(mime=True)
-    return mime.from_file(file_path)
+    try:
+        import magic
+
+        mime = magic.Magic(mime=True)
+        return mime.from_file(file_path)
+    except (ImportError, OSError, AttributeError):
+        mime_type, _ = mimetypes.guess_type(file_path)
+        return mime_type or "application/octet-stream"
 
 def format_file_size(size):
     """
@@ -135,9 +150,15 @@ def is_document_digitalized(file_path):
     if file_type.startswith('application/pdf'):
         try:
             with open(file_path, 'rb') as file:
-                pdf_reader = PyPDF2.PdfReader(file)
-                if '/Producer' in pdf_reader.metadata:
-                    return 'scan' in pdf_reader.metadata['/Producer'].lower()
-        except:
-            pass
+                pdf_reader = PdfReader(file)
+                info = pdf_reader.metadata
+                producer = ""
+                if info:
+                    producer = getattr(info, "producer", None) or str(
+                        getattr(info, "/Producer", "") or ""
+                    )
+                if producer:
+                    return "scan" in producer.lower()
+        except (OSError, ValueError, TypeError, AttributeError) as exc:
+            logger.warning("No se pudo determinar digitalización PDF %s: %s", file_path, exc)
     return False  # Si no es un PDF o no se puede determinar, asumimos que es nativo electrónico
